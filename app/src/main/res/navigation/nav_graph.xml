@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/pmsDasboardFragment">
+
+    <fragment
+        android:id="@+id/pmsDasboardFragment"
+        android:name="com.stellantis.crf.pms.PmsDashboardFragment"
+        android:label="fragment_pms_dasboard"
+        tools:layout="@layout/fragment_pms_dasboard" >
+        <action
+            android:id="@+id/go_to_notificationsPage"
+            app:destination="@id/pmsNotificationsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pmsNotificationsFragment"
+        android:name="com.example.pms.PmsNotificationsFragment"
+        android:label="fragment_pms_notifications"
+        tools:layout="@layout/fragment_pms_notifications" />
+</navigation>
