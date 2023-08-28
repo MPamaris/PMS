@@ -46,7 +46,7 @@
                     android:layout_centerVertical="true"
                     android:layout_toEndOf="@id/ic_fuel"
                     android:fontFamily="@font/montserrat_semibold"
-                    android:text="Status"
+                    android:text="Health"
                     android:textColor="@color/black"
                     android:textSize="20dp" />
 
@@ -65,15 +65,15 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/percentage"
+                    android:id="@+id/id_text_view_status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:fontFamily="@font/montserrat_semibold"
                     android:layout_marginStart="10dp"
-                    android:text="Title"
+                    android:text=""
                     android:textColor="@color/black"
-                    android:textSize="40dp" />
+                    android:textSize="25dp" />
 
 
             </RelativeLayout>
@@ -82,20 +82,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/estimated"
+                <ImageView
+                    android:id="@+id/id_icon_alert"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:text="title"
-                    android:textColor="@color/black"
-                    android:textSize="17dp" />
+                    android:visibility="gone"
+                    android:src="@drawable/baseline_warning_24"/>
 
                 <ProgressBar
                     android:padding="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/estimated"
+                    android:layout_below="@id/id_icon_alert"
                     style="?android:attr/progressBarStyleHorizontal"
                     android:visibility="invisible"
                     android:progress="40"/>

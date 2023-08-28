@@ -66,7 +66,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/percentage"
+                    android:id="@+id/id_text_view_status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -79,9 +79,9 @@
                     android:id="@+id/percent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@id/percentage"
+                    android:layout_alignBottom="@id/id_text_view_status"
                     android:layout_marginStart="10dp"
-                    android:layout_toEndOf="@id/percentage"
+                    android:layout_toEndOf="@id/id_text_view_status"
                     android:fontFamily="@font/montserrat_semibold"
                     android:text="%"
                     android:textColor="@color/black"

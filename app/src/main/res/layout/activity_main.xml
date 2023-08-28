@@ -72,6 +72,7 @@
                         android:layout_weight="3" />
 
                     <include
+                        android:id="@+id/include_cardview_status"
                         layout="@layout/include_cardview_status"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

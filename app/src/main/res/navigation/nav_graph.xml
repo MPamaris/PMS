@@ -9,14 +9,18 @@
         android:id="@+id/pmsDasboardFragment"
         android:name="com.stellantis.crf.pms.PmsDashboardFragment"
         android:label="fragment_pms_dasboard"
-        tools:layout="@layout/fragment_pms_dasboard" >
+        tools:layout="@layout/activity_main" >
         <action
             android:id="@+id/go_to_notificationsPage"
             app:destination="@id/pmsNotificationsFragment" />
     </fragment>
     <fragment
         android:id="@+id/pmsNotificationsFragment"
-        android:name="com.example.pms.PmsNotificationsFragment"
+        android:name="com.stellantis.crf.pms.PmsDashboardFragment"
         android:label="fragment_pms_notifications"
-        tools:layout="@layout/fragment_pms_notifications" />
+        tools:layout="@layout/fragment_pms_notifications" >
+        <action
+            android:id="@+id/action_pmsNotificationsFragment_to_pmsDasboardFragment"
+            app:destination="@id/pmsDasboardFragment" />
+    </fragment>
 </navigation>

@@ -128,6 +128,26 @@ object PmsRepository {
         )?.deserializeAs<VehicleInfoNew>()
     }
 
+    /** Get Vehicle Owned **/
+    suspend fun getVehicleOwned(tag: String? = null): VehicleInfoNew? {
+        return enqueueNewRequest(
+            url = "$CRF_API_CORE_BASE_URL_NEW/discovery/ed8c2494251143e2b59c11ad53efba2c",
+            method = Request.Method.GET,
+            headers = CRF_API_CORE_AUTH_HEADER,
+            tag = tag,
+        )?.deserializeAs<VehicleInfoNew>()
+    }
+
+    /** Get Components status **/
+    suspend fun getComponentsStatus(tag: String? = null): VehicleInfoNew? {
+        return enqueueNewRequest(
+            url = "$CRF_API_CORE_BASE_URL_NEW/components/VR7ATTENTJL033368",
+            method = Request.Method.GET,
+            headers = CRF_API_CORE_AUTH_HEADER,
+            tag = tag,
+        )?.deserializeAs<VehicleInfoNew>()
+    }
+
     suspend fun getUserInfo(tag: String? = null): UserInfo? {
         return enqueueNewRequest(
             url = "$CRF_API_CORE_BASE_URL_NEW/user/ed8c2494251143e2b59c11ad53efba2c",

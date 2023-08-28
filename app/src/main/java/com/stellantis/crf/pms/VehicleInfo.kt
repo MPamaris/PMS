@@ -27,6 +27,8 @@ data class VehicleInfo(
     val level: String?,
     @SerializedName("autonomy")
     val autonomy: String?,
+    @SerializedName("model")
+    val model: String?,
 )
 
 

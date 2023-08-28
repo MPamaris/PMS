@@ -33,12 +33,14 @@ class PmsActivity : AppCompatActivity() {
         //hideNavAndStatusBar()
         //callDiscovery()
         getVehicleInfo()
+        getVehicleOwned()
         getUser()
+        getComponentsStatus()
         setCurrentDateAndHour()
 
         isNotification()
 
-        // TODO: commit ok, try push 
+        // TODO: tile "health"
 
     }
 
@@ -153,6 +155,76 @@ class PmsActivity : AppCompatActivity() {
                             binding.includeCardviewFuel.textviewType.text = type.toString().replace("[","").replace("]","").capitalize(Locale.ROOT)
                             binding.includeCardviewFuel.textviewLevel.text = level.toString().replace("[","").replace("]","")
                             binding.includeCardviewFuel.textviewAutonomy.text = autonomy.toString().replace("[","").replace("]","")+" Km"
+
+                        } ?: throw Exception("discovery null response")
+                    }
+                }
+            } catch (e: Exception) {
+                Toast.makeText(this@PmsActivity, "Network Error", Toast.LENGTH_LONG).show()
+                // Discovery error
+                Log.e(ContentValues.TAG, "callDiscovery(): Error: $e")
+            }
+        }
+    }
+
+    private fun getVehicleOwned() {
+
+        PmsRepository.initialize(applicationContext)
+        lifecycleScope.launch {
+            try {
+                coroutineScope {
+                    launch {
+                        PmsRepository.getVehicleOwned()?.let { vehicleInfoNew ->
+
+                            val model = vehicleInfoNew.vehicles?.map { it.model }
+
+                            val str = model.toString().replace("[", " ").replace("]", "")
+                            val delimiter = ","
+                            val partsOfListOfVehicles = str.split(delimiter)
+
+                            for (i in partsOfListOfVehicles.indices) {
+                                val spinner =
+                                    binding.idIncludeTop.idTileChoiceVehicle.idChooseVehicleSpinner
+                                val dataAdapter: ArrayAdapter<String> = ArrayAdapter<String>(
+                                    applicationContext,
+                                    R.layout.simple_spinner_item, partsOfListOfVehicles
+                                )
+                                spinner.adapter = dataAdapter
+                            }
+
+                        } ?: throw Exception("discovery null response")
+                    }
+                }
+            } catch (e: Exception) {
+                Toast.makeText(this@PmsActivity, "Network Error", Toast.LENGTH_LONG).show()
+                // Discovery error
+                Log.e(ContentValues.TAG, "callDiscovery(): Error: $e")
+            }
+        }
+    }
+
+    private fun getComponentsStatus() {
+
+        // TODO: TO BE COMPLETED
+
+        PmsRepository.initialize(applicationContext)
+        lifecycleScope.launch {
+            try {
+                coroutineScope {
+                    launch {
+                        PmsRepository.getComponentsStatus()?.let { vehicleInfoNew ->
+
+                            val componentName = vehicleInfoNew.components?.map { it.componentName }
+                            binding.includeCardviewStatus.idTextViewStatus.text = componentName?.get(1)
+                            binding.includeCardviewStatus.idIconAlert.visibility = View.VISIBLE
+
+                            /*for (i in componentName!!.indices) {
+
+                                Toast.makeText(applicationContext, "FOR --> " + componentName[i], Toast.LENGTH_SHORT).show()
+
+                            }*/
+
+
 
                         } ?: throw Exception("discovery null response")
                     }
