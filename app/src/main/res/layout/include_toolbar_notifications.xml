@@ -24,7 +24,6 @@
                 android:id="@+id/id_button_back_toolbar_notifications"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="backToDashboard"
                 android:layout_alignParentStart="true">
 
                 <TextView

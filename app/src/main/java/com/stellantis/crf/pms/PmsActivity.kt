@@ -28,7 +28,7 @@ class PmsActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.idIncludeTop.tileUserAndNotifications.constraintLayout.setOnClickListener { goToNotificationPage() }
+        //binding.idIncludeTop.tileUserAndNotifications.constraintLayout.setOnClickListener { goToNotificationPage() }
 
         //hideNavAndStatusBar()
         //callDiscovery()
@@ -36,7 +36,7 @@ class PmsActivity : AppCompatActivity() {
         getVehicleOwned()
         getUser()
         getComponentsStatus()
-        setCurrentDateAndHour()
+        //setCurrentDateAndHour()
 
         isNotification()
 
@@ -45,9 +45,6 @@ class PmsActivity : AppCompatActivity() {
     }
 
     private fun goToNotificationPage() {
-        val intent = Intent(this, NotificationsActivity::class.java)
-        startActivity(intent)
-        // TODO: replace wit navigation
     }
 
 
@@ -64,17 +61,17 @@ class PmsActivity : AppCompatActivity() {
                             val notification =
                                 notificationNew.notifications?.get(0)?.notificationSeverity
 
-                            when (notification) {
+                            /*when (notification) {
                                 "0" -> binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification.visibility =
                                     View.VISIBLE
 
                                 "1" -> binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification.visibility =
                                     View.INVISIBLE
 
-                            }
+                            }*/
 
-                            binding.includeWarning.idOutTextWarning.text = notificationNew.notifications?.map { it.notificationType.toString() }
-                                .toString().replace("[","").replace("]","")
+                            /*binding.includeWarning.idOutTextWarning.text = notificationNew.notifications?.map { it.notificationType.toString() }
+                                .toString().replace("[","").replace("]","")*/
 
 
                         } ?: throw Exception("discovery null response")
@@ -105,13 +102,13 @@ class PmsActivity : AppCompatActivity() {
                             val initialSurname =
                                 userInfoNew.surname?.get(0).toString().toUpperCase(Locale.ROOT)
 
-                            binding.idIncludeTop.tileUserAndNotifications.idTexvViewOutInitials.text =
+                            /*binding.idIncludeTop.tileUserAndNotifications.idTexvViewOutInitials.text =
                                 initialName + initialSurname
 
                             binding.idIncludeCenter.tileWelcomeUser.textView3.text =
                                 "LET'S GO\n" + name?.toUpperCase(
                                     Locale.ROOT
-                                ) + "!"
+                                ) + "!"*/
                             //Toast.makeText(applicationContext, "--> " + initialName+initialSurname, Toast.LENGTH_SHORT).show()
                             //Toast.makeText(applicationContext, "name--> " + name+"\nsurame --> " + surname , Toast.LENGTH_SHORT).show()
                             // retrieve Ada[1] {Notification false}
@@ -152,9 +149,9 @@ class PmsActivity : AppCompatActivity() {
                             val autonomy = vehicleInfoNew.energies?.map { it.autonomy }
                             val type = vehicleInfoNew.energies?.map { it.type }
 
-                            binding.includeCardviewFuel.textviewType.text = type.toString().replace("[","").replace("]","").capitalize(Locale.ROOT)
+                            /*binding.includeCardviewFuel.textviewType.text = type.toString().replace("[","").replace("]","").capitalize(Locale.ROOT)
                             binding.includeCardviewFuel.textviewLevel.text = level.toString().replace("[","").replace("]","")
-                            binding.includeCardviewFuel.textviewAutonomy.text = autonomy.toString().replace("[","").replace("]","")+" Km"
+                            binding.includeCardviewFuel.textviewAutonomy.text = autonomy.toString().replace("[","").replace("]","")+" Km"*/
 
                         } ?: throw Exception("discovery null response")
                     }
@@ -182,7 +179,7 @@ class PmsActivity : AppCompatActivity() {
                             val delimiter = ","
                             val partsOfListOfVehicles = str.split(delimiter)
 
-                            for (i in partsOfListOfVehicles.indices) {
+                            /*for (i in partsOfListOfVehicles.indices) {
                                 val spinner =
                                     binding.idIncludeTop.idTileChoiceVehicle.idChooseVehicleSpinner
                                 val dataAdapter: ArrayAdapter<String> = ArrayAdapter<String>(
@@ -190,7 +187,7 @@ class PmsActivity : AppCompatActivity() {
                                     R.layout.simple_spinner_item, partsOfListOfVehicles
                                 )
                                 spinner.adapter = dataAdapter
-                            }
+                            }*/
 
                         } ?: throw Exception("discovery null response")
                     }
@@ -214,9 +211,9 @@ class PmsActivity : AppCompatActivity() {
                     launch {
                         PmsRepository.getComponentsStatus()?.let { vehicleInfoNew ->
 
-                            val componentName = vehicleInfoNew.components?.map { it.componentName }
+                            /*val componentName = vehicleInfoNew.components?.map { it.componentName }
                             binding.includeCardviewStatus.idTextViewStatus.text = componentName?.get(1)
-                            binding.includeCardviewStatus.idIconAlert.visibility = View.VISIBLE
+                            binding.includeCardviewStatus.idIconAlert.visibility = View.VISIBLE*/
 
                             /*for (i in componentName!!.indices) {
 
@@ -252,7 +249,7 @@ class PmsActivity : AppCompatActivity() {
                             val delimiter = ","
                             val partsOfListOfVehicles = str.split(delimiter)
 
-                            for (i in partsOfListOfVehicles.indices) {
+                            /*for (i in partsOfListOfVehicles.indices) {
                                 val spinner =
                                     binding.idIncludeTop.idTileChoiceVehicle.idChooseVehicleSpinner
                                 val dataAdapter: ArrayAdapter<String> = ArrayAdapter<String>(
@@ -260,7 +257,7 @@ class PmsActivity : AppCompatActivity() {
                                     R.layout.simple_spinner_item, partsOfListOfVehicles
                                 )
                                 spinner.adapter = dataAdapter
-                            }
+                            }*/
                         } ?: throw Exception("discovery null response")
                     }
                 }
@@ -272,7 +269,7 @@ class PmsActivity : AppCompatActivity() {
         }
     }
 
-    private fun setCurrentDateAndHour() {
+    /*private fun setCurrentDateAndHour() {
 
         val formatter = DateTimeFormatter.ofPattern("dd.MM.yy - HH:mm")
         val current = LocalDateTime.now().format(formatter)
@@ -283,7 +280,7 @@ class PmsActivity : AppCompatActivity() {
             val current = LocalDateTime.now().format(formatter)
             binding.idIncludeCenter.idTileDateAndHours.outTvDateAndHour.text = current
         }
-    }
+    }*/
     /*private fun hideNavAndStatusBar() {
             window.decorView.apply {
                 //hide both the navigation bar and the status bar.

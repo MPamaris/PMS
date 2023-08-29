@@ -3,24 +3,40 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/pmsDasboardFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
-        android:id="@+id/pmsDasboardFragment"
-        android:name="com.stellantis.crf.pms.PmsDashboardFragment"
-        android:label="fragment_pms_dasboard"
-        tools:layout="@layout/activity_main" >
+        android:id="@+id/homeFragment"
+        android:name="com.stellantis.crf.pms.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/go_to_notificationsPage"
-            app:destination="@id/pmsNotificationsFragment" />
+            android:id="@+id/action_homeFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_vehiclePageFragment2"
+            app:destination="@id/vehiclePageFragment" />
     </fragment>
     <fragment
-        android:id="@+id/pmsNotificationsFragment"
-        android:name="com.stellantis.crf.pms.PmsDashboardFragment"
-        android:label="fragment_pms_notifications"
-        tools:layout="@layout/fragment_pms_notifications" >
+        android:id="@+id/notificationsFragment"
+        android:name="com.stellantis.crf.pms.NotificationsFragment"
+        android:label="fragment_notifications"
+        tools:layout="@layout/fragment_notifications" >
         <action
-            android:id="@+id/action_pmsNotificationsFragment_to_pmsDasboardFragment"
-            app:destination="@id/pmsDasboardFragment" />
+            android:id="@+id/action_notificationsFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/vehiclePageFragment"
+        android:name="com.stellantis.crf.pms.VehiclePageFragment"
+        android:label="fragment_vehicle_page"
+        tools:layout="@layout/fragment_vehicle_page" >
+        <action
+            android:id="@+id/action_vehiclePageFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>
