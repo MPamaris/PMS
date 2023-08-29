@@ -1,21 +1,15 @@
 package com.stellantis.crf.pms
 
-import android.R
 import android.annotation.SuppressLint
 import android.content.ContentValues
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.stellantis.crf.pms.databinding.ActivityMainBinding
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 import java.util.Locale
 
 
@@ -220,7 +214,6 @@ class PmsActivity : AppCompatActivity() {
                                 Toast.makeText(applicationContext, "FOR --> " + componentName[i], Toast.LENGTH_SHORT).show()
 
                             }*/
-
 
 
                         } ?: throw Exception("discovery null response")

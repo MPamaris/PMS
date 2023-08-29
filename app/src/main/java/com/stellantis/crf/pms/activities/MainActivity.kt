@@ -1,9 +1,10 @@
-package com.stellantis.crf.pms
+package com.stellantis.crf.pms.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import com.stellantis.crf.pms.R
 
 class MainActivity : AppCompatActivity() {
 

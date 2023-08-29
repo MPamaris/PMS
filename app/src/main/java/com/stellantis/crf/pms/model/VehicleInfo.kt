@@ -1,4 +1,4 @@
-package com.stellantis.crf.pms
+package com.stellantis.crf.pms.model
 
 import com.google.gson.annotations.SerializedName
 

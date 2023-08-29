@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.stellantis.crf.pms.HomeFragment"
+        android:name="com.stellantis.crf.pms.fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/notificationsFragment"
-        android:name="com.stellantis.crf.pms.NotificationsFragment"
+        android:name="com.stellantis.crf.pms.fragments.NotificationsFragment"
         android:label="fragment_notifications"
         tools:layout="@layout/fragment_notifications" >
         <action
@@ -30,7 +30,7 @@
     </fragment>
     <fragment
         android:id="@+id/vehiclePageFragment"
-        android:name="com.stellantis.crf.pms.VehiclePageFragment"
+        android:name="com.stellantis.crf.pms.fragments.VehiclePageFragment"
         android:label="fragment_vehicle_page"
         tools:layout="@layout/fragment_vehicle_page" >
         <action

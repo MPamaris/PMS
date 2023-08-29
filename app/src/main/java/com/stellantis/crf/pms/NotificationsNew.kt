@@ -6,7 +6,7 @@ data class NotificationsNew(
     @SerializedName("notifications")
     val notifications: List<NotificationsInfo>?,
 
-)
+    )
 
 
 

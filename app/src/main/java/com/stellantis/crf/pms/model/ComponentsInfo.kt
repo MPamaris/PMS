@@ -1,6 +1,7 @@
-package com.stellantis.crf.pms
+package com.stellantis.crf.pms.model
 
 import com.google.gson.annotations.SerializedName
+
 data class ComponentsInfo(
     @SerializedName("componentName")
     val componentName: String?,

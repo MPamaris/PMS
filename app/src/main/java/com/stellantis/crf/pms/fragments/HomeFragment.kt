@@ -1,4 +1,4 @@
-package com.stellantis.crf.pms
+package com.stellantis.crf.pms.fragments
 
 import android.annotation.SuppressLint
 import android.content.ContentValues
@@ -12,10 +12,8 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.stellantis.crf.pms.PmsRepository.getComponentsStatus
-import com.stellantis.crf.pms.PmsRepository.getVehicleInfo
-import com.stellantis.crf.pms.PmsRepository.getVehicleOwned
+import com.stellantis.crf.pms.PmsRepository
+import com.stellantis.crf.pms.R
 import com.stellantis.crf.pms.databinding.FragmentHomeBinding
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
@@ -40,20 +38,24 @@ class HomeFragment : Fragment() {
                     Toast.makeText(activity, "page_dashboard", Toast.LENGTH_SHORT).show()
                     true
                 }
+
                 R.id.page_navigation -> {
                     Toast.makeText(activity, "page_navigation", Toast.LENGTH_SHORT).show()
                     true
                 }
+
                 R.id.page_trips -> {
                     Toast.makeText(activity, "page_trips", Toast.LENGTH_SHORT).show()
                     true
                 }
+
                 R.id.page_vehicle -> {
                     goToVehiclePage()
                     true
                 }
+
                 else -> {
-                    Log.i("NavBar","Error?")
+                    Log.i("NavBar", "Error?")
                     false
                 }
             }
@@ -78,6 +80,7 @@ class HomeFragment : Fragment() {
     private fun goToNotificationPage() {
         findNavController().navigate(R.id.action_homeFragment_to_notificationsFragment)
     }
+
     private fun goToVehiclePage() {
         findNavController().navigate(R.id.action_homeFragment_to_vehiclePageFragment2)
     }

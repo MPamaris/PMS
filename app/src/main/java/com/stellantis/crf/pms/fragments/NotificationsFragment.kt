@@ -1,4 +1,4 @@
-package com.stellantis.crf.pms
+package com.stellantis.crf.pms.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.stellantis.crf.pms.databinding.FragmentHomeBinding
+import com.stellantis.crf.pms.R
 import com.stellantis.crf.pms.databinding.FragmentNotificationsBinding
 
 class NotificationsFragment : Fragment() {
@@ -26,6 +26,7 @@ class NotificationsFragment : Fragment() {
 
         return view
     }
+
     private fun goToHomePage() {
         findNavController().navigate(R.id.action_notificationsFragment_to_homeFragment)
     }

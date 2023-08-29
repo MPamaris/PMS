@@ -1,4 +1,4 @@
-package com.stellantis.crf.pms
+package com.stellantis.crf.pms.fragments
 
 import android.os.Bundle
 import android.util.Log
@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
-import com.stellantis.crf.pms.databinding.FragmentHomeBinding
+import com.stellantis.crf.pms.R
 import com.stellantis.crf.pms.databinding.FragmentVehiclePageBinding
 
 class VehiclePageFragment : Fragment() {
@@ -29,20 +29,24 @@ class VehiclePageFragment : Fragment() {
                     goToHomePage()
                     true
                 }
+
                 R.id.page_navigation -> {
                     Toast.makeText(activity, "page_navigation", Toast.LENGTH_SHORT).show()
                     true
                 }
+
                 R.id.page_trips -> {
                     Toast.makeText(activity, "page_trips", Toast.LENGTH_SHORT).show()
                     true
                 }
+
                 R.id.page_vehicle -> {
                     Toast.makeText(activity, "page_vehicle", Toast.LENGTH_SHORT).show()
                     true
                 }
+
                 else -> {
-                    Log.i("NavBar","Error?")
+                    Log.i("NavBar", "Error?")
                     false
                 }
             }

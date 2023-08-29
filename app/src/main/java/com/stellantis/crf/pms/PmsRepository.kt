@@ -6,6 +6,9 @@ import android.util.Log
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.Volley
+import com.stellantis.crf.pms.model.UserInfo
+import com.stellantis.crf.pms.model.VehicleInfoNew
+import com.stellantis.crf.pms.model.VehicleInfoOld
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
@@ -16,7 +19,8 @@ const val MAAS_ACTIVATION_BODY = "{\"setdata\": \"{}\"}"
 
 //private const val CRF_API_CORE_BASE_URL = "https://api.core.demo.dec.fcagcv.com"
 private const val CRF_API_CORE_BASE_URL = "https://api.core.demo.dec.fcagcv.com"
-private const val CRF_API_CORE_BASE_URL_NEW = "https://wr3ojbku24.execute-api.eu-west-3.amazonaws.com"
+private const val CRF_API_CORE_BASE_URL_NEW =
+    "https://wr3ojbku24.execute-api.eu-west-3.amazonaws.com"
 private const val CRF_API_CORE_USER = "openapi"
 private const val CRF_API_CORE_PASSWORD = "sdljq3r83va"
 
@@ -114,8 +118,6 @@ object PmsRepository {
             tag = tag,
         )?.deserializeAs<VehicleInfoOld>()
     }
-
-
 
 
     /** Get Vehicle Info **/
