@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/page_1"
+        android:id="@+id/page_dashboard"
         android:enabled="true"
         android:icon="@drawable/baseline_dashboard_24"
         android:title="Dashboard"/>
     <item
-        android:id="@+id/page_2"
+        android:id="@+id/page_navigation"
         android:enabled="true"
         android:icon="@drawable/icon_guidance_solid"
         android:title="Navigation"/>
     <item
-        android:id="@+id/page_3"
+        android:id="@+id/page_trips"
         android:enabled="true"
         android:icon="@drawable/icon_statistic_solid"
         android:title="Trips"/>
     <item
-        android:id="@+id/page_4"
+        android:id="@+id/page_vehicle"
         android:enabled="true"
         android:icon="@drawable/icon_adas_solid"
         android:title="Vehicle"/>
