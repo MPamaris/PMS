@@ -18,7 +18,7 @@
             android:layout_height="16dp" />
 
         <include
-            android:id="@+id/id_include_toolbar_notifications"
+            android:id="@+id/id_include_top"
             layout="@layout/include_top"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
