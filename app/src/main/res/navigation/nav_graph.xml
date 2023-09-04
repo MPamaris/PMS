@@ -9,19 +9,22 @@
         android:id="@+id/homeFragment"
         android:name="com.stellantis.crf.pms.fragments.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_notificationsFragment"
             app:destination="@id/notificationsFragment" />
         <action
             android:id="@+id/action_homeFragment_to_vehiclePageFragment2"
             app:destination="@id/vehiclePageFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_vehicleHealthPageFragment"
+            app:destination="@id/vehicleHealthPageFragment" />
     </fragment>
     <fragment
         android:id="@+id/notificationsFragment"
         android:name="com.stellantis.crf.pms.fragments.NotificationsFragment"
         android:label="fragment_notifications"
-        tools:layout="@layout/fragment_notifications" >
+        tools:layout="@layout/fragment_notifications">
         <action
             android:id="@+id/action_notificationsFragment_to_homeFragment"
             app:destination="@id/homeFragment"
@@ -32,9 +35,20 @@
         android:id="@+id/vehiclePageFragment"
         android:name="com.stellantis.crf.pms.fragments.VehiclePageFragment"
         android:label="fragment_vehicle_page"
-        tools:layout="@layout/fragment_vehicle_page" >
+        tools:layout="@layout/fragment_vehicle_page">
         <action
             android:id="@+id/action_vehiclePageFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/vehicleHealthPageFragment"
+        android:name="com.stellantis.crf.pms.fragments.VehicleHealthPageFragment"
+        android:label="fragment_vehicle_health_page"
+        tools:layout="@layout/fragment_vehicle_health_page">
+        <action
+            android:id="@+id/action_vehicleHealthPageFragment_to_homeFragment"
             app:destination="@id/homeFragment"
             app:popUpTo="@id/homeFragment"
             app:popUpToInclusive="true" />

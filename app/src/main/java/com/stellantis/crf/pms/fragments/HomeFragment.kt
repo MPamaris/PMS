@@ -65,6 +65,10 @@ class HomeFragment : Fragment() {
             goToNotificationPage()
         }
 
+        binding.includeWarning.root.setOnClickListener {
+            goToVehicleHealthPage()
+        }
+
         isNotification()
         getComponentsStatus()
         getUser()
@@ -79,6 +83,10 @@ class HomeFragment : Fragment() {
 
     private fun goToNotificationPage() {
         findNavController().navigate(R.id.action_homeFragment_to_notificationsFragment)
+    }
+
+    private fun goToVehicleHealthPage() {
+        findNavController().navigate(R.id.action_homeFragment_to_vehicleHealthPageFragment)
     }
 
     private fun goToVehiclePage() {
