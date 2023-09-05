@@ -143,7 +143,7 @@ object PmsRepository {
     /** Get Components status **/
     suspend fun getComponentsStatus(tag: String? = null): VehicleInfoNew? {
         return enqueueNewRequest(
-            url = "$CRF_API_CORE_BASE_URL_NEW/components/VR7ATTENTJL033368",
+            url = "$CRF_API_CORE_BASE_URL_NEW/components/ZFAEF4VP1LX000999",
             method = Request.Method.GET,
             headers = CRF_API_CORE_AUTH_HEADER,
             tag = tag,

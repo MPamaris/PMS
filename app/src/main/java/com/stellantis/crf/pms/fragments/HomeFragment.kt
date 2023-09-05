@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
@@ -73,16 +74,25 @@ class HomeFragment : Fragment() {
             goToDetailsPage()
         }
 
-        isNotification()
-        getComponentsStatus()
+
+        getVehicleInfoRenegade()
+
+        //isNotification()
+        //getComponentsStatus()
         getUser()
-        getVehicleInfo()
+        //getVehicleInfo()
         getVehicleOwned()
         setCurrentDateAndHour()
 
         // TODO: change status on tiles based on choose vehicle
 
         return view
+    }
+
+    private fun getVehicleInfoRenegade() {
+        getComponentsStatus()
+        binding.includeWarning.root.visibility = View.GONE
+        getVehicleInfo()
     }
 
     private fun goToNotificationPage() {
@@ -149,14 +159,32 @@ class HomeFragment : Fragment() {
                     launch {
                         PmsRepository.getComponentsStatus()?.let { vehicleInfoNew ->
 
-                            val componentName = vehicleInfoNew.components?.map { it.componentName }
-                            binding.includeCardviewStatus.idTextViewStatus.text =
-                                componentName?.get(1)
-                            binding.includeCardviewStatus.idIconAlert.visibility = View.VISIBLE
+                            val healthOfComponent = vehicleInfoNew.components?.map { it.health }
+                            /*binding.includeCardviewStatus.idTextViewStatus.text =
+                                healthOfComponent?.get(1)*/
 
-                            /*for (i in componentName!!.indices) {
+                            if (healthOfComponent!!.contains("1")) {
+                                Toast.makeText(activity, "1", Toast.LENGTH_SHORT).show()
+                            }
+                            else if (healthOfComponent.contains("2")) {
+                                Toast.makeText(activity, "2", Toast.LENGTH_SHORT).show()
+                            }
+                            else if (healthOfComponent.contains("3")) {
+                                Toast.makeText(activity, "3", Toast.LENGTH_SHORT).show()
+                            }
+                            else
+                                binding.includeCardviewStatus.idTextViewStatus.text = "All good"
+                                binding.includeCardviewStatus.idIconHealth.setImageResource(R.drawable.baseline_done_24)
 
-                                Toast.makeText(applicationContext, "FOR --> " + componentName[i], Toast.LENGTH_SHORT).show()
+
+
+                            //Toast.makeText(activity, "!! " + healthOfComponent, Toast.LENGTH_SHORT).show()
+
+                            //Toast.makeText(activity, "!! --> " + healthOfComponent?.get(0), Toast.LENGTH_SHORT).show()
+
+                            /*for (i in healthOfComponent!!.indices) {
+
+                                Toast.makeText(activity, "FOR --> " + healthOfComponent[i], Toast.LENGTH_SHORT).show()
 
                             }*/
 
