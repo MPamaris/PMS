@@ -35,17 +35,17 @@ class HomeFragment : Fragment() {
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.page_dashboard -> {
-                    Toast.makeText(activity, "page_dashboard", Toast.LENGTH_SHORT).show()
+
                     true
                 }
 
                 R.id.page_navigation -> {
-                    Toast.makeText(activity, "page_navigation", Toast.LENGTH_SHORT).show()
+
                     true
                 }
 
                 R.id.page_trips -> {
-                    Toast.makeText(activity, "page_trips", Toast.LENGTH_SHORT).show()
+
                     true
                 }
 
@@ -67,6 +67,10 @@ class HomeFragment : Fragment() {
 
         binding.includeWarning.root.setOnClickListener {
             goToVehicleHealthPage()
+        }
+
+        binding.includeCardviewStatus.cardView.setOnClickListener {
+            goToDetailsPage()
         }
 
         isNotification()
@@ -91,6 +95,10 @@ class HomeFragment : Fragment() {
 
     private fun goToVehiclePage() {
         findNavController().navigate(R.id.action_homeFragment_to_vehiclePageFragment2)
+    }
+
+    private fun goToDetailsPage() {
+        findNavController().navigate(R.id.action_homeFragment_to_detailsPageFragment)
     }
 
     private fun isNotification() {

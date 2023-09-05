@@ -4,20 +4,20 @@ import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.stellantis.crf.pms.PmsRepository
-import com.stellantis.crf.pms.R
 import com.stellantis.crf.pms.databinding.FragmentVehiclePageBinding
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import java.util.Locale
+
 
 class VehiclePageFragment : Fragment() {
 
@@ -35,25 +35,28 @@ class VehiclePageFragment : Fragment() {
         getUser()
         getVehicleOwned()
 
+        val select_bottom_nav_default: View = binding.bottomNavigation.findViewById(com.stellantis.crf.pms.R.id.page_vehicle)
+        select_bottom_nav_default.performClick()
+
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.page_dashboard -> {
+                com.stellantis.crf.pms.R.id.page_dashboard -> {
                     goToHomePage()
                     true
                 }
 
-                R.id.page_navigation -> {
-                    Toast.makeText(activity, "page_navigation", Toast.LENGTH_SHORT).show()
+                com.stellantis.crf.pms.R.id.page_navigation -> {
+
                     true
                 }
 
-                R.id.page_trips -> {
-                    Toast.makeText(activity, "page_trips", Toast.LENGTH_SHORT).show()
+                com.stellantis.crf.pms.R.id.page_trips -> {
+
                     true
                 }
 
-                R.id.page_vehicle -> {
-                    Toast.makeText(activity, "page_vehicle", Toast.LENGTH_SHORT).show()
+                com.stellantis.crf.pms.R.id.page_vehicle -> {
+
                     true
                 }
 
@@ -166,6 +169,6 @@ class VehiclePageFragment : Fragment() {
     }
 
     private fun goToHomePage() {
-        findNavController().navigate(R.id.action_vehiclePageFragment_to_homeFragment)
+        findNavController().navigate(com.stellantis.crf.pms.R.id.action_vehiclePageFragment_to_homeFragment)
     }
 }

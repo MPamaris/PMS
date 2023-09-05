@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.stellantis.crf.pms.R
 import com.stellantis.crf.pms.databinding.FragmentVehicleHealthPageBinding
@@ -28,6 +29,10 @@ class VehicleHealthPageFragment : Fragment() {
             expandComponentsInGoodHealth()
         }
 
+        binding.idIncludeMaintenanceWarning.idVehicleSelectedArrow.setOnClickListener {
+            goToComponentsDetailsPage()
+        }
+
         return view
     }
 
@@ -35,6 +40,10 @@ class VehicleHealthPageFragment : Fragment() {
 
     private fun goToHomePage() {
         findNavController().navigate(R.id.action_vehicleHealthPageFragment_to_homeFragment)
+    }
+
+    private fun goToComponentsDetailsPage() {
+        findNavController().navigate(R.id.action_vehicleHealthPageFragment_to_detailsPageFragment)
     }
 
     private fun expandComponentsInGoodHealth() {

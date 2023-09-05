@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_homeFragment_to_vehicleHealthPageFragment"
             app:destination="@id/vehicleHealthPageFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_detailsPageFragment"
+            app:destination="@id/detailsPageFragment" />
     </fragment>
     <fragment
         android:id="@+id/notificationsFragment"
@@ -51,6 +54,20 @@
             android:id="@+id/action_vehicleHealthPageFragment_to_homeFragment"
             app:destination="@id/homeFragment"
             app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_vehicleHealthPageFragment_to_detailsPageFragment"
+            app:destination="@id/detailsPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsPageFragment"
+        android:name="com.stellantis.crf.pms.DetailsPageFragment"
+        android:label="fragment_details_page"
+        tools:layout="@layout/fragment_details_page" >
+        <action
+            android:id="@+id/action_detailsPageFragment_to_vehicleHealthPageFragment"
+            app:destination="@id/vehicleHealthPageFragment"
+            app:popUpTo="@id/vehicleHealthPageFragment"
             app:popUpToInclusive="true" />
     </fragment>
 </navigation>
