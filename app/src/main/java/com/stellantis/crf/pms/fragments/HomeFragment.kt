@@ -33,6 +33,26 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(layoutInflater)
         val view = binding.root
 
+        binding.idIncludeTop.idTileChoiceVehicle.idChooseVehicleSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val currentVehicle = binding.idIncludeTop.idTileChoiceVehicle.idChooseVehicleSpinner.selectedItem.toString()
+
+                if (currentVehicle.contains("Renegade")) {
+                    getRenegadeInfo()
+                    Toast.makeText(activity, "" + currentVehicle, Toast.LENGTH_SHORT).show()
+                }
+                if (currentVehicle.contains("C5 Aircross")) {
+                    Toast.makeText(activity, "" + currentVehicle, Toast.LENGTH_SHORT).show()
+                    getC5AirCrossInfo()
+                }
+            }
+
+        }
+
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.page_dashboard -> {
@@ -86,6 +106,14 @@ class HomeFragment : Fragment() {
         // TODO: change status on tiles based on choose vehicle
 
         return view
+    }
+
+    private fun getRenegadeInfo() {
+
+    }
+
+    private fun getC5AirCrossInfo() {
+
     }
 
     private fun getVehicleInfoRenegade() {
