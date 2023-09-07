@@ -47,7 +47,7 @@
                     android:layout_centerVertical="true"
                     android:layout_toEndOf="@id/ic_fuel"
                     android:fontFamily="@font/montserrat_semibold"
-                    android:text=""
+                    android:hint="Type"
                     android:textColor="@color/black"
                     android:textSize="20dp" />
 
@@ -85,6 +85,7 @@
                     android:layout_toEndOf="@id/textview_level"
                     android:fontFamily="@font/montserrat_semibold"
                     android:text="%"
+                    android:visibility="invisible"
                     android:textColor="@color/black"
                     android:textSize="20dp" />
 
@@ -104,11 +105,13 @@
                     android:textSize="17dp" />
 
                 <ProgressBar
+                    android:id="@+id/id_progress_bar_tile_fuel"
                     android:padding="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/textview_autonomy"
                     style="?android:attr/progressBarStyleHorizontal"
+                    android:visibility="invisible"
                     android:progress="40"/>
 
             </RelativeLayout>

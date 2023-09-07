@@ -117,9 +117,9 @@ class HomeFragment : Fragment() {
     }
 
     private fun getVehicleInfoRenegade() {
-        getComponentsStatus()
+        /*getComponentsStatus()
         binding.includeWarning.root.visibility = View.GONE
-        getVehicleInfo()
+        getVehicleInfo()*/
     }
 
     private fun goToNotificationPage() {
@@ -200,8 +200,8 @@ class HomeFragment : Fragment() {
                                 Toast.makeText(activity, "3", Toast.LENGTH_SHORT).show()
                             }
                             else
-                                binding.includeCardviewStatus.idTextViewStatus.text = "All good"
-                                binding.includeCardviewStatus.idIconHealth.setImageResource(R.drawable.baseline_done_24)
+                                binding.includeCardviewStatus.textviewStatus.text = "All good"
+                                binding.includeCardviewStatus.idIconStatus.setImageResource(R.drawable.baseline_done_24)
 
 
 
