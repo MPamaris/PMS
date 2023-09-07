@@ -74,14 +74,13 @@ class HomeFragment : Fragment() {
             goToDetailsPage()
         }
 
-
+        getVehicleOwned()
         getVehicleInfoRenegade()
 
         //isNotification()
         //getComponentsStatus()
         getUser()
         //getVehicleInfo()
-        getVehicleOwned()
         setCurrentDateAndHour()
 
         // TODO: change status on tiles based on choose vehicle
