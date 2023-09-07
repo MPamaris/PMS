@@ -113,7 +113,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun getC5AirCrossInfo() {
-
+        binding.includeWarning.cardView.visibility = View.VISIBLE
     }
 
     private fun getVehicleInfoRenegade() {
