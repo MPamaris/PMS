@@ -25,6 +25,10 @@ class VehicleHealthPageFragment : Fragment() {
             goToHomePage()
         }
 
+        binding.idIncludeAllCoachingAdvise.root.setOnClickListener {
+            goToCoachingAdvisePage()
+        }
+
         binding.idIncludeComponentInGoodHealth.idVehicleSelectedArrowComponentsInGoodHealth.setOnClickListener {
             expandComponentsInGoodHealth()
         }
@@ -44,6 +48,10 @@ class VehicleHealthPageFragment : Fragment() {
 
     private fun goToComponentsDetailsPage() {
         findNavController().navigate(R.id.action_vehicleHealthPageFragment_to_detailsPageFragment)
+    }
+
+    private fun goToCoachingAdvisePage() {
+        findNavController().navigate(R.id.action_vehicleHealthPageFragment_to_coachingAdviseFragment)
     }
 
     private fun expandComponentsInGoodHealth() {

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.stellantis.crf.pms.databinding.FragmentCoachingAdviseBinding
 import com.stellantis.crf.pms.databinding.FragmentNotificationsBinding
 
@@ -19,6 +20,13 @@ class CoachingAdviseFragment : Fragment() {
         binding = FragmentCoachingAdviseBinding.inflate(layoutInflater)
         val view = binding.root
 
+        binding.idIncludeToolbarCoaching.idButtonBackToolbarCoaching.setOnClickListener {
+            goBack()
+        }
+
         return view
+    }
+    private fun goBack() {
+        findNavController().navigate(R.id.action_coachingAdviseFragment_to_vehicleHealthPageFragment)
     }
 }
