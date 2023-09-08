@@ -83,7 +83,22 @@ class HomeFragment : Fragment() {
         }
 
         binding.idIncludeTop.tileUserAndNotifications.constraintLayout.setOnClickListener {
-            goToNotificationPage()
+
+            val isNotify = binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification
+            if (isNotify.visibility == View.VISIBLE) {
+                /*binding.apply {
+                    binding.idIncludeTop.tileUserAndNotifications.constraintLayout.setOnClickListener {
+                        val s = "THIS"
+                        val direction =
+                    }
+                }*/
+                goToNotificationPage()
+                Toast.makeText(activity, "VISIBLE", Toast.LENGTH_SHORT).show()
+            }
+            if (isNotify.visibility != View.VISIBLE) {
+                goToNotificationPage()
+                Toast.makeText(activity, "NOT VISIBLE", Toast.LENGTH_SHORT).show()
+            }
         }
 
         binding.includeWarning.root.setOnClickListener {
@@ -100,7 +115,6 @@ class HomeFragment : Fragment() {
         //isNotification()
         //getComponentsStatus()
         getUser()
-        //getVehicleInfo()
         setCurrentDateAndHour()
 
         // TODO: change status on tiles based on choose vehicle
@@ -109,6 +123,9 @@ class HomeFragment : Fragment() {
     }
 
     private fun getRenegadeInfo() {
+        binding.includeWarning.cardView.visibility = View.GONE
+        getVehicleInfo()
+        getComponentsStatus()
 
     }
 
@@ -318,9 +335,11 @@ class HomeFragment : Fragment() {
                                 type.toString().replace("[", "").replace("]", "")
                                     .capitalize(Locale.ROOT)
                             binding.includeCardviewFuel.textviewLevel.text =
-                                level.toString().replace("[", "").replace("]", "")
+                                level.toString().replace("[", "").replace("]", "") + " %"
                             binding.includeCardviewFuel.textviewAutonomy.text =
                                 autonomy.toString().replace("[", "").replace("]", "") + " Km"
+
+                            binding.includeCardviewFuel.idProgressBarTileFuel.visibility = View.VISIBLE
 
                         } ?: throw Exception("discovery null response")
                     }
