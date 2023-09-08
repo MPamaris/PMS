@@ -47,7 +47,7 @@
                     android:layout_centerVertical="true"
                     android:layout_toEndOf="@id/ic_health"
                     android:fontFamily="@font/montserrat_semibold"
-                    android:hint="Health"
+                    android:text="Health"
                     android:textColor="@color/black"
                     android:textSize="20dp" />
 
@@ -74,7 +74,7 @@
                     android:text=""
                     android:layout_marginStart="20dp"
                     android:textColor="@color/black"
-                    android:textSize="30dp" />
+                    android:textSize="17dp" />
 
                 <TextView
                     android:id="@+id/percent"

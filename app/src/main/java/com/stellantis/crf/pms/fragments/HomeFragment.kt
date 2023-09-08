@@ -43,10 +43,10 @@ class HomeFragment : Fragment() {
 
                 if (currentVehicle.contains("Renegade")) {
                     getRenegadeInfo()
-                    Toast.makeText(activity, "" + currentVehicle, Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(activity, "" + currentVehicle, Toast.LENGTH_SHORT).show()
                 }
                 if (currentVehicle.contains("C5 Aircross")) {
-                    Toast.makeText(activity, "" + currentVehicle, Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(activity, "" + currentVehicle, Toast.LENGTH_SHORT).show()
                     getC5AirCrossInfo()
                 }
             }
@@ -126,11 +126,27 @@ class HomeFragment : Fragment() {
         binding.includeWarning.cardView.visibility = View.GONE
         getVehicleInfo()
         getComponentsStatus()
+        binding.includeCardviewFuel.idProgressBarTileFuel.progress = 40
+        binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification.visibility = View.INVISIBLE
 
     }
 
     private fun getC5AirCrossInfo() {
         binding.includeWarning.cardView.visibility = View.VISIBLE
+        // MOCK type fuel
+        binding.includeCardviewFuel.textviewType.text = "Diesel"
+        binding.includeCardviewFuel.textviewLevel.text = "70 %"
+        binding.includeCardviewFuel.textviewAutonomy.text = "450 Km"
+        binding.includeCardviewFuel.idProgressBarTileFuel.progress = 70
+        getStatusC5AirCross()
+
+    }
+
+    private fun getStatusC5AirCross() {
+        isNotification()
+        binding.includeCardviewStatus.textviewStatus.text = "Check battery"
+        binding.includeCardviewStatus.idIconStatus.setImageResource(R.drawable.baseline_warning_24)
+
     }
 
     private fun getVehicleInfoRenegade() {
