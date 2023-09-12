@@ -16,6 +16,7 @@ import androidx.navigation.fragment.findNavController
 import com.stellantis.crf.pms.PmsRepository
 import com.stellantis.crf.pms.R
 import com.stellantis.crf.pms.databinding.FragmentHomeBinding
+import com.stellantis.crf.pms.model.NotificationInfo
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import java.time.LocalDateTime
@@ -84,20 +85,30 @@ class HomeFragment : Fragment() {
 
         binding.idIncludeTop.tileUserAndNotifications.constraintLayout.setOnClickListener {
 
+            /*val isNotifyOn = "OFF"
+            val noti = NotificationInfo(isNotify)
+
+            val action = HomeFragmentDirections.actionHomeFragmentToNotificationsFragment(noti)
+            findNavController().navigate(action)*/
+
             val isNotify = binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification
             if (isNotify.visibility == View.VISIBLE) {
-                /*binding.apply {
-                    binding.idIncludeTop.tileUserAndNotifications.constraintLayout.setOnClickListener {
-                        val s = "THIS"
-                        val direction =
-                    }
-                }*/
-                goToNotificationPage()
-                Toast.makeText(activity, "VISIBLE", Toast.LENGTH_SHORT).show()
+                val isNotifyOn = "IS_NOTIFICATION"
+                val noti = NotificationInfo(isNotifyOn)
+
+                val action = HomeFragmentDirections.actionHomeFragmentToNotificationsFragment(noti)
+                findNavController().navigate(action)
+                //goToNotificationPage()
+                //Toast.makeText(activity, "VISIBLE", Toast.LENGTH_SHORT).show()
             }
             if (isNotify.visibility != View.VISIBLE) {
-                goToNotificationPage()
-                Toast.makeText(activity, "NOT VISIBLE", Toast.LENGTH_SHORT).show()
+                val isNotifyOn = "IS_NOT_NOTIFICATION"
+                val noti = NotificationInfo(isNotifyOn)
+
+                val action = HomeFragmentDirections.actionHomeFragmentToNotificationsFragment(noti)
+                findNavController().navigate(action)
+                //goToNotificationPage()
+                //Toast.makeText(activity, "NOT VISIBLE", Toast.LENGTH_SHORT).show()
             }
         }
 

@@ -18,6 +18,7 @@
             android:layout_height="wrap_content" />
 
         <include
+            android:id="@+id/id_include_body_notifications"
             layout="@layout/include_body_notifications"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

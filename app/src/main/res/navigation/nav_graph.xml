@@ -33,6 +33,10 @@
             app:destination="@id/homeFragment"
             app:popUpTo="@id/homeFragment"
             app:popUpToInclusive="true" />
+        <!-- IMPORTANT!! PASS ARGUMENT RECEIVED FROM HOME FRAGMENT ON EVERY OTHER FRAGMENTS-->
+        <argument
+            android:name="is_notify"
+            app:argType="com.stellantis.crf.pms.model.NotificationInfo" />
     </fragment>
     <fragment
         android:id="@+id/vehiclePageFragment"
