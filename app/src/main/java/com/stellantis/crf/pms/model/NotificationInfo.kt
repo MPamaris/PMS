@@ -6,4 +6,5 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class NotificationInfo(
     val isNotify: String,
+    val vehicleSelected: String,
 ) : Parcelable

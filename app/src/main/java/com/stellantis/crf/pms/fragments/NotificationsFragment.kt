@@ -23,8 +23,9 @@ class NotificationsFragment : Fragment() {
         binding = FragmentNotificationsBinding.inflate(layoutInflater)
 
         val notifyReceived = args.isNotify.isNotify
+        val vehicleReceived = args.isNotify.vehicleSelected
 
-        //Toast.makeText(activity, notifyReceived, Toast.LENGTH_SHORT).show()
+        Toast.makeText(activity, vehicleReceived, Toast.LENGTH_SHORT).show()
         val bodyNotifications = binding.idIncludeBodyNotifications.idCardviewBodyNotifications
 
         when (notifyReceived) {
@@ -35,13 +36,24 @@ class NotificationsFragment : Fragment() {
         val view = binding.root
 
         binding.idIncludeToolbarNotifications.idButtonBackToolbarNotifications.setOnClickListener {
-            goToHomePage()
+            goBack()
+            /*if (vehicleReceived.equals("Renegade")) {
+                val sendInfoVeichle = "vehicleReceived_1"
+                val selected = VehicleInfoBackToHome(sendInfoVeichle)
+
+                val action = NotificationsFragmentDirections.actionNotificationsFragmentToHomeFragment(selected)
+                findNavController().navigate(action)
+                Toast.makeText(activity, "send Renegade", Toast.LENGTH_SHORT).show()
+            }
+            if (vehicleReceived.equals("C5 Aircross")) {
+                Toast.makeText(activity, "send C5 Aircross", Toast.LENGTH_SHORT).show()
+            }*/
         }
 
         return view
     }
 
-    private fun goToHomePage() {
+    private fun goBack() {
         findNavController().navigate(R.id.action_notificationsFragment_to_homeFragment)
     }
 }

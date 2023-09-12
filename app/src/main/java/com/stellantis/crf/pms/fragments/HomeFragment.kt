@@ -22,6 +22,8 @@ import kotlinx.coroutines.launch
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.Locale
+import java.util.Timer
+import java.util.TimerTask
 
 class HomeFragment : Fragment() {
 
@@ -44,9 +46,11 @@ class HomeFragment : Fragment() {
 
                 if (currentVehicle.contains("Renegade")) {
                     getRenegadeInfo()
+                    binding.idTvCheckVehicle.text = "Renegade"
                     //Toast.makeText(activity, "" + currentVehicle, Toast.LENGTH_SHORT).show()
                 }
                 if (currentVehicle.contains("C5 Aircross")) {
+                    binding.idTvCheckVehicle.text = "C5 Aircross"
                     //Toast.makeText(activity, "" + currentVehicle, Toast.LENGTH_SHORT).show()
                     getC5AirCrossInfo()
                 }
@@ -94,7 +98,8 @@ class HomeFragment : Fragment() {
             val isNotify = binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification
             if (isNotify.visibility == View.VISIBLE) {
                 val isNotifyOn = "IS_NOTIFICATION"
-                val noti = NotificationInfo(isNotifyOn)
+                val selectedVehicle = binding.idTvCheckVehicle.text.toString()
+                val noti = NotificationInfo(isNotifyOn, selectedVehicle)
 
                 val action = HomeFragmentDirections.actionHomeFragmentToNotificationsFragment(noti)
                 findNavController().navigate(action)
@@ -103,7 +108,9 @@ class HomeFragment : Fragment() {
             }
             if (isNotify.visibility != View.VISIBLE) {
                 val isNotifyOn = "IS_NOT_NOTIFICATION"
-                val noti = NotificationInfo(isNotifyOn)
+                val selectedVehicle = binding.idTvCheckVehicle.text.toString()
+                val noti = NotificationInfo(isNotifyOn, selectedVehicle)
+                // MEMORIZZARE VEICOLO SCELTO
 
                 val action = HomeFragmentDirections.actionHomeFragmentToNotificationsFragment(noti)
                 findNavController().navigate(action)
@@ -120,6 +127,11 @@ class HomeFragment : Fragment() {
             goToDetailsPage()
         }
 
+        /*Timer().schedule(object : TimerTask() {
+            override fun run() {
+                getVehicleOwned()
+            }
+        }, 1000)*/
         getVehicleOwned()
         getVehicleInfoRenegade()
 
