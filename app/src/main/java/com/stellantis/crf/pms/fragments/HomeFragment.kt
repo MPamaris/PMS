@@ -2,15 +2,17 @@ package com.stellantis.crf.pms.fragments
 
 import android.annotation.SuppressLint
 import android.content.ContentValues
+import android.content.Context.MODE_PRIVATE
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.stellantis.crf.pms.PmsRepository
@@ -22,8 +24,7 @@ import kotlinx.coroutines.launch
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.Locale
-import java.util.Timer
-import java.util.TimerTask
+
 
 class HomeFragment : Fragment() {
 
@@ -34,6 +35,7 @@ class HomeFragment : Fragment() {
     ): View? {
 
         binding = FragmentHomeBinding.inflate(layoutInflater)
+
         val view = binding.root
 
         binding.idIncludeTop.idTileChoiceVehicle.idChooseVehicleSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
@@ -44,13 +46,21 @@ class HomeFragment : Fragment() {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 val currentVehicle = binding.idIncludeTop.idTileChoiceVehicle.idChooseVehicleSpinner.selectedItem.toString()
 
+                val Choice: Int = binding.idIncludeTop.idTileChoiceVehicle.idChooseVehicleSpinner.selectedItemPosition
+                val sharedPrefS: SharedPreferences = activity!!.getSharedPreferences("FileName", 0)
+                val prefEditor = sharedPrefS.edit()
+                prefEditor.putInt("spinnerChoice", Choice)
+                prefEditor.commit()
+                //Toast.makeText(activity, "Saved", Toast.LENGTH_SHORT).show()
+
                 if (currentVehicle.contains("Renegade")) {
                     getRenegadeInfo()
-                    binding.idTvCheckVehicle.text = "Renegade"
+                    //binding.idTvCheckVehicle.text = "Renegade"
                     //Toast.makeText(activity, "" + currentVehicle, Toast.LENGTH_SHORT).show()
+
                 }
                 if (currentVehicle.contains("C5 Aircross")) {
-                    binding.idTvCheckVehicle.text = "C5 Aircross"
+                    //binding.idTvCheckVehicle.text = "C5 Aircross"
                     //Toast.makeText(activity, "" + currentVehicle, Toast.LENGTH_SHORT).show()
                     getC5AirCrossInfo()
                 }
@@ -127,6 +137,11 @@ class HomeFragment : Fragment() {
             goToDetailsPage()
         }
 
+        /*binding.idIncludeTop.idTileChoiceVehicle.idLogo.setOnClickListener {
+            Toast.makeText(activity, "!!", Toast.LENGTH_SHORT).show()
+            binding.idTvCheckVehicle.text = "!!"
+        }*/
+
         /*Timer().schedule(object : TimerTask() {
             override fun run() {
                 getVehicleOwned()
@@ -157,7 +172,7 @@ class HomeFragment : Fragment() {
     private fun getC5AirCrossInfo() {
         binding.includeWarning.cardView.visibility = View.VISIBLE
         // MOCK type fuel
-        binding.includeCardviewFuel.textviewType.text = "Diesel"
+        binding.includeCardviewFuel.textviewType.text = "Fuel"
         binding.includeCardviewFuel.textviewLevel.text = "70 %"
         binding.includeCardviewFuel.textviewAutonomy.text = "450 Km"
         binding.includeCardviewFuel.idProgressBarTileFuel.progress = 70
@@ -343,6 +358,10 @@ class HomeFragment : Fragment() {
                                     )
                                 }
                                 spinner.adapter = dataAdapter
+
+                                val sharedPref: SharedPreferences = requireActivity().getSharedPreferences("FileName", MODE_PRIVATE)
+                                val spinnerValue = sharedPref.getInt("spinnerChoice", -1)
+                                if (spinnerValue != -1) binding.idIncludeTop.idTileChoiceVehicle.idChooseVehicleSpinner.setSelection(spinnerValue)
                             }
 
                         } ?: throw Exception("discovery null response")

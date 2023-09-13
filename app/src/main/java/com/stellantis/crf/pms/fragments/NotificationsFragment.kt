@@ -25,7 +25,6 @@ class NotificationsFragment : Fragment() {
         val notifyReceived = args.isNotify.isNotify
         val vehicleReceived = args.isNotify.vehicleSelected
 
-        Toast.makeText(activity, vehicleReceived, Toast.LENGTH_SHORT).show()
         val bodyNotifications = binding.idIncludeBodyNotifications.idCardviewBodyNotifications
 
         when (notifyReceived) {
