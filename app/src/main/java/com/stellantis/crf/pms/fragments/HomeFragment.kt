@@ -164,6 +164,8 @@ class HomeFragment : Fragment() {
         binding.includeWarning.cardView.visibility = View.GONE
         getVehicleInfo()
         getComponentsStatus()
+        // enable/disable notifications
+        isNotification()
         binding.includeCardviewFuel.idProgressBarTileFuel.progress = 40
         binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification.visibility = View.INVISIBLE
 
