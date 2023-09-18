@@ -41,7 +41,7 @@
 
                 <include
                     android:id="@+id/id_include_maintenance_warning"
-                    layout="@layout/include_critical_maintenance_to_be_planed_vehicle_health_page"
+                    layout="@layout/include_status_of_vehicle_health"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@+id/id_advise_critical_maintenance_to_be_planed" />
@@ -51,6 +51,7 @@
                     layout="@layout/include_components_in_good_health"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     app:layout_constraintTop_toBottomOf="@+id/id_include_maintenance_warning" />
 
                 <include
@@ -66,6 +67,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@+id/id_include_maintenance_book_and_calendar" />
+
+                <include
+                    android:id="@+id/id_include_coaching_advise_of_the_week"
+                    layout="@layout/include_coaching_advise_of_the_week"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/id_include_all_coaching_advise" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

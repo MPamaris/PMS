@@ -185,7 +185,7 @@ class HomeFragment : Fragment() {
     private fun getStatusC5AirCross() {
         isNotification()
         binding.includeCardviewStatus.textviewStatus.text = "Check battery"
-        binding.includeCardviewStatus.idIconStatus.setImageResource(R.drawable.baseline_warning_24)
+        binding.includeCardviewStatus.idIconStatus.setImageResource(R.drawable.icon_alert)
 
     }
 

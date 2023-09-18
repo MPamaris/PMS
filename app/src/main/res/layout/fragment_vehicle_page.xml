@@ -76,24 +76,32 @@
                         android:src="@drawable/vehicle_info_icon"
                         android:layout_alignParentEnd="true"/>
 
-                    <TextView
-                        android:id="@+id/id_vehicle_selected_information"
+                    <RelativeLayout
+                        android:id="@+id/id_vehicle_information"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/montserrat_semibold"
                         android:layout_below="@+id/id_vehicle_selected_logo"
-                        android:layout_toStartOf="@id/id_vehicle_selected_arrow"
-                        android:text="@string/vehicle_information"/>
+                        android:layout_alignParentEnd="true">
 
-                    <ImageView
-                        android:id="@+id/id_vehicle_selected_arrow"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/baseline_keyboard_arrow_right_24"
-                        app:tint="@color/black"
-                        android:layout_below="@+id/id_vehicle_selected_logo"
-                        android:layout_alignParentEnd="true"/>
+                        <TextView
+                            android:id="@+id/id_vehicle_selected_information"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/montserrat_semibold"
+                            android:text="@string/vehicle_information"/>
+
+                        <ImageView
+                            android:id="@+id/id_vehicle_selected_arrow"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/baseline_keyboard_arrow_right_24"
+                            app:tint="@color/black"
+                            android:layout_toEndOf="@+id/id_vehicle_selected_information"/>
+
+                    </RelativeLayout>
+
+
 
                 </RelativeLayout>
 
@@ -116,6 +124,7 @@
                 android:orientation="vertical">
 
                 <RelativeLayout
+                    android:id="@+id/id_vehicle_health"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="10dp">

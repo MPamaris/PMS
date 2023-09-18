@@ -5,19 +5,124 @@
     android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView_vehicle_selected"
+        android:id="@+id/cardView_vehicle_vehicle_health_critical_maintenance"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="10dp"
         app:cardElevation="10dp"
-        app:cardUseCompatPadding="true">
+        app:cardUseCompatPadding="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/id_advise"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:text="Critical maintenance to be planned"
+                    android:textColor="@color/yellow" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_advise"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:id="@+id/id_icon_type_of_advise"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/baseline_android_24" />
+
+                    <TextView
+                        android:id="@+id/id_components_to_be_planned"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_toEndOf="@id/id_icon_type_of_advise"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:text="Battery"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/id_status_to_be_planned"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_components_to_be_planned"
+                        android:layout_marginStart="20dp"
+                        android:layout_toEndOf="@id/id_icon_type_of_advise"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:text="To be planned"
+                        android:textColor="@color/red" />
+
+                    <ImageView
+                        android:id="@+id/id_vehicle_selected_arrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/baseline_keyboard_arrow_right_24"
+                        app:tint="@color/black" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_vehicle_vehicle_health_all_good"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Your vehicle is in good health"
+                    android:textColor="@color/green"
+                    android:textStyle="bold" />
+
+                </RelativeLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/grey" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -49,7 +154,7 @@
                     android:layout_below="@+id/id_good_health_main"
                     android:layout_marginTop="30dp"
                     android:orientation="vertical"
-                    android:visibility="visible">
+                    android:visibility="gone">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -61,7 +166,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/baseline_android_24" />
+                            android:src="@drawable/battery_icon" />
 
                         <TextView
                             android:id="@+id/id_components_battery"
@@ -71,6 +176,7 @@
                             android:layout_toEndOf="@id/id_icon_battery"
                             android:fontFamily="@font/montserrat_semibold"
                             android:text="Battery"
+                            android:layout_centerVertical="true"
                             android:textColor="@color/black" />
 
                         <ImageView
@@ -78,6 +184,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
                             android:src="@drawable/baseline_keyboard_arrow_right_24"
                             app:tint="@color/black" />
 
@@ -93,7 +200,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/baseline_android_24" />
+                            android:src="@drawable/brake_pads_icon" />
 
                         <TextView
                             android:id="@+id/id_components_break_pads"
@@ -102,7 +209,8 @@
                             android:layout_marginStart="20dp"
                             android:layout_toEndOf="@id/id_icon_break_pads"
                             android:fontFamily="@font/montserrat_semibold"
-                            android:text="Break pads"
+                            android:text="Brake pads"
+                            android:layout_centerVertical="true"
                             android:textColor="@color/black" />
 
                         <ImageView
@@ -111,6 +219,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
                             android:src="@drawable/baseline_keyboard_arrow_right_24"
+                            android:layout_centerVertical="true"
                             app:tint="@color/black" />
 
                     </RelativeLayout>
@@ -125,7 +234,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/baseline_android_24" />
+                            android:src="@drawable/brake_disc_icon" />
 
                         <TextView
                             android:id="@+id/id_icon_brake_disc"
@@ -134,7 +243,8 @@
                             android:layout_marginStart="20dp"
                             android:layout_toEndOf="@id/id_icon_break_disc"
                             android:fontFamily="@font/montserrat_semibold"
-                            android:text="Break disc"
+                            android:text="Brake disc"
+                            android:layout_centerVertical="true"
                             android:textColor="@color/black" />
 
                         <ImageView
@@ -143,6 +253,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
                             android:src="@drawable/baseline_keyboard_arrow_right_24"
+                            android:layout_centerVertical="true"
                             app:tint="@color/black" />
 
                     </RelativeLayout>
@@ -157,7 +268,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/baseline_android_24" />
+                            android:src="@drawable/brake_pads_icon" />
 
                         <TextView
                             android:id="@+id/id_icon_diesel_filter"
@@ -167,6 +278,7 @@
                             android:layout_toEndOf="@id/id_imag_diesel_filter"
                             android:fontFamily="@font/montserrat_semibold"
                             android:text="Diesel particles filter"
+                            android:layout_centerVertical="true"
                             android:textColor="@color/black" />
 
                         <ImageView
@@ -175,6 +287,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
                             android:src="@drawable/baseline_keyboard_arrow_right_24"
+                            android:layout_centerVertical="true"
                             app:tint="@color/black" />
 
                     </RelativeLayout>
@@ -189,7 +302,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/baseline_android_24" />
+                            android:src="@drawable/headlight_bulb_icon" />
 
                         <TextView
                             android:id="@+id/id_icon_headlight_bulbs"
@@ -198,7 +311,8 @@
                             android:layout_marginStart="20dp"
                             android:layout_toEndOf="@id/id_img_headlight_bulbs"
                             android:fontFamily="@font/montserrat_semibold"
-                            android:text="Diesel particles filter"
+                            android:text="Headlight bulbs"
+                            android:layout_centerVertical="true"
                             android:textColor="@color/black" />
 
                         <ImageView
@@ -207,6 +321,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
                             android:src="@drawable/baseline_keyboard_arrow_right_24"
+                            android:layout_centerVertical="true"
                             app:tint="@color/black" />
 
                     </RelativeLayout>

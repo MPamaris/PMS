@@ -29,12 +29,16 @@ class VehicleHealthPageFragment : Fragment() {
             goToCoachingAdvisePage()
         }
 
-        binding.idIncludeComponentInGoodHealth.idVehicleSelectedArrowComponentsInGoodHealth.setOnClickListener {
+        binding.idIncludeMaintenanceWarning.idVehicleSelectedArrowComponentsInGoodHealth.setOnClickListener {
             expandComponentsInGoodHealth()
         }
 
         binding.idIncludeMaintenanceWarning.idVehicleSelectedArrow.setOnClickListener {
             goToComponentsDetailsPage()
+        }
+
+        binding.idIncludeMaintenanceWarning.idVehicleSelectedArrowComponentsInGoodHealth.setOnClickListener {
+            expandComponentsInGoodHealth()
         }
 
         return view
@@ -57,20 +61,20 @@ class VehicleHealthPageFragment : Fragment() {
     private fun expandComponentsInGoodHealth() {
 
         val arrow =
-            binding.idIncludeComponentInGoodHealth.idVehicleSelectedArrowComponentsInGoodHealth
+            binding.idIncludeMaintenanceWarning.idVehicleSelectedArrowComponentsInGoodHealth
 
         if ("down" == arrow.tag) {
-            binding.idIncludeComponentInGoodHealth.idVehicleSelectedArrowComponentsInGoodHealth.setImageResource(
+            binding.idIncludeMaintenanceWarning.idVehicleSelectedArrowComponentsInGoodHealth.setImageResource(
                 R.drawable.baseline_keyboard_arrow_up_24
             )
-            binding.idIncludeComponentInGoodHealth.idComponentsInGoodHealthExpandable.visibility =
+            binding.idIncludeMaintenanceWarning.idComponentsInGoodHealthExpandable.visibility =
                 View.VISIBLE
             arrow.tag = "up"
         } else {
-            binding.idIncludeComponentInGoodHealth.idVehicleSelectedArrowComponentsInGoodHealth.setImageResource(
+            binding.idIncludeMaintenanceWarning.idVehicleSelectedArrowComponentsInGoodHealth.setImageResource(
                 R.drawable.baseline_keyboard_arrow_down_24
             )
-            binding.idIncludeComponentInGoodHealth.idComponentsInGoodHealthExpandable.visibility =
+            binding.idIncludeMaintenanceWarning.idComponentsInGoodHealthExpandable.visibility =
                 View.GONE
             arrow.tag = "down"
         }

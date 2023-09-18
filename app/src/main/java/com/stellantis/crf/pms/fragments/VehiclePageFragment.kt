@@ -98,6 +98,14 @@ class VehiclePageFragment : Fragment() {
             }
         }
 
+        binding.idVehicleInformation.setOnClickListener {
+            goToVehicleInfoPage()
+        }
+
+        binding.idVehicleHealth.setOnClickListener {
+            goToVehicleHealthPage()
+        }
+
         /*isNotification()*/
         getUser()
         getVehicleOwned()
@@ -304,5 +312,13 @@ class VehiclePageFragment : Fragment() {
 
     private fun goToHomePage() {
         findNavController().navigate(com.stellantis.crf.pms.R.id.action_vehiclePageFragment_to_homeFragment)
+    }
+
+    private fun goToVehicleInfoPage() {
+        findNavController().navigate(R.id.action_vehiclePageFragment_to_vehicleInformationFragment)
+    }
+
+    private fun goToVehicleHealthPage() {
+        findNavController().navigate(R.id.action_vehiclePageFragment_to_vehicleHealthPageFragment)
     }
 }
