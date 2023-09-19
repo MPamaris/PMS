@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_vehicle_selected"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:id="@+id/id_all_coaching_advise"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/id_coaching_advise_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="You have some coaching advise available for:"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/id_coaching_advise_component"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/id_coaching_advise_title"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="Battery"
+                android:textColor="@color/black" />
+
+            <ImageView
+                android:id="@+id/id_image_component"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/id_coaching_advise_component"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/icon_battery_advise" />
+
+            <TextView
+                android:id="@+id/id_coaching_advise_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/id_coaching_advise_component"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_toEndOf="@id/id_image_component"
+                android:fontFamily="@font/montserrat_medium"
+                android:hint="Long vehicle storage Drive your vehicle as soon as possible for a least"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/id_coaching_advise_show_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/id_coaching_advise_desc"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="10dp"
+                android:text="@string/show_more"
+                android:textColor="@color/black" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <View
+        android:id="@+id/id_view_divider"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_below="@id/cardView_vehicle_selected"
+        android:background="@color/grey" />
+
+    <!--<TextView
+        android:id="@+id/id_title_component"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/montserrat_medium"
+        android:layout_below="@id/id_view_divider"
+        android:text="Air filter"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_alignParentStart="true"
+        android:textColor="@color/black" />
+
+    <LinearLayout
+        android:id="@+id/id_layout_component"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_title_component"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/image_some_coaching" />
+
+        </RelativeLayout>
+
+    </LinearLayout>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_view_divider"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/this_img" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/this_img_2" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
