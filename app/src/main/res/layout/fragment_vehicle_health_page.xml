@@ -26,7 +26,7 @@
                     android:layout_height="wrap_content" />
 
                 <TextView
-                    android:id="@+id/id_advise_critical_maintenance_to_be_planed"
+                    android:id="@+id/id_advise_vehicle_health"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -34,6 +34,7 @@
                     android:text="Keep your vehicle in good health, by following the maintenance advices for each component."
                     android:textColor="@color/blue"
                     android:textStyle="bold"
+                    android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
@@ -44,7 +45,7 @@
                     layout="@layout/include_status_of_vehicle_health"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/id_advise_critical_maintenance_to_be_planed" />
+                    app:layout_constraintTop_toBottomOf="@+id/id_advise_vehicle_health" />
 
                 <include
                     android:id="@+id/id_include_component_in_good_health"

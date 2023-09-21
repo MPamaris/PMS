@@ -37,6 +37,9 @@
         <argument
             android:name="is_notify"
             app:argType="com.stellantis.crf.pms.model.NotificationInfo" />
+        <action
+            android:id="@+id/action_notificationsFragment_to_detailsPageFragment"
+            app:destination="@id/detailsPageFragment" />
     </fragment>
     <fragment
         android:id="@+id/vehiclePageFragment"
@@ -64,9 +67,9 @@
         android:label="fragment_vehicle_health_page"
         tools:layout="@layout/fragment_vehicle_health_page">
         <action
-            android:id="@+id/action_vehicleHealthPageFragment_to_homeFragment"
-            app:destination="@id/homeFragment"
-            app:popUpTo="@id/homeFragment"
+            android:id="@+id/action_vehicleHealthPageFragment_to_vehiclePageFragment"
+            app:destination="@id/vehiclePageFragment"
+            app:popUpTo="@id/vehiclePageFragment"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_vehicleHealthPageFragment_to_detailsPageFragment"
@@ -85,6 +88,12 @@
             app:destination="@id/vehicleHealthPageFragment"
             app:popUpTo="@id/vehicleHealthPageFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_detailsPageFragment_to_coachingAdviseFragment"
+            app:destination="@id/coachingAdviseFragment" />
+        <argument
+            android:name="arguments_from_coaching"
+            app:argType="com.stellantis.crf.pms.model.CoachingAdviseInfo" />
     </fragment>
     <fragment
         android:id="@+id/coachingAdviseFragment"
@@ -96,6 +105,9 @@
             app:destination="@id/vehicleHealthPageFragment"
             app:popUpTo="@id/vehicleHealthPageFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_coachingAdviseFragment_to_detailsPageFragment"
+            app:destination="@id/detailsPageFragment" />
     </fragment>
     <fragment
         android:id="@+id/vehicleInformationFragment"

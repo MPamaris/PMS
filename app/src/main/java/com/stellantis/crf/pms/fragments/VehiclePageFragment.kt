@@ -80,7 +80,7 @@ class VehiclePageFragment : Fragment() {
                 val selectedVehicle = binding.idTvCheckVehicle.text.toString()
                 val noti = NotificationInfo(isNotifyOn, selectedVehicle)
 
-                val action = HomeFragmentDirections.actionHomeFragmentToNotificationsFragment(noti)
+                val action = VehiclePageFragmentDirections.actionVehiclePageFragmentToNotificationsFragment(noti)
                 findNavController().navigate(action)
                 //goToNotificationPage()
                 //Toast.makeText(activity, "VISIBLE", Toast.LENGTH_SHORT).show()
@@ -254,6 +254,7 @@ class VehiclePageFragment : Fragment() {
 
     private fun getRenegadeInfo() {
         getComponentsStatus()
+        isNotification()
         binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification.visibility = View.INVISIBLE
 
     }

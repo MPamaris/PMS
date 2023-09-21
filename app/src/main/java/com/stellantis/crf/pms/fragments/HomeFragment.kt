@@ -208,7 +208,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun goToDetailsPage() {
-        findNavController().navigate(R.id.action_homeFragment_to_detailsPageFragment)
+        findNavController().navigate(R.id.action_homeFragment_to_vehicleHealthPageFragment)
     }
 
     private fun isNotification() {

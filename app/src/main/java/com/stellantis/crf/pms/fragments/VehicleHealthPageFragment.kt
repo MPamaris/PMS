@@ -33,9 +33,13 @@ class VehicleHealthPageFragment : Fragment() {
             expandComponentsInGoodHealth()
         }
 
-        binding.idIncludeMaintenanceWarning.idVehicleSelectedArrow.setOnClickListener {
+        binding.idIncludeMaintenanceWarning.idArrowBattery.setOnClickListener {
             goToComponentsDetailsPage()
         }
+
+        /*binding.idIncludeMaintenanceWarning.idVehicleSelectedArrow.setOnClickListener {
+            goToComponentsDetailsPage()
+        }*/
 
         binding.idIncludeMaintenanceWarning.idVehicleSelectedArrowComponentsInGoodHealth.setOnClickListener {
             expandComponentsInGoodHealth()
@@ -47,7 +51,7 @@ class VehicleHealthPageFragment : Fragment() {
     // TODO:  SPEC pg 8!!!
 
     private fun goToHomePage() {
-        findNavController().navigate(R.id.action_vehicleHealthPageFragment_to_homeFragment)
+        findNavController().navigate(R.id.action_vehicleHealthPageFragment_to_vehiclePageFragment)
     }
 
     private fun goToComponentsDetailsPage() {
@@ -67,6 +71,7 @@ class VehicleHealthPageFragment : Fragment() {
             binding.idIncludeMaintenanceWarning.idVehicleSelectedArrowComponentsInGoodHealth.setImageResource(
                 R.drawable.baseline_keyboard_arrow_up_24
             )
+            binding.idAdviseVehicleHealth.visibility = View.VISIBLE
             binding.idIncludeMaintenanceWarning.idComponentsInGoodHealthExpandable.visibility =
                 View.VISIBLE
             arrow.tag = "up"
@@ -74,6 +79,7 @@ class VehicleHealthPageFragment : Fragment() {
             binding.idIncludeMaintenanceWarning.idVehicleSelectedArrowComponentsInGoodHealth.setImageResource(
                 R.drawable.baseline_keyboard_arrow_down_24
             )
+            binding.idAdviseVehicleHealth.visibility = View.GONE
             binding.idIncludeMaintenanceWarning.idComponentsInGoodHealthExpandable.visibility =
                 View.GONE
             arrow.tag = "down"

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.cardview.widget.CardView
+    <!--<androidx.cardview.widget.CardView
         android:id="@+id/cardView_vehicle_vehicle_health_critical_maintenance"
         android:visibility="gone"
         android:layout_width="match_parent"
@@ -84,7 +84,7 @@
 
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>-->
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView_vehicle_vehicle_health_all_good"
@@ -146,6 +146,8 @@
                     android:src="@drawable/baseline_keyboard_arrow_down_24"
                     android:tag="down"
                     app:tint="@color/black" />
+
+                <!-- components in good health -->
 
                 <LinearLayout
                     android:id="@+id/id_components_in_good_health_expandable"
@@ -268,7 +270,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/brake_pads_icon" />
+                            android:src="@drawable/diesel_particles_filter_icon" />
 
                         <TextView
                             android:id="@+id/id_icon_diesel_filter"
@@ -317,6 +319,142 @@
 
                         <ImageView
                             android:id="@+id/id_arrow_headlight_bulbs"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:src="@drawable/baseline_keyboard_arrow_right_24"
+                            android:layout_centerVertical="true"
+                            app:tint="@color/black" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:id="@+id/id_img_oil_filter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/oil_filter_icon" />
+
+                        <TextView
+                            android:id="@+id/id_icon_oil_filter_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_toEndOf="@id/id_img_oil_filter"
+                            android:fontFamily="@font/montserrat_semibold"
+                            android:text="Headlight bulbs"
+                            android:layout_centerVertical="true"
+                            android:textColor="@color/black" />
+
+                        <ImageView
+                            android:id="@+id/id_arrow_oil_filter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:src="@drawable/baseline_keyboard_arrow_right_24"
+                            android:layout_centerVertical="true"
+                            app:tint="@color/black" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:id="@+id/id_img_rear_tires"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/rear_tires_icon" />
+
+                        <TextView
+                            android:id="@+id/id_icon_rear_tires_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_toEndOf="@id/id_img_rear_tires"
+                            android:fontFamily="@font/montserrat_semibold"
+                            android:text="Headlight bulbs"
+                            android:layout_centerVertical="true"
+                            android:textColor="@color/black" />
+
+                        <ImageView
+                            android:id="@+id/id_arrow_rear_tires"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:src="@drawable/baseline_keyboard_arrow_right_24"
+                            android:layout_centerVertical="true"
+                            app:tint="@color/black" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:id="@+id/id_img_shock_absorber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/shock_absorber_icon" />
+
+                        <TextView
+                            android:id="@+id/id_icon_shock_absorber_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_toEndOf="@id/id_img_shock_absorber"
+                            android:fontFamily="@font/montserrat_semibold"
+                            android:text="Headlight bulbs"
+                            android:layout_centerVertical="true"
+                            android:textColor="@color/black" />
+
+                        <ImageView
+                            android:id="@+id/id_arrow_shock_absorber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:src="@drawable/baseline_keyboard_arrow_right_24"
+                            android:layout_centerVertical="true"
+                            app:tint="@color/black" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:id="@+id/id_img_traction_battery"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/traction_battery_icon" />
+
+                        <TextView
+                            android:id="@+id/id_icon_traction_battery_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_toEndOf="@id/id_img_traction_battery"
+                            android:fontFamily="@font/montserrat_semibold"
+                            android:text="Headlight bulbs"
+                            android:layout_centerVertical="true"
+                            android:textColor="@color/black" />
+
+                        <ImageView
+                            android:id="@+id/id_arrow_traction_battery"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
