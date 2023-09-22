@@ -15,8 +15,10 @@
             android:orientation="vertical">
 
             <RelativeLayout
+                android:id="@+id/this_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:padding="10dp">
 
                 <ImageView
@@ -72,8 +74,8 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:clickable="true"
-                        android:src="@drawable/baseline_keyboard_arrow_up_24"
-                        android:tag="up"
+                        android:src="@drawable/baseline_keyboard_arrow_down_24"
+                        android:tag="down"
                         app:tint="@color/black" />
 
                     <LinearLayout
@@ -83,7 +85,7 @@
                         android:layout_below="@+id/id_sub_tv_some_coaching"
                         android:layout_marginTop="10dp"
                         android:orientation="vertical"
-                        android:visibility="visible">
+                        android:visibility="gone">
 
                         <TextView
                             android:id="@+id/textView2"

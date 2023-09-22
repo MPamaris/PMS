@@ -91,6 +91,9 @@ class DetailsPageFragment : Fragment() {
             )
             binding.includeCoachingAdviseLongVehicleStorage.idCoachingAdviseExpandable.visibility =
                 View.VISIBLE
+            binding.includeCoachingAdviseLongVehicleStorage.thisLayout.visibility =
+                View.VISIBLE
+            binding.idCardviewTextDesc.visibility = View.GONE
             arrow.tag = "up"
             binding.includeBodyDetailsPageNew.root.visibility = View.GONE
             binding.includeBodyDetailsPage.root.visibility = View.GONE
@@ -99,6 +102,8 @@ class DetailsPageFragment : Fragment() {
                 R.drawable.baseline_keyboard_arrow_down_24
             )
             binding.includeCoachingAdviseLongVehicleStorage.idCoachingAdviseExpandable.visibility =
+                View.GONE
+            binding.includeCoachingAdviseLongVehicleStorage.thisLayout.visibility =
                 View.GONE
             arrow.tag = "down"
             binding.includeBodyDetailsPageNew.root.visibility = View.VISIBLE

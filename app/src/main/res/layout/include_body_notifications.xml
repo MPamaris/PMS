@@ -52,73 +52,48 @@
                         android:padding="12dp">
 
                         <ImageView
-                            android:id="@+id/id_image_notifications"
+                            android:id="@+id/id_icon_battery_car"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentStart="true"
-                            android:src="@drawable/baseline_battery_alert_24" />
-                        <TextView
-                            android:id="@+id/main_advise_panel_one"
-                            android:layout_width="wrap_content"
+                            android:src="@drawable/car_battery" />
+
+                        <LinearLayout
+                            android:id="@+id/id_desc_user_feedback"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="15dp"
-                            android:textStyle="bold"
-                            android:layout_toEndOf="@id/id_image_notifications"
-                            android:text="12V battery: Long vehicle storage"/>
-                        <TextView
-                            android:id="@+id/sub_advise_panel_one"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="15dp"
-                            android:layout_toEndOf="@id/id_image_notifications"
-                            android:layout_below="@id/main_advise_panel_one"
-                            android:text="1 day ago"/>
+                            android:layout_toEndOf="@id/id_icon_battery_car"
+                            android:layout_marginStart="15dp"
+                            android:orientation="vertical">
 
-                    </RelativeLayout>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_semibold"
+                                android:text="12V battery: Long vehicle storage"
+                                android:textColor="@color/black" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_medium"
+                                android:hint="1 day ago"
+                                android:textColor="@color/black" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_medium"
+                                android:hint="We noticed that your vehicle has not been used in the last 15 days."
+                                android:layout_marginTop="15dp"
+                                android:textColor="@color/black" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_medium"
+                                android:hint="Your coach has an advise to help you!"
+                                android:layout_marginTop="15dp"
+                                android:textColor="@color/black" />
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="12dp">
-
-                        <ImageView
-                            android:id="@+id/view_battery_2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:visibility="invisible"
-                            android:src="@drawable/baseline_battery_alert_24" />
-
-                        <TextView
-                            android:id="@+id/main_advise_panel_two"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="15dp"
-                            android:layout_toEndOf="@id/view_battery_2"
-                            android:text="We noticed that your vehicle has not been used in the last 15 days."/>
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="12dp">
-
-                        <ImageView
-                            android:id="@+id/view_battery_3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:visibility="invisible"
-                            android:src="@drawable/baseline_battery_alert_24" />
-
-                        <TextView
-                            android:id="@+id/main_advise_panel_three"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="15dp"
-                            android:layout_toEndOf="@id/view_battery_3"
-                            android:text="Your coach has an advise to help you!"/>
+                        </LinearLayout>
 
                     </RelativeLayout>
 

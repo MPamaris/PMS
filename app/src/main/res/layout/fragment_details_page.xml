@@ -27,6 +27,35 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/id_cardview_text_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="10dp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:text="The battery models that equip our vehicles, allow the storage of the eletricity necessary to start the engine and to operate the electrical equipment.
+They are made up of several lead-acid accumulators, six, to be extract, for the most common 12-volt models, of approximately 2 volts each."
+                            android:textSize="17dp"
+                            android:textColor="@color/black" />
+
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
                 <!-- INCLUDE TIME ESTIMATED-->
                 <include
                     android:id="@+id/include_body_details_page"
@@ -42,7 +71,7 @@
                     layout="@layout/include_body_details_page_new"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     app:layout_constraintTop_toBottomOf="@+id/id_include_toolbar_details_page" />
 
                 <include

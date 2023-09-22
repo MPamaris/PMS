@@ -137,6 +137,10 @@ class HomeFragment : Fragment() {
             goToDetailsPage()
         }
 
+        binding.includeCardviewFuel.root.setOnClickListener {
+            goToUserFeedbackPage()
+        }
+
         /*binding.idIncludeTop.idTileChoiceVehicle.idLogo.setOnClickListener {
             Toast.makeText(activity, "!!", Toast.LENGTH_SHORT).show()
             binding.idTvCheckVehicle.text = "!!"
@@ -209,6 +213,10 @@ class HomeFragment : Fragment() {
 
     private fun goToDetailsPage() {
         findNavController().navigate(R.id.action_homeFragment_to_vehicleHealthPageFragment)
+    }
+
+    private fun goToUserFeedbackPage() {
+        findNavController().navigate(R.id.action_homeFragment_to_userFeedbackFragment)
     }
 
     private fun isNotification() {
