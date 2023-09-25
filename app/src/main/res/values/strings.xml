@@ -12,5 +12,6 @@
     <string name="watch_video"><u>Watch video tutorial</u></string>
     <string name="garage"><u>garage.com</u></string>
     <string name="view_more_coach_advise"><u>View more coach advise</u></string>
+    <string name="text_partial_bold"><b>An update of the health status will be execute.</b> Please note: this will take time, depending on the usage of the vehicle.</string>
 
 </resources>

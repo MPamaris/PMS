@@ -133,5 +133,8 @@
             app:destination="@id/homeFragment"
             app:popUpTo="@id/homeFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_userFeedbackFragment_to_detailsPageFragment"
+            app:destination="@id/detailsPageFragment" />
     </fragment>
 </navigation>
