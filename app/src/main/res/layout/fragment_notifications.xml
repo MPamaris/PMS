@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@color/background_xd"
     tools:context=".fragments.NotificationsFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,6 +23,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/id_include_toolbar_notifications" />
+
+        <include
+            android:id="@+id/id_include_body_notifications_critical_maintenance"
+            layout="@layout/include_body_notifications_critical_maintenance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/id_include_body_notifications" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

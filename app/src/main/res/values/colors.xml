@@ -15,5 +15,7 @@
     <color name="red">#E60C0C</color>
     <color name="cyan">#00BCD4</color>
     <!--from Xd (use this?) -->
-    <color name="background_2">#F1F0F0</color>
+    <color name="background_xd">#F5F5F5</color>
+    <color name="yellow_xd">#CB9A31</color>
+    <color name="grey_xd">#878787</color>
 </resources>

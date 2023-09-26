@@ -33,7 +33,7 @@ class UserFeedbackFragment : Fragment() {
                 binding.idIncludeBodyUserFeedbackChoice.root.visibility = View.GONE
 
                 binding.idIncludeBodyUserFeedbackPopupLoading.root.visibility = View.VISIBLE
-                binding.idMainLayoutFeedback.setBackgroundColor(R.color.grey)
+                binding.idMainLayoutFeedback.setBackgroundColor(R.color.black)
             }
         }
 

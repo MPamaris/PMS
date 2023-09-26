@@ -49,20 +49,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.5">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:backgroundTint="#AAAAAA"/>
+            android:src="@drawable/icon_user_profile" />
 
         <TextView
             android:id="@+id/id_texv_view_out_initials"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text=""
-            android:elevation="16dp"
-            android:textColor="@color/black"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:fontFamily="@font/psa_groupe_hmi_sans_bold"
+            android:textSize="14sp"
+            android:textColor="@color/black" />
     </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
