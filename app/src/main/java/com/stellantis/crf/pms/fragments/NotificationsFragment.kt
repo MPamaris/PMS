@@ -27,11 +27,20 @@ class NotificationsFragment : Fragment() {
         val vehicleReceived = args.isNotify.vehicleSelected
         //val argumentFromCoaching = argsCoaching.argumentsFromCoaching.argumentsCoachingAdvise
 
-        val bodyNotifications = binding.idIncludeBodyNotifications.idCardviewBodyNotifications
+        val bodyNotifications = binding.idIncludeBodyNotifications.root
+        val bodyNotificationsMaintenanceToBePlaned = binding.idIncludeBodyNotificationsCriticalMaintenance.root
 
+        //val bodyNotificationsTile = binding.idIncludeBodyNotifications.idCardviewBodyNotifications
+        val bodyNotificationsTile = binding.idIncludeBodyNotifications.idTileNotification.root
+        val bodyNotificationsMaintenanceToBePlanedTile = binding.idIncludeBodyNotificationsCriticalMaintenance.idCardviewBodyNotifications
+
+        /*when (notifyReceived) {
+            "IS_NOTIFICATION" -> bodyNotifications.visibility = View.VISIBLE
+            "IS_NOT_NOTIFICATION" -> bodyNotificationsMaintenanceToBePlaned.visibility = View.VISIBLE
+        }*/
         when (notifyReceived) {
             "IS_NOTIFICATION" -> bodyNotifications.visibility = View.VISIBLE
-            "IS_NOT_NOTIFICATION" -> bodyNotifications.visibility = View.GONE
+            "IS_NOT_NOTIFICATION" -> bodyNotificationsMaintenanceToBePlaned.visibility = View.VISIBLE
         }
 
         //Toast.makeText(activity, "!! --> " + argumentFromCoaching, Toast.LENGTH_SHORT).show()
@@ -40,21 +49,17 @@ class NotificationsFragment : Fragment() {
             goToDetailsPage()
         }
 
+        bodyNotificationsTile.setOnClickListener {
+            goToDetailsPage()
+        }
+        bodyNotificationsMaintenanceToBePlanedTile.setOnClickListener {
+            Toast.makeText(activity, "Critical", Toast.LENGTH_SHORT).show()
+        }
+
         val view = binding.root
 
         binding.idIncludeToolbarNotifications.idButtonBackToolbarNotifications.setOnClickListener {
             goBack()
-            /*if (vehicleReceived.equals("Renegade")) {
-                val sendInfoVeichle = "vehicleReceived_1"
-                val selected = VehicleInfoBackToHome(sendInfoVeichle)
-
-                val action = NotificationsFragmentDirections.actionNotificationsFragmentToHomeFragment(selected)
-                findNavController().navigate(action)
-                Toast.makeText(activity, "send Renegade", Toast.LENGTH_SHORT).show()
-            }
-            if (vehicleReceived.equals("C5 Aircross")) {
-                Toast.makeText(activity, "send C5 Aircross", Toast.LENGTH_SHORT).show()
-            }*/
         }
 
         return view

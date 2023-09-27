@@ -55,12 +55,12 @@ class HomeFragment : Fragment() {
 
                 if (currentVehicle.contains("Renegade")) {
                     getRenegadeInfo()
-                    //binding.idTvCheckVehicle.text = "Renegade"
+                    binding.idTvCheckVehicle.text = "Renegade"
                     //Toast.makeText(activity, "" + currentVehicle, Toast.LENGTH_SHORT).show()
 
                 }
                 if (currentVehicle.contains("C5 Aircross")) {
-                    //binding.idTvCheckVehicle.text = "C5 Aircross"
+                    binding.idTvCheckVehicle.text = "C5 Aircross"
                     //Toast.makeText(activity, "" + currentVehicle, Toast.LENGTH_SHORT).show()
                     getC5AirCrossInfo()
                 }
@@ -106,7 +106,22 @@ class HomeFragment : Fragment() {
             findNavController().navigate(action)*/
 
             val isNotify = binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification
-            if (isNotify.visibility == View.VISIBLE) {
+
+            val isRenegade = "IS_NOTIFICATION"
+            val isC5Aircross = "IS_NOT_NOTIFICATION"
+            val selectedVehicle = binding.idTvCheckVehicle.text.toString()
+            val sendInfoRenegade = NotificationInfo(isRenegade, selectedVehicle)
+            val sendInfoC5Aircross = NotificationInfo(isC5Aircross, selectedVehicle)
+            // TODO: try new model as  NotificationInfo
+            val actionRenegade = HomeFragmentDirections.actionHomeFragmentToNotificationsFragment(sendInfoRenegade)
+            val actionC5Aircross = HomeFragmentDirections.actionHomeFragmentToNotificationsFragment(sendInfoC5Aircross)
+
+            when (selectedVehicle) {
+                "Renegade" -> findNavController().navigate(actionRenegade)
+                "C5 Aircross" -> findNavController().navigate(actionC5Aircross)
+            }
+
+            /*if (isNotify.visibility == View.VISIBLE) {
                 val isNotifyOn = "IS_NOTIFICATION"
                 val selectedVehicle = binding.idTvCheckVehicle.text.toString()
                 val noti = NotificationInfo(isNotifyOn, selectedVehicle)
@@ -126,7 +141,7 @@ class HomeFragment : Fragment() {
                 findNavController().navigate(action)
                 //goToNotificationPage()
                 //Toast.makeText(activity, "NOT VISIBLE", Toast.LENGTH_SHORT).show()
-            }
+            }*/
         }
 
         binding.includeWarning.root.setOnClickListener {

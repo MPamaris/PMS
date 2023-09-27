@@ -18,91 +18,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Unread notifications"
-                android:textSize="15dp"
-                android:textStyle="bold"
+                android:fontFamily="@font/psa_groupe_hmi_sans_bold"
+                android:textColor="@color/black"
+                android:textSize="16sp"
                 android:padding="20dp" />
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/id_cardview_body_notifications"
+            <include
+                android:id="@+id/id_tile_notification"
+                layout="@layout/tile_notification"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="10dp"
-                app:cardUseCompatPadding="true"
-                android:padding="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.5"
-                android:visibility="visible">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="12dp">
-
-                        <ImageView
-                            android:id="@+id/id_icon_battery_car"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:src="@drawable/car_battery" />
-
-                        <LinearLayout
-                            android:id="@+id/id_desc_user_feedback"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_toEndOf="@id/id_icon_battery_car"
-                            android:layout_marginStart="15dp"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/psa_groupe_hmi_sans_bold"
-                                android:text="12V battery: Long vehicle storage"
-                                android:textColor="@color/black"
-                                android:textSize="16sp"/>
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/psa_groupe_hmi_sans_regular"
-                                android:text="1 day ago"
-                                android:textSize="14sp"
-                                android:textColor="@color/grey_xd" />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/psa_groupe_hmi_sans_regular"
-                                android:text="We noticed that your vehicle has not been used in the last 15 days."
-                                android:textSize="14sp"
-                                android:textColor="@color/black" />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:fontFamily="@font/psa_groupe_hmi_sans_regular"
-                                android:text="Your coach has an advise to help you!"
-                                android:textSize="14sp"
-                                android:textColor="@color/black" />
-
-                        </LinearLayout>
-
-                    </RelativeLayout>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
     </ScrollView>

@@ -53,12 +53,12 @@ class VehiclePageFragment : Fragment() {
 
                 if (currentVehicle.contains("Renegade")) {
                     getRenegadeInfo()
-                    //binding.idTvCheckVehicle.text = "Renegade"
+                    binding.idTvCheckVehicle.text = "Renegade"
                     //Toast.makeText(activity, "" + currentVehicle, Toast.LENGTH_SHORT).show()
 
                 }
                 if (currentVehicle.contains("C5 Aircross")) {
-                    //binding.idTvCheckVehicle.text = "C5 Aircross"
+                    binding.idTvCheckVehicle.text = "C5 Aircross"
                     //Toast.makeText(activity, "" + currentVehicle, Toast.LENGTH_SHORT).show()
                     getC5AirCrossInfo()
                 }
@@ -71,16 +71,31 @@ class VehiclePageFragment : Fragment() {
             /*val isNotifyOn = "OFF"
             val noti = NotificationInfo(isNotify)
 
-            val action = HomeFragmentDirections.actionHomeFragmentToNotificationsFragment(noti)
+            val action = VehiclePageFragmentDirections.actionHomeFragmentToNotificationsFragment(noti)
             findNavController().navigate(action)*/
 
             val isNotify = binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification
-            if (isNotify.visibility == View.VISIBLE) {
+
+            val isRenegade = "IS_NOTIFICATION"
+            val isC5Aircross = "IS_NOT_NOTIFICATION"
+            val selectedVehicle = binding.idTvCheckVehicle.text.toString()
+            val sendInfoRenegade = NotificationInfo(isRenegade, selectedVehicle)
+            val sendInfoC5Aircross = NotificationInfo(isC5Aircross, selectedVehicle)
+            // TODO: try new model as  NotificationInfo
+            val actionRenegade = VehiclePageFragmentDirections.actionVehiclePageFragmentToNotificationsFragment(sendInfoRenegade)
+            val actionC5Aircross = VehiclePageFragmentDirections.actionVehiclePageFragmentToNotificationsFragment(sendInfoC5Aircross)
+
+            when (selectedVehicle) {
+                "Renegade" -> findNavController().navigate(actionRenegade)
+                "C5 Aircross" -> findNavController().navigate(actionC5Aircross)
+            }
+
+            /*if (isNotify.visibility == View.VISIBLE) {
                 val isNotifyOn = "IS_NOTIFICATION"
                 val selectedVehicle = binding.idTvCheckVehicle.text.toString()
                 val noti = NotificationInfo(isNotifyOn, selectedVehicle)
 
-                val action = VehiclePageFragmentDirections.actionVehiclePageFragmentToNotificationsFragment(noti)
+                val action = VehiclePageFragmentDirections.actionHomeFragmentToNotificationsFragment(noti)
                 findNavController().navigate(action)
                 //goToNotificationPage()
                 //Toast.makeText(activity, "VISIBLE", Toast.LENGTH_SHORT).show()
@@ -91,18 +106,18 @@ class VehiclePageFragment : Fragment() {
                 val noti = NotificationInfo(isNotifyOn, selectedVehicle)
                 // MEMORIZZARE VEICOLO SCELTO
 
-                val action = VehiclePageFragmentDirections.actionVehiclePageFragmentToNotificationsFragment(noti)
+                val action = VehiclePageFragmentDirections.actionHomeFragmentToNotificationsFragment(noti)
                 findNavController().navigate(action)
                 //goToNotificationPage()
                 //Toast.makeText(activity, "NOT VISIBLE", Toast.LENGTH_SHORT).show()
-            }
+            }*/
         }
 
-        binding.idVehicleInformation.setOnClickListener {
+        binding.idTileVehiclePageInformation.idVehicleInformation.setOnClickListener {
             goToVehicleInfoPage()
         }
 
-        binding.idVehicleHealth.setOnClickListener {
+        binding.idTileVehiclePageHealth.idVehicleHealth.setOnClickListener {
             goToVehicleHealthPage()
         }
 
