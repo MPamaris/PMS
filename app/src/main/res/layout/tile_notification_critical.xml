@@ -31,7 +31,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/id_vehicle_selected_number"
+            android:id="@+id/id_vehicle_vin_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/id_vehicle_selected"

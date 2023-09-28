@@ -246,6 +246,8 @@ class HomeFragment : Fragment() {
                             val notification =
                                 notificationNew.notifications?.get(0)?.notificationSeverity
 
+                            val vin = notificationNew.notifications?.get(0)?.vin
+
                             when (notification) {
                                 "0" -> binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification.visibility =
                                     View.VISIBLE
@@ -270,7 +272,6 @@ class HomeFragment : Fragment() {
             }
         }
     }
-
     private fun getComponentsStatus() {
 
         // TODO: TO BE COMPLETED

@@ -270,6 +270,7 @@ class VehiclePageFragment : Fragment() {
     private fun getRenegadeInfo() {
         getComponentsStatus()
         isNotification()
+        isGetVinRenegade()
         binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification.visibility = View.INVISIBLE
 
     }
@@ -277,6 +278,7 @@ class VehiclePageFragment : Fragment() {
     private fun getC5AirCrossInfo() {
         // MOCK type fuel
         isNotification()
+        isGetVinC5Aircross()
 
     }
 
@@ -313,6 +315,53 @@ class VehiclePageFragment : Fragment() {
                                 Toast.makeText(activity, "FOR --> " + healthOfComponent[i], Toast.LENGTH_SHORT).show()
 
                             }*/
+
+
+                        } ?: throw Exception("discovery null response")
+                    }
+                }
+            } catch (e: Exception) {
+                Toast.makeText(activity, "Network Error", Toast.LENGTH_LONG).show()
+                // Discovery error
+                Log.e(ContentValues.TAG, "callDiscovery(): Error: $e")
+            }
+        }
+    }
+
+    private fun isGetVinRenegade() {
+
+        activity?.let { PmsRepository.initialize(it) }
+        lifecycleScope.launch {
+            try {
+                coroutineScope {
+                    launch {
+                        PmsRepository.getVinRenegade()?.let { notificationNew ->
+
+                            val vin = notificationNew.notifications?.get(0)?.vin
+                            binding.idTileVehiclePageInformation.idVehicleVinNumber.text = vin
+
+
+                        } ?: throw Exception("discovery null response")
+                    }
+                }
+            } catch (e: Exception) {
+                Toast.makeText(activity, "Network Error", Toast.LENGTH_LONG).show()
+                // Discovery error
+                Log.e(ContentValues.TAG, "callDiscovery(): Error: $e")
+            }
+        }
+    }
+    private fun isGetVinC5Aircross() {
+
+        activity?.let { PmsRepository.initialize(it) }
+        lifecycleScope.launch {
+            try {
+                coroutineScope {
+                    launch {
+                        PmsRepository.getVinC5Aircross()?.let { notificationNew ->
+
+                            val vin = notificationNew.notifications?.get(0)?.vin
+                            binding.idTileVehiclePageInformation.idVehicleVinNumber.text = vin
 
 
                         } ?: throw Exception("discovery null response")
