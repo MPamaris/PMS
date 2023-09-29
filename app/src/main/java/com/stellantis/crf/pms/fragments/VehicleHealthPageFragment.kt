@@ -25,25 +25,27 @@ class VehicleHealthPageFragment : Fragment() {
             goToHomePage()
         }
 
-        binding.idIncludeAllCoachingAdvise.root.setOnClickListener {
-            goToCoachingAdvisePage()
+        binding.idTileVehicleHealthComponentExpandable.idArrowExpandableComponents.setOnClickListener {
+            binding.idTileVehicleHealthComponentExpandable.idLayoutFather.visibility = View.GONE
+            binding.idTileVehicleHealthComponentExpandable.idLayoutChild.visibility = View.VISIBLE
         }
 
-        binding.idIncludeMaintenanceWarning.idVehicleSelectedArrowComponentsInGoodHealth.setOnClickListener {
+        binding.idTileVehicleHealthComponentExpandable.idArrowChild.setOnClickListener {
+            binding.idTileVehicleHealthComponentExpandable.idLayoutChild.visibility = View.GONE
+            binding.idTileVehicleHealthComponentExpandable.idLayoutFather.visibility = View.VISIBLE
+        }
+
+        /*binding.idTileVehicleHealthComponentExpandable.idArrowExpandableComponents.setOnClickListener {
             expandComponentsInGoodHealth()
-        }
-
-        binding.idIncludeMaintenanceWarning.idArrowBattery.setOnClickListener {
-            goToComponentsDetailsPage()
-        }
+        }*/
 
         /*binding.idIncludeMaintenanceWarning.idVehicleSelectedArrow.setOnClickListener {
             goToComponentsDetailsPage()
         }*/
 
-        binding.idIncludeMaintenanceWarning.idVehicleSelectedArrowComponentsInGoodHealth.setOnClickListener {
+        /*binding.idIncludeMaintenanceWarning.idVehicleSelectedArrowComponentsInGoodHealth.setOnClickListener {
             expandComponentsInGoodHealth()
-        }
+        }*/
 
         return view
     }
@@ -62,28 +64,27 @@ class VehicleHealthPageFragment : Fragment() {
         findNavController().navigate(R.id.action_vehicleHealthPageFragment_to_coachingAdviseFragment)
     }
 
-    private fun expandComponentsInGoodHealth() {
+    /*private fun expandComponentsInGoodHealth() {
 
         val arrow =
-            binding.idIncludeMaintenanceWarning.idVehicleSelectedArrowComponentsInGoodHealth
+            binding.idTileVehicleHealthComponentExpandable.idArrowExpandableComponents
 
         if ("down" == arrow.tag) {
-            binding.idIncludeMaintenanceWarning.idVehicleSelectedArrowComponentsInGoodHealth.setImageResource(
+            binding.idTileVehicleHealthComponentExpandable.idArrowExpandableComponents.setImageResource(
                 R.drawable.baseline_keyboard_arrow_up_24
             )
-            binding.idAdviseVehicleHealth.visibility = View.VISIBLE
-            binding.idIncludeMaintenanceWarning.idComponentsInGoodHealthExpandable.visibility =
-                View.VISIBLE
+            binding.idTileVehicleHealthComponentExpandable.idLayoutChild.visibility = View.VISIBLE
+            binding.idTileVehicleHealthComponentExpandable.idLayoutFather.visibility = View.GONE
             arrow.tag = "up"
         } else {
-            binding.idIncludeMaintenanceWarning.idVehicleSelectedArrowComponentsInGoodHealth.setImageResource(
+            binding.idTileVehicleHealthComponentExpandable.idArrowExpandableComponents.setImageResource(
                 R.drawable.baseline_keyboard_arrow_down_24
             )
-            binding.idAdviseVehicleHealth.visibility = View.GONE
-            binding.idIncludeMaintenanceWarning.idComponentsInGoodHealthExpandable.visibility =
-                View.GONE
+            binding.idTileVehicleHealthComponentExpandable.idLayoutChild.visibility = View.GONE
+            *//*binding.idIncludeMaintenanceWarning.idComponentsInGoodHealthExpandable.visibility =
+                View.GONE*//*
             arrow.tag = "down"
         }
 
-    }
+    }*/
 }
