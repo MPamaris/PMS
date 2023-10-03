@@ -130,6 +130,16 @@ object PmsRepository {
         )?.deserializeAs<VehicleInfoNew>()
     }
 
+    /** Test **/
+    suspend fun getComponents(tag: String? = null): VehicleInfoNew? {
+        return enqueueNewRequest(
+            url = "$CRF_API_CORE_BASE_URL_NEW/components/VR7ATTENTJL033368",
+            method = Request.Method.GET,
+            headers = CRF_API_CORE_AUTH_HEADER,
+            tag = tag,
+        )?.deserializeAs<VehicleInfoNew>()
+    }
+
     /** Get Vehicle Owned **/
     suspend fun getVehicleOwned(tag: String? = null): VehicleInfoNew? {
         return enqueueNewRequest(
@@ -141,9 +151,18 @@ object PmsRepository {
     }
 
     /** Get Components status **/
-    suspend fun getComponentsStatus(tag: String? = null): VehicleInfoNew? {
+    suspend fun getComponentsStatusRenegade(tag: String? = null): VehicleInfoNew? {
         return enqueueNewRequest(
             url = "$CRF_API_CORE_BASE_URL_NEW/components/ZFAEF4VP1LX000999",
+            method = Request.Method.GET,
+            headers = CRF_API_CORE_AUTH_HEADER,
+            tag = tag,
+        )?.deserializeAs<VehicleInfoNew>()
+    }
+
+    suspend fun getComponentsStatusC5Aircross(tag: String? = null): VehicleInfoNew? {
+        return enqueueNewRequest(
+            url = "$CRF_API_CORE_BASE_URL_NEW/components/VR7ATTENTJL033368",
             method = Request.Method.GET,
             headers = CRF_API_CORE_AUTH_HEADER,
             tag = tag,
@@ -161,7 +180,7 @@ object PmsRepository {
 
     suspend fun getNotification(tag: String? = null): NotificationsNew? {
         return enqueueNewRequest(
-            url = "$CRF_API_CORE_BASE_URL_NEW/notifications/ed8c2494251143e2b59c11ad53efba2c/VR7ATTENTJL033368",
+            url = "$CRF_API_CORE_BASE_URL_NEW/notifications/ed8c2494251143e2b59c11ad53efba2c/ZFAEF4VP1LX000999",
             method = Request.Method.GET,
             headers = CRF_API_CORE_AUTH_HEADER,
             tag = tag,

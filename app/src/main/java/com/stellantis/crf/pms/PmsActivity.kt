@@ -203,7 +203,7 @@ class PmsActivity : AppCompatActivity() {
             try {
                 coroutineScope {
                     launch {
-                        PmsRepository.getComponentsStatus()?.let { vehicleInfoNew ->
+                        PmsRepository.getComponentsStatusRenegade()?.let { vehicleInfoNew ->
 
                             /*val componentName = vehicleInfoNew.components?.map { it.componentName }
                             binding.includeCardviewStatus.idTextViewStatus.text = componentName?.get(1)

@@ -291,7 +291,7 @@ class VehiclePageFragment : Fragment() {
             try {
                 coroutineScope {
                     launch {
-                        PmsRepository.getComponentsStatus()?.let { vehicleInfoNew ->
+                        PmsRepository.getComponentsStatusRenegade()?.let { vehicleInfoNew ->
 
                             val healthOfComponent = vehicleInfoNew.components?.map { it.health }
                             /*binding.includeCardviewStatus.idTextViewStatus.text =
