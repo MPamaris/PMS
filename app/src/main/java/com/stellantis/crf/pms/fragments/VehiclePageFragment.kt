@@ -68,11 +68,32 @@ class VehiclePageFragment : Fragment() {
 
         binding.idIncludeTop.tileUserAndNotifications.constraintLayout.setOnClickListener {
 
-            /*val isNotifyOn = "OFF"
+            val isNotify = binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification.visibility
+
+            if (isNotify == View.VISIBLE) {
+                val isNotification = "IS_NOTIFICATION_NEW"
+                val status = NotificationInfo(isNotification, "")
+
+                val action = VehiclePageFragmentDirections.actionVehiclePageFragmentToNotificationsFragment(status)
+                findNavController().navigate(action)
+            }
+            if (isNotify == View.INVISIBLE) {
+                val isNotification = "IS_NOT_NOTIFICATION_NEW"
+                val status = NotificationInfo(isNotification, "")
+
+                val action = VehiclePageFragmentDirections.actionVehiclePageFragmentToNotificationsFragment(status)
+                findNavController().navigate(action)
+            }
+
+        }
+
+        /*binding.idIncludeTop.tileUserAndNotifications.constraintLayout.setOnClickListener {
+
+            *//*val isNotifyOn = "OFF"
             val noti = NotificationInfo(isNotify)
 
             val action = VehiclePageFragmentDirections.actionHomeFragmentToNotificationsFragment(noti)
-            findNavController().navigate(action)*/
+            findNavController().navigate(action)*//*
 
             val isNotify = binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification
 
@@ -90,7 +111,7 @@ class VehiclePageFragment : Fragment() {
                 "C5 Aircross" -> findNavController().navigate(actionC5Aircross)
             }
 
-            /*if (isNotify.visibility == View.VISIBLE) {
+            *//*if (isNotify.visibility == View.VISIBLE) {
                 val isNotifyOn = "IS_NOTIFICATION"
                 val selectedVehicle = binding.idTvCheckVehicle.text.toString()
                 val noti = NotificationInfo(isNotifyOn, selectedVehicle)
@@ -110,8 +131,8 @@ class VehiclePageFragment : Fragment() {
                 findNavController().navigate(action)
                 //goToNotificationPage()
                 //Toast.makeText(activity, "NOT VISIBLE", Toast.LENGTH_SHORT).show()
-            }*/
-        }
+            }*//*
+        }*/
 
         binding.idTileVehiclePageInformation.idVehicleInformation.setOnClickListener {
             goToVehicleInfoPage()
@@ -170,7 +191,9 @@ class VehiclePageFragment : Fragment() {
                         PmsRepository.getNotification()?.let { notificationNew ->
 
                             val notification =
-                                notificationNew.notifications?.get(0)?.notificationSeverity
+                                notificationNew.notifications?.get(1)?.notificationSeverity
+
+                            //Toast.makeText(activity, "noti " + notification, Toast.LENGTH_SHORT).show()
 
                             when (notification) {
                                 "0" -> binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification.visibility =
@@ -185,9 +208,11 @@ class VehiclePageFragment : Fragment() {
                     }
                 }
             } catch (e: Exception) {
-                Toast.makeText(activity, "Network Error", Toast.LENGTH_LONG).show()
+                /*Toast.makeText(activity, "Network Error", Toast.LENGTH_LONG).show()
                 // Discovery error
-                Log.e(ContentValues.TAG, "callDiscovery(): Error: $e")
+                Log.e(ContentValues.TAG, "callDiscovery(): Error: $e")*/
+                binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification.visibility =
+                    View.INVISIBLE
             }
         }
     }
@@ -282,6 +307,7 @@ class VehiclePageFragment : Fragment() {
 
     }
 
+    @SuppressLint("ResourceAsColor")
     private fun getComponentsStatus() {
 
         // TODO: TO BE COMPLETED
@@ -298,7 +324,49 @@ class VehiclePageFragment : Fragment() {
                                 healthOfComponent?.get(1)*/
 
                             if (healthOfComponent!!.contains("1")) {
-                                Toast.makeText(activity, "1", Toast.LENGTH_SHORT).show()
+                                data class Component(val name: String, val status: Int)
+
+                                val battery = healthOfComponent[0]!!.toInt()
+                                val brakePads = healthOfComponent[1]!!.toInt()
+                                val brakeDiscs = healthOfComponent[2]!!.toInt()
+                                val dieselParticlesFilter = healthOfComponent[3]!!.toInt()
+                                val tire = healthOfComponent[4]!!.toInt()
+                                val airFilter = healthOfComponent[5]!!.toInt()
+                                val headlightBulbs = healthOfComponent[6]!!.toInt()
+                                val engine = healthOfComponent[7]!!.toInt()
+
+                                val singleComponent = listOf(
+                                    Component("Battery", battery),
+                                    Component("Brake Pads", brakePads),
+                                    Component("Brake Discs", brakeDiscs),
+                                    Component("Diesel Particles Filter", dieselParticlesFilter),
+                                    Component("Tire", tire),
+                                    Component("Air Filter", airFilter),
+                                    Component("Head Light Bulbs", headlightBulbs),
+                                    Component("Engine", engine),
+                                )
+
+                                val componentCritical = singleComponent.filter { it.status == 1}.toString().replace("[","")
+                                    .replace("Component","")
+                                    .replace("name","")
+                                    .replace("=","")
+                                    .replace(",","")
+                                    .replace("status","")
+                                    .replace("(","")
+                                    .replace(")","")
+                                    .replace("1","")
+                                    .replace("]","")
+
+                                //val componentCritical = singleComponent.filter { it.status == 1}[0].name
+                                //Toast.makeText(activity, "!! --> " + componentCritical, Toast.LENGTH_SHORT).show()
+                                /*Toast.makeText(activity, "HERE"+
+                                        singleComponent.binarySearch(Component("Battery", engine), compareBy<Component>
+                                        { it.status }.thenBy { it.name }), Toast.LENGTH_SHORT).show()*/
+
+                                //println(singleComponent.binarySearch(Component("Battery", battery), compareBy<Component> { it.status }.thenBy { it.name }))
+
+                                binding.idTileVehiclePageHealth.idTileVehicleMaintenance.visibility = View.VISIBLE
+                                binding.idTileVehiclePageHealth.idTileVehicleHealth.visibility = View.GONE
                             }
                             else if (healthOfComponent.contains("2")) {
                                 Toast.makeText(activity, "2", Toast.LENGTH_SHORT).show()
@@ -360,8 +428,9 @@ class VehiclePageFragment : Fragment() {
                     launch {
                         PmsRepository.getVinC5Aircross()?.let { notificationNew ->
 
-                            val vin = notificationNew.notifications?.get(0)?.vin
+                            val vin = notificationNew.notifications?.get(1)?.vin
                             binding.idTileVehiclePageInformation.idVehicleVinNumber.text = vin
+
 
 
                         } ?: throw Exception("discovery null response")

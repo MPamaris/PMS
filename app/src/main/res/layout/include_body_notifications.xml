@@ -26,6 +26,14 @@
             <include
                 android:id="@+id/id_tile_notification"
                 layout="@layout/tile_notification"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <include
+                android:id="@+id/id_tile_notification_to_be_planned"
+                layout="@layout/tile_notification_to_be_planned"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 

@@ -99,11 +99,32 @@ class HomeFragment : Fragment() {
 
         binding.idIncludeTop.tileUserAndNotifications.constraintLayout.setOnClickListener {
 
-            /*val isNotifyOn = "OFF"
+            val isNotify = binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification.visibility
+
+            if (isNotify == View.VISIBLE) {
+                val isNotification = "IS_NOTIFICATION_NEW"
+                val status = NotificationInfo(isNotification, "")
+
+                val action = HomeFragmentDirections.actionHomeFragmentToNotificationsFragment(status)
+                findNavController().navigate(action)
+            }
+            if (isNotify == View.INVISIBLE) {
+                val isNotification = "IS_NOT_NOTIFICATION_NEW"
+                val status = NotificationInfo(isNotification, "")
+
+                val action = HomeFragmentDirections.actionHomeFragmentToNotificationsFragment(status)
+                findNavController().navigate(action)
+            }
+
+        }
+
+        /*binding.idIncludeTop.tileUserAndNotifications.constraintLayout.setOnClickListener {
+
+            *//*val isNotifyOn = "OFF"
             val noti = NotificationInfo(isNotify)
 
             val action = HomeFragmentDirections.actionHomeFragmentToNotificationsFragment(noti)
-            findNavController().navigate(action)*/
+            findNavController().navigate(action)*//*
 
             val isNotify = binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification
 
@@ -121,7 +142,7 @@ class HomeFragment : Fragment() {
                 "C5 Aircross" -> findNavController().navigate(actionC5Aircross)
             }
 
-            /*if (isNotify.visibility == View.VISIBLE) {
+            *//*if (isNotify.visibility == View.VISIBLE) {
                 val isNotifyOn = "IS_NOTIFICATION"
                 val selectedVehicle = binding.idTvCheckVehicle.text.toString()
                 val noti = NotificationInfo(isNotifyOn, selectedVehicle)
@@ -141,8 +162,8 @@ class HomeFragment : Fragment() {
                 findNavController().navigate(action)
                 //goToNotificationPage()
                 //Toast.makeText(activity, "NOT VISIBLE", Toast.LENGTH_SHORT).show()
-            }*/
-        }
+            }*//*
+        }*/
 
         binding.includeWarning.root.setOnClickListener {
             goToVehicleHealthPage()

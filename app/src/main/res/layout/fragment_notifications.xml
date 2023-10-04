@@ -22,16 +22,15 @@
             layout="@layout/include_body_notifications"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@+id/id_include_toolbar_notifications" />
 
-        <include
+        <!--<include
             android:id="@+id/id_include_body_notifications_critical_maintenance"
             layout="@layout/include_body_notifications_critical_maintenance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@+id/id_include_body_notifications" />
+            android:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@+id/id_include_body_notifications" />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -3,15 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/background"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/background">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:background="@drawable/tile_vehicle_page_health"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -20,39 +17,103 @@
         app:layout_constraintVertical_bias="0.5">
 
         <RelativeLayout
-            android:id="@+id/id_vehicle_health"
+            android:id="@+id/id_tile_vehicle_health"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp">
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/tile_vehicle_page_health">
 
-            <TextView
-                android:id="@+id/id_vehicle_healt_tv"
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:id="@+id/id_vehicle_health"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:fontFamily="@font/montserrat_medium"
-                android:layout_alignParentStart="true"
-                android:text="Vehicle Health"/>
+                android:padding="10dp">
 
-            <TextView
-                android:id="@+id/id_vehicle_healt_status"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/green"
-                android:fontFamily="@font/montserrat_medium"
-                android:layout_below="@+id/id_vehicle_healt_tv"
-                android:layout_marginTop="8dp"
-                android:layout_alignParentStart="true"
-                android:text="Your vehicle is in good health"/>
+                <TextView
+                    android:id="@+id/id_vehicle_healt_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:fontFamily="@font/psa_groupe_hmi_sans_regular"
+                    android:text="Vehicle Health"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
-            <ImageView
-                android:id="@+id/id_vehicle_health_arrow"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/id_vehicle_healt_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/id_vehicle_healt_tv"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/psa_groupe_hmi_sans_bold"
+                    android:text="Your vehicle is in good health"
+                    android:textColor="@color/green_text_xd"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/id_vehicle_health_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/arrow_right"
+                    app:tint="@color/black" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/id_tile_vehicle_maintenance"
+            android:layout_below="@id/id_tile_vehicle_health"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:background="@drawable/tile_vehicle_page_health">
+
+            <RelativeLayout
+                android:id="@+id/id_vehicle_maintenance"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/baseline_keyboard_arrow_right_24"
-                app:tint="@color/black"
-                android:layout_centerVertical="true"
-                android:layout_alignParentEnd="true"/>
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/id_vehicle_healt_maintenance_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:fontFamily="@font/psa_groupe_hmi_sans_regular"
+                    android:text="Vehicle Health"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/id_vehicle_maintenance_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/id_vehicle_healt_maintenance_tv"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/psa_groupe_hmi_sans_bold"
+                    android:text="Critical maintenance to be planned"
+                    android:textColor="@color/yellow_xd"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/id_vehicle_maintenance_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/arrow_right"
+                    app:tint="@color/black" />
+
+            </RelativeLayout>
 
         </RelativeLayout>
 
