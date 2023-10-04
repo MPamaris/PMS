@@ -213,7 +213,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun getC5AirCrossInfo() {
-        binding.includeWarning.root.visibility = View.VISIBLE
+        //binding.includeWarning.root.visibility = View.VISIBLE
         // MOCK type fuel
         getComponentsStatusC5Aircross()
         binding.includeCardviewFuel.textviewType.text = "Fuel"
