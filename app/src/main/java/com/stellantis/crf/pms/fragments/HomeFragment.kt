@@ -213,7 +213,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun getC5AirCrossInfo() {
-        binding.includeWarning.cardView.visibility = View.VISIBLE
+        binding.includeWarning.root.visibility = View.VISIBLE
         // MOCK type fuel
         getComponentsStatusC5Aircross()
         binding.includeCardviewFuel.textviewType.text = "Fuel"
@@ -274,6 +274,7 @@ class HomeFragment : Fragment() {
 
                             binding.includeWarning.root.visibility = View.VISIBLE
                             binding.includeWarning.idOutTextWarning.text = criticalMaintenanceToBePlaned
+                            binding.includeWarning.iconMaintenance
 
                             when (notification) {
                                 "0" -> binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification.visibility =
