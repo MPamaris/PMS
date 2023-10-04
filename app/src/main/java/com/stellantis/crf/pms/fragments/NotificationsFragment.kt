@@ -40,14 +40,15 @@ class NotificationsFragment : Fragment() {
         val bodyNotificationsTile = binding.idIncludeBodyNotifications.idTileNotification.root
         //val bodyNotificationsMaintenanceToBePlanedTile = binding.idIncludeBodyNotificationsCriticalMaintenance.idCardviewBodyNotifications
 
-        //Toast.makeText(activity, "Received --> " + notifyReceived, Toast.LENGTH_SHORT).show()
-
         when (notifyReceived) {
             "IS_NOTIFICATION_NEW" -> binding.idIncludeBodyNotifications.idTileNotificationToBePlanned.root.visibility = View.VISIBLE
             "IS_NOT_NOTIFICATION_NEW" -> binding.idIncludeBodyNotifications.idTileNotification.root.visibility = View.GONE
         }
 
-        getBodyNotification()
+        when (vehicleReceived) {
+            "Renegade" -> getBodyNotificationRenegade()
+            "C5 Aircross" -> getBodyNotificationC5Aircross()
+        }
 
         /*when (notifyReceived) {
             "IS_NOTIFICATION_NEW" -> bodyNotifications.visibility = View.VISIBLE
@@ -93,7 +94,7 @@ class NotificationsFragment : Fragment() {
         findNavController().navigate(R.id.action_notificationsFragment_to_homeFragment)
     }
 
-    private fun getBodyNotification() {
+    private fun getBodyNotificationRenegade() {
 
         activity?.let { PmsRepository.initialize(it) }
         lifecycleScope.launch {
@@ -101,6 +102,33 @@ class NotificationsFragment : Fragment() {
                 coroutineScope {
                     launch {
                         PmsRepository.getNotification()?.let { notificationNew ->
+
+                            val notificationTitle = notificationNew.notifications?.get(1)?.notificationTitle
+                            val notificationText = notificationNew.notifications?.get(1)?.notificationText
+
+                            binding.idIncludeBodyNotifications.idTileNotificationToBePlanned.idNotificationTitle.text = notificationTitle
+                            binding.idIncludeBodyNotifications.idTileNotificationToBePlanned.idNotificationText.text = notificationText
+
+
+                        } ?: throw Exception("discovery null response")
+                    }
+                }
+            } catch (e: Exception) {
+                /*Toast.makeText(activity, "Network Error", Toast.LENGTH_LONG).show()
+                // Discovery error
+                Log.e(ContentValues.TAG, "callDiscovery(): Error: $e")*/
+            }
+        }
+    }
+
+    private fun getBodyNotificationC5Aircross() {
+
+        activity?.let { PmsRepository.initialize(it) }
+        lifecycleScope.launch {
+            try {
+                coroutineScope {
+                    launch {
+                        PmsRepository.getNotificationC5()?.let { notificationNew ->
 
                             val notificationTitle = notificationNew.notifications?.get(1)?.notificationTitle
                             val notificationText = notificationNew.notifications?.get(1)?.notificationText

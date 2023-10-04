@@ -103,14 +103,16 @@ class HomeFragment : Fragment() {
 
             if (isNotify == View.VISIBLE) {
                 val isNotification = "IS_NOTIFICATION_NEW"
-                val status = NotificationInfo(isNotification, "")
+                val currentVehicle = binding.idTvCheckVehicle.text.toString()
+                val status = NotificationInfo(isNotification, currentVehicle)
 
                 val action = HomeFragmentDirections.actionHomeFragmentToNotificationsFragment(status)
                 findNavController().navigate(action)
             }
             if (isNotify == View.INVISIBLE) {
                 val isNotification = "IS_NOT_NOTIFICATION_NEW"
-                val status = NotificationInfo(isNotification, "")
+                val currentVehicle = binding.idTvCheckVehicle.text.toString()
+                val status = NotificationInfo(isNotification, currentVehicle)
 
                 val action = HomeFragmentDirections.actionHomeFragmentToNotificationsFragment(status)
                 findNavController().navigate(action)
@@ -190,6 +192,7 @@ class HomeFragment : Fragment() {
         getComponents()
         getVehicleOwned()
         getVehicleInfoRenegade()
+        getComponentsStatusC5Aircross()
 
         isNotification()
         //getComponentsStatus()
@@ -226,8 +229,8 @@ class HomeFragment : Fragment() {
 
     private fun getStatusC5AirCross() {
         isNotification()
-        binding.includeCardviewStatus.textviewStatus.text = "Check battery"
-        binding.includeCardviewStatus.idIconStatus.setImageResource(R.drawable.icon_alert)
+        /*binding.includeCardviewStatus.textviewStatus.text = "Check battery"
+        binding.includeCardviewStatus.idIconStatus.setImageResource(R.drawable.icon_alert)*/
 
     }
 
@@ -431,15 +434,76 @@ class HomeFragment : Fragment() {
                         PmsRepository.getComponentsStatusC5Aircross()?.let { vehicleInfoNew ->
 
                             val healthOfComponent = vehicleInfoNew.components?.map { it.health }
+                            val listOfComponent = vehicleInfoNew.components?.map { it.componentName }
                             /*binding.includeCardviewStatus.idTextViewStatus.text =
                                 healthOfComponent?.get(1)*/
 
                             //Toast.makeText(activity, "!! --> this " + healthOfComponent, Toast.LENGTH_SHORT).show()
-                            Toast.makeText(activity, "!! --> this C5" + healthOfComponent, Toast.LENGTH_SHORT).show()
+                            //Toast.makeText(activity, "!! LIST --> " + listOfComponent, Toast.LENGTH_SHORT).show()
+
+                            /*for (i in partsOfListOfVehicles.indices) {
+                                val spinner =
+                                    binding.idIncludeTop.idTileChoiceVehicle.idChooseVehicleSpinner
+                                val dataAdapter: ArrayAdapter<String> = ArrayAdapter<String>(
+                                    applicationContext,
+                                    R.layout.simple_spinner_item, partsOfListOfVehicles
+                                )
+                                spinner.adapter = dataAdapter
+                            }*/
+
+                            /*for (i in healthOfComponent!!.indices) {
+                                Toast.makeText(activity, "()--() " + healthOfComponent[i], Toast.LENGTH_SHORT).show()
+                                if (healthOfComponent[i]!!.contains("1")) {
+                                    Toast.makeText(activity, "HERE ", Toast.LENGTH_SHORT).show()
+                                }
+                            }*/
 
                             if (healthOfComponent!!.contains("1")) {
-                                binding.includeCardviewStatus.textviewStatus.text = "Check *!*"
-                                Toast.makeText(activity, "1", Toast.LENGTH_SHORT).show()
+                                data class Component(val name: String, val status: Int)
+
+                                val battery = healthOfComponent[0]!!.toInt()
+                                val brakePads = healthOfComponent[1]!!.toInt()
+                                val brakeDiscs = healthOfComponent[2]!!.toInt()
+                                val dieselParticlesFilter = healthOfComponent[3]!!.toInt()
+                                val tire = healthOfComponent[4]!!.toInt()
+                                val airFilter = healthOfComponent[5]!!.toInt()
+                                val headlightBulbs = healthOfComponent[6]!!.toInt()
+                                val engine = healthOfComponent[7]!!.toInt()
+
+                                val singleComponent = listOf(
+                                    Component("Battery", battery),
+                                    Component("Brake Pads", brakePads),
+                                    Component("Brake Discs", brakeDiscs),
+                                    Component("Diesel Particles Filter", dieselParticlesFilter),
+                                    Component("Tire", tire),
+                                    Component("Air Filter", airFilter),
+                                    Component("Head Light Bulbs", headlightBulbs),
+                                    Component("Engine", engine),
+                                )
+
+                                val componentCritical = singleComponent.filter { it.status == 1}.toString().replace("[","")
+                                    .replace("Component","")
+                                    .replace("name","")
+                                    .replace("=","")
+                                    .replace(",","")
+                                    .replace("status","")
+                                    .replace("(","")
+                                    .replace(")","")
+                                    .replace("1","")
+                                    .replace("]","")
+
+                                //val componentCritical = singleComponent.filter { it.status == 1}[0].name
+                                //Toast.makeText(activity, "!! --> " + componentCritical, Toast.LENGTH_SHORT).show()
+                                /*Toast.makeText(activity, "HERE"+
+                                        singleComponent.binarySearch(Component("Battery", engine), compareBy<Component>
+                                        { it.status }.thenBy { it.name }), Toast.LENGTH_SHORT).show()*/
+
+                                //println(singleComponent.binarySearch(Component("Battery", battery), compareBy<Component> { it.status }.thenBy { it.name }))
+
+                                binding.includeCardviewStatus.textviewStatus.text = "Check " + componentCritical
+                                binding.includeCardviewStatus.idIconStatus.setImageResource(R.drawable.icon_alert)
+
+
                             }
                             else if (healthOfComponent.contains("2")) {
                                 Toast.makeText(activity, "2", Toast.LENGTH_SHORT).show()
@@ -449,7 +513,7 @@ class HomeFragment : Fragment() {
                             }
                             else
                                 binding.includeCardviewStatus.textviewStatus.text = "All good"
-                            binding.includeCardviewStatus.idIconStatus.setImageResource(R.drawable.baseline_done_24)
+                            //binding.includeCardviewStatus.idIconStatus.setImageResource(R.drawable.baseline_done_24)
 
 
 

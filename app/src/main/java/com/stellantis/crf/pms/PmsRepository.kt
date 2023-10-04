@@ -187,6 +187,15 @@ object PmsRepository {
         )?.deserializeAs<NotificationsNew>()
     }
 
+    suspend fun getNotificationC5(tag: String? = null): NotificationsNew? {
+        return enqueueNewRequest(
+            url = "$CRF_API_CORE_BASE_URL_NEW/notifications/ed8c2494251143e2b59c11ad53efba2c/VR7ATTENTJL033368",
+            method = Request.Method.GET,
+            headers = CRF_API_CORE_AUTH_HEADER,
+            tag = tag,
+        )?.deserializeAs<NotificationsNew>()
+    }
+
     suspend fun getVinRenegade(tag: String? = null): NotificationsNew? {
         return enqueueNewRequest(
             url = "$CRF_API_CORE_BASE_URL_NEW/notifications/ed8c2494251143e2b59c11ad53efba2c/ZFAEF4VP1LX000999",

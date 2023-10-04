@@ -72,14 +72,16 @@ class VehiclePageFragment : Fragment() {
 
             if (isNotify == View.VISIBLE) {
                 val isNotification = "IS_NOTIFICATION_NEW"
-                val status = NotificationInfo(isNotification, "")
+                val currentVehicle = binding.idTvCheckVehicle.text.toString()
+                val status = NotificationInfo(isNotification, currentVehicle)
 
                 val action = VehiclePageFragmentDirections.actionVehiclePageFragmentToNotificationsFragment(status)
                 findNavController().navigate(action)
             }
             if (isNotify == View.INVISIBLE) {
                 val isNotification = "IS_NOT_NOTIFICATION_NEW"
-                val status = NotificationInfo(isNotification, "")
+                val currentVehicle = binding.idTvCheckVehicle.text.toString()
+                val status = NotificationInfo(isNotification, currentVehicle)
 
                 val action = VehiclePageFragmentDirections.actionVehiclePageFragmentToNotificationsFragment(status)
                 findNavController().navigate(action)
@@ -304,6 +306,7 @@ class VehiclePageFragment : Fragment() {
         // MOCK type fuel
         isNotification()
         isGetVinC5Aircross()
+        getComponentsStatus()
 
     }
 
