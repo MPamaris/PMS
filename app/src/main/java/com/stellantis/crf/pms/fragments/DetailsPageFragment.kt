@@ -56,7 +56,7 @@ class DetailsPageFragment : Fragment() {
 
         if ("down" == arrow.tag) {
             binding.includeBodyDetailsPageNew.idButtonShowMoreStateOfHealth.setImageResource(
-                R.drawable.baseline_keyboard_arrow_up_24
+                R.drawable.arrow_up
             )
             binding.includeBodyDetailsPageNew.idStateOfHealthExpandable.visibility =
                 View.VISIBLE
@@ -87,7 +87,7 @@ class DetailsPageFragment : Fragment() {
 
         if ("down" == arrow.tag) {
             binding.includeCoachingAdviseLongVehicleStorage.idButtonExpandPossibleRisk.setImageResource(
-                R.drawable.baseline_keyboard_arrow_up_24
+                R.drawable.arrow_up
             )
             binding.includeCoachingAdviseLongVehicleStorage.idCoachingAdviseExpandable.visibility =
                 View.VISIBLE

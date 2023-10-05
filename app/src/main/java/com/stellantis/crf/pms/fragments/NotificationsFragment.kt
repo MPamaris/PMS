@@ -21,7 +21,6 @@ class NotificationsFragment : Fragment() {
 
     lateinit var binding: FragmentNotificationsBinding
     private val args: NotificationsFragmentArgs by navArgs()
-    //private val argsCoaching: DetailsPageFragmentArgs by navArgs()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,14 +30,10 @@ class NotificationsFragment : Fragment() {
 
         val notifyReceived = args.isNotify.isNotify
         val vehicleReceived = args.isNotify.vehicleSelected
-        //val argumentFromCoaching = argsCoaching.argumentsFromCoaching.argumentsCoachingAdvise
 
         val bodyNotifications = binding.idIncludeBodyNotifications.root
-        //val bodyNotificationsMaintenanceToBePlaned = binding.idIncludeBodyNotificationsCriticalMaintenance.root
 
-        //val bodyNotificationsTile = binding.idIncludeBodyNotifications.idCardviewBodyNotifications
         val bodyNotificationsTile = binding.idIncludeBodyNotifications.idTileNotification.root
-        //val bodyNotificationsMaintenanceToBePlanedTile = binding.idIncludeBodyNotificationsCriticalMaintenance.idCardviewBodyNotifications
 
         when (notifyReceived) {
             "IS_NOTIFICATION_NEW" -> binding.idIncludeBodyNotifications.idTileNotificationToBePlanned.root.visibility = View.VISIBLE
@@ -50,22 +45,6 @@ class NotificationsFragment : Fragment() {
             "C5 Aircross" -> getBodyNotificationC5Aircross()
         }
 
-        /*when (notifyReceived) {
-            "IS_NOTIFICATION_NEW" -> bodyNotifications.visibility = View.VISIBLE
-            "IS_NOT_NOTIFICATION_NEW" -> bodyNotificationsMaintenanceToBePlaned.visibility = View.VISIBLE
-        }*/
-
-        /*when (notifyReceived) {
-            "IS_NOTIFICATION" -> bodyNotifications.visibility = View.VISIBLE
-            "IS_NOT_NOTIFICATION" -> bodyNotificationsMaintenanceToBePlaned.visibility = View.VISIBLE
-        }*/
-        /*when (notifyReceived) {
-            "IS_NOTIFICATION" -> bodyNotifications.visibility = View.VISIBLE
-            "IS_NOT_NOTIFICATION" -> bodyNotificationsMaintenanceToBePlaned.visibility = View.VISIBLE
-        }*/
-
-        //Toast.makeText(activity, "!! --> " + argumentFromCoaching, Toast.LENGTH_SHORT).show()
-
         bodyNotifications.setOnClickListener {
             goToDetailsPage()
         }
@@ -73,10 +52,6 @@ class NotificationsFragment : Fragment() {
         bodyNotificationsTile.setOnClickListener {
             goToDetailsPage()
         }
-        /*bodyNotificationsMaintenanceToBePlanedTile.setOnClickListener {
-            Toast.makeText(activity, "Critical", Toast.LENGTH_SHORT).show()
-        }*/
-
         val view = binding.root
 
         binding.idIncludeToolbarNotifications.idButtonBackToolbarNotifications.setOnClickListener {

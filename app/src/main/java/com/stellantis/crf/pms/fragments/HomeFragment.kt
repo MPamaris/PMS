@@ -51,17 +51,14 @@ class HomeFragment : Fragment() {
                 val prefEditor = sharedPrefS.edit()
                 prefEditor.putInt("spinnerChoice", Choice)
                 prefEditor.commit()
-                //Toast.makeText(activity, "Saved", Toast.LENGTH_SHORT).show()
 
                 if (currentVehicle.contains("Renegade")) {
                     getRenegadeInfo()
                     binding.idTvCheckVehicle.text = "Renegade"
-                    //Toast.makeText(activity, "" + currentVehicle, Toast.LENGTH_SHORT).show()
 
                 }
                 if (currentVehicle.contains("C5 Aircross")) {
                     binding.idTvCheckVehicle.text = "C5 Aircross"
-                    //Toast.makeText(activity, "" + currentVehicle, Toast.LENGTH_SHORT).show()
                     getC5AirCrossInfo()
                 }
             }
@@ -119,54 +116,6 @@ class HomeFragment : Fragment() {
             }
 
         }
-
-        /*binding.idIncludeTop.tileUserAndNotifications.constraintLayout.setOnClickListener {
-
-            *//*val isNotifyOn = "OFF"
-            val noti = NotificationInfo(isNotify)
-
-            val action = HomeFragmentDirections.actionHomeFragmentToNotificationsFragment(noti)
-            findNavController().navigate(action)*//*
-
-            val isNotify = binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification
-
-            val isRenegade = "IS_NOTIFICATION"
-            val isC5Aircross = "IS_NOT_NOTIFICATION"
-            val selectedVehicle = binding.idTvCheckVehicle.text.toString()
-            val sendInfoRenegade = NotificationInfo(isRenegade, selectedVehicle)
-            val sendInfoC5Aircross = NotificationInfo(isC5Aircross, selectedVehicle)
-            // TODO: try new model as  NotificationInfo
-            val actionRenegade = HomeFragmentDirections.actionHomeFragmentToNotificationsFragment(sendInfoRenegade)
-            val actionC5Aircross = HomeFragmentDirections.actionHomeFragmentToNotificationsFragment(sendInfoC5Aircross)
-
-            when (selectedVehicle) {
-                "Renegade" -> findNavController().navigate(actionRenegade)
-                "C5 Aircross" -> findNavController().navigate(actionC5Aircross)
-            }
-
-            *//*if (isNotify.visibility == View.VISIBLE) {
-                val isNotifyOn = "IS_NOTIFICATION"
-                val selectedVehicle = binding.idTvCheckVehicle.text.toString()
-                val noti = NotificationInfo(isNotifyOn, selectedVehicle)
-
-                val action = HomeFragmentDirections.actionHomeFragmentToNotificationsFragment(noti)
-                findNavController().navigate(action)
-                //goToNotificationPage()
-                //Toast.makeText(activity, "VISIBLE", Toast.LENGTH_SHORT).show()
-            }
-            if (isNotify.visibility != View.VISIBLE) {
-                val isNotifyOn = "IS_NOT_NOTIFICATION"
-                val selectedVehicle = binding.idTvCheckVehicle.text.toString()
-                val noti = NotificationInfo(isNotifyOn, selectedVehicle)
-                // MEMORIZZARE VEICOLO SCELTO
-
-                val action = HomeFragmentDirections.actionHomeFragmentToNotificationsFragment(noti)
-                findNavController().navigate(action)
-                //goToNotificationPage()
-                //Toast.makeText(activity, "NOT VISIBLE", Toast.LENGTH_SHORT).show()
-            }*//*
-        }*/
-
         binding.includeWarning.root.setOnClickListener {
             goToVehicleHealthPage()
         }
@@ -179,44 +128,25 @@ class HomeFragment : Fragment() {
             goToUserFeedbackPage()
         }
 
-        /*binding.idIncludeTop.idTileChoiceVehicle.idLogo.setOnClickListener {
-            Toast.makeText(activity, "!!", Toast.LENGTH_SHORT).show()
-            binding.idTvCheckVehicle.text = "!!"
-        }*/
-
-        /*Timer().schedule(object : TimerTask() {
-            override fun run() {
-                getVehicleOwned()
-            }
-        }, 1000)*/
         getComponents()
         getVehicleOwned()
         getVehicleInfoRenegade()
         getComponentsStatusC5Aircross()
-
         isNotification()
-        //getComponentsStatus()
         getUser()
         setCurrentDateAndHour()
-
-        // TODO: change status on tiles based on choose vehicle
 
         return view
     }
 
     private fun getRenegadeInfo() {
-        //binding.includeWarning.cardView.visibility = View.GONE
         getVehicleInfo()
         getComponentsStatusRenegade()
-        // enable/disable notifications
-        //isNotification()
         binding.includeCardviewFuel.idProgressBarTileFuel.progress = 40
-        //binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification.visibility = View.INVISIBLE
 
     }
 
     private fun getC5AirCrossInfo() {
-        //binding.includeWarning.root.visibility = View.VISIBLE
         // MOCK type fuel
         getComponentsStatusC5Aircross()
         binding.includeCardviewFuel.textviewType.text = "Fuel"
@@ -229,15 +159,10 @@ class HomeFragment : Fragment() {
 
     private fun getStatusC5AirCross() {
         isNotification()
-        /*binding.includeCardviewStatus.textviewStatus.text = "Check battery"
-        binding.includeCardviewStatus.idIconStatus.setImageResource(R.drawable.icon_alert)*/
 
     }
 
     private fun getVehicleInfoRenegade() {
-        /*getComponentsStatus()
-        binding.includeWarning.root.visibility = View.GONE
-        getVehicleInfo()*/
     }
 
     private fun goToNotificationPage() {
@@ -272,7 +197,6 @@ class HomeFragment : Fragment() {
                             val notification =
                                 notificationNew.notifications?.get(1)?.notificationSeverity
 
-                            //Toast.makeText(activity, "noti " + notification, Toast.LENGTH_SHORT).show()
                             val criticalMaintenanceToBePlaned = notificationNew.notifications?.get(1)?.notificationType
 
                             binding.includeWarning.root.visibility = View.VISIBLE
@@ -288,11 +212,6 @@ class HomeFragment : Fragment() {
 
                             }
 
-                            /*binding.includeWarning.idOutTextWarning.text =
-                                notificationNew.notifications?.map { it.notificationType.toString() }
-                                    .toString().replace("[", "").replace("]", "")*/
-
-
                         } ?: throw Exception("discovery null response")
                     }
                 }
@@ -307,8 +226,6 @@ class HomeFragment : Fragment() {
     }
     private fun getComponentsStatusRenegade() {
 
-        // TODO: TO BE COMPLETED
-
         activity?.let { PmsRepository.initialize(it) }
         lifecycleScope.launch {
             try {
@@ -318,28 +235,6 @@ class HomeFragment : Fragment() {
 
                             val healthOfComponent = vehicleInfoNew.components?.map { it.health }
                             val listOfComponent = vehicleInfoNew.components?.map { it.componentName }
-                            /*binding.includeCardviewStatus.idTextViewStatus.text =
-                                healthOfComponent?.get(1)*/
-
-                            //Toast.makeText(activity, "!! --> this " + healthOfComponent, Toast.LENGTH_SHORT).show()
-                            //Toast.makeText(activity, "!! LIST --> " + listOfComponent, Toast.LENGTH_SHORT).show()
-
-                            /*for (i in partsOfListOfVehicles.indices) {
-                                val spinner =
-                                    binding.idIncludeTop.idTileChoiceVehicle.idChooseVehicleSpinner
-                                val dataAdapter: ArrayAdapter<String> = ArrayAdapter<String>(
-                                    applicationContext,
-                                    R.layout.simple_spinner_item, partsOfListOfVehicles
-                                )
-                                spinner.adapter = dataAdapter
-                            }*/
-
-                            /*for (i in healthOfComponent!!.indices) {
-                                Toast.makeText(activity, "()--() " + healthOfComponent[i], Toast.LENGTH_SHORT).show()
-                                if (healthOfComponent[i]!!.contains("1")) {
-                                    Toast.makeText(activity, "HERE ", Toast.LENGTH_SHORT).show()
-                                }
-                            }*/
 
                             if (healthOfComponent!!.contains("1")) {
                                 data class Component(val name: String, val status: Int)
@@ -375,17 +270,8 @@ class HomeFragment : Fragment() {
                                     .replace("1","")
                                     .replace("]","")
 
-                                //val componentCritical = singleComponent.filter { it.status == 1}[0].name
-                                //Toast.makeText(activity, "!! --> " + componentCritical, Toast.LENGTH_SHORT).show()
-                                /*Toast.makeText(activity, "HERE"+
-                                        singleComponent.binarySearch(Component("Battery", engine), compareBy<Component>
-                                        { it.status }.thenBy { it.name }), Toast.LENGTH_SHORT).show()*/
-
-                                //println(singleComponent.binarySearch(Component("Battery", battery), compareBy<Component> { it.status }.thenBy { it.name }))
-
                                 binding.includeCardviewStatus.textviewStatus.text = "Check " + componentCritical
                                 binding.includeCardviewStatus.idIconStatus.setImageResource(R.drawable.icon_alert)
-
 
                             }
                             else if (healthOfComponent.contains("2")) {
@@ -396,20 +282,6 @@ class HomeFragment : Fragment() {
                             }
                             else
                                 binding.includeCardviewStatus.textviewStatus.text = "All good"
-                                //binding.includeCardviewStatus.idIconStatus.setImageResource(R.drawable.baseline_done_24)
-
-
-
-                            //Toast.makeText(activity, "!! " + healthOfComponent, Toast.LENGTH_SHORT).show()
-
-                            //Toast.makeText(activity, "!! --> " + healthOfComponent?.get(0), Toast.LENGTH_SHORT).show()
-
-                            /*for (i in healthOfComponent!!.indices) {
-
-                                Toast.makeText(activity, "FOR --> " + healthOfComponent[i], Toast.LENGTH_SHORT).show()
-
-                            }*/
-
 
                         } ?: throw Exception("discovery null response")
                     }
@@ -424,8 +296,6 @@ class HomeFragment : Fragment() {
 
     private fun getComponentsStatusC5Aircross() {
 
-        // TODO: TO BE COMPLETED
-
         activity?.let { PmsRepository.initialize(it) }
         lifecycleScope.launch {
             try {
@@ -435,28 +305,6 @@ class HomeFragment : Fragment() {
 
                             val healthOfComponent = vehicleInfoNew.components?.map { it.health }
                             val listOfComponent = vehicleInfoNew.components?.map { it.componentName }
-                            /*binding.includeCardviewStatus.idTextViewStatus.text =
-                                healthOfComponent?.get(1)*/
-
-                            //Toast.makeText(activity, "!! --> this " + healthOfComponent, Toast.LENGTH_SHORT).show()
-                            //Toast.makeText(activity, "!! LIST --> " + listOfComponent, Toast.LENGTH_SHORT).show()
-
-                            /*for (i in partsOfListOfVehicles.indices) {
-                                val spinner =
-                                    binding.idIncludeTop.idTileChoiceVehicle.idChooseVehicleSpinner
-                                val dataAdapter: ArrayAdapter<String> = ArrayAdapter<String>(
-                                    applicationContext,
-                                    R.layout.simple_spinner_item, partsOfListOfVehicles
-                                )
-                                spinner.adapter = dataAdapter
-                            }*/
-
-                            /*for (i in healthOfComponent!!.indices) {
-                                Toast.makeText(activity, "()--() " + healthOfComponent[i], Toast.LENGTH_SHORT).show()
-                                if (healthOfComponent[i]!!.contains("1")) {
-                                    Toast.makeText(activity, "HERE ", Toast.LENGTH_SHORT).show()
-                                }
-                            }*/
 
                             if (healthOfComponent!!.contains("1")) {
                                 data class Component(val name: String, val status: Int)
@@ -492,14 +340,6 @@ class HomeFragment : Fragment() {
                                     .replace("1","")
                                     .replace("]","")
 
-                                //val componentCritical = singleComponent.filter { it.status == 1}[0].name
-                                //Toast.makeText(activity, "!! --> " + componentCritical, Toast.LENGTH_SHORT).show()
-                                /*Toast.makeText(activity, "HERE"+
-                                        singleComponent.binarySearch(Component("Battery", engine), compareBy<Component>
-                                        { it.status }.thenBy { it.name }), Toast.LENGTH_SHORT).show()*/
-
-                                //println(singleComponent.binarySearch(Component("Battery", battery), compareBy<Component> { it.status }.thenBy { it.name }))
-
                                 binding.includeCardviewStatus.textviewStatus.text = "Check " + componentCritical
                                 binding.includeCardviewStatus.idIconStatus.setImageResource(R.drawable.icon_alert)
 
@@ -513,20 +353,6 @@ class HomeFragment : Fragment() {
                             }
                             else
                                 binding.includeCardviewStatus.textviewStatus.text = "All good"
-                            //binding.includeCardviewStatus.idIconStatus.setImageResource(R.drawable.baseline_done_24)
-
-
-
-                            //Toast.makeText(activity, "!! " + healthOfComponent, Toast.LENGTH_SHORT).show()
-
-                            //Toast.makeText(activity, "!! --> " + healthOfComponent?.get(0), Toast.LENGTH_SHORT).show()
-
-                            /*for (i in healthOfComponent!!.indices) {
-
-                                Toast.makeText(activity, "FOR --> " + healthOfComponent[i], Toast.LENGTH_SHORT).show()
-
-                            }*/
-
 
                         } ?: throw Exception("discovery null response")
                     }

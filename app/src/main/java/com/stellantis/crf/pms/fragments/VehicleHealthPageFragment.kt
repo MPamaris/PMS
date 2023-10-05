@@ -34,23 +34,8 @@ class VehicleHealthPageFragment : Fragment() {
             binding.idTileVehicleHealthComponentExpandable.idLayoutChild.visibility = View.GONE
             binding.idTileVehicleHealthComponentExpandable.idLayoutFather.visibility = View.VISIBLE
         }
-
-        /*binding.idTileVehicleHealthComponentExpandable.idArrowExpandableComponents.setOnClickListener {
-            expandComponentsInGoodHealth()
-        }*/
-
-        /*binding.idIncludeMaintenanceWarning.idVehicleSelectedArrow.setOnClickListener {
-            goToComponentsDetailsPage()
-        }*/
-
-        /*binding.idIncludeMaintenanceWarning.idVehicleSelectedArrowComponentsInGoodHealth.setOnClickListener {
-            expandComponentsInGoodHealth()
-        }*/
-
         return view
     }
-
-    // TODO:  SPEC pg 8!!!
 
     private fun goToHomePage() {
         findNavController().navigate(R.id.action_vehicleHealthPageFragment_to_vehiclePageFragment)
@@ -63,28 +48,4 @@ class VehicleHealthPageFragment : Fragment() {
     private fun goToCoachingAdvisePage() {
         findNavController().navigate(R.id.action_vehicleHealthPageFragment_to_coachingAdviseFragment)
     }
-
-    /*private fun expandComponentsInGoodHealth() {
-
-        val arrow =
-            binding.idTileVehicleHealthComponentExpandable.idArrowExpandableComponents
-
-        if ("down" == arrow.tag) {
-            binding.idTileVehicleHealthComponentExpandable.idArrowExpandableComponents.setImageResource(
-                R.drawable.baseline_keyboard_arrow_up_24
-            )
-            binding.idTileVehicleHealthComponentExpandable.idLayoutChild.visibility = View.VISIBLE
-            binding.idTileVehicleHealthComponentExpandable.idLayoutFather.visibility = View.GONE
-            arrow.tag = "up"
-        } else {
-            binding.idTileVehicleHealthComponentExpandable.idArrowExpandableComponents.setImageResource(
-                R.drawable.baseline_keyboard_arrow_down_24
-            )
-            binding.idTileVehicleHealthComponentExpandable.idLayoutChild.visibility = View.GONE
-            *//*binding.idIncludeMaintenanceWarning.idComponentsInGoodHealthExpandable.visibility =
-                View.GONE*//*
-            arrow.tag = "down"
-        }
-
-    }*/
 }
