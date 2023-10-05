@@ -36,9 +36,9 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:fontFamily="@font/psa_groupe_hmi_sans_regular"
-                    android:text="Vehicle Health"
+                    android:text="@string/vehicle_health"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/text_size_16" />
 
                 <TextView
                     android:id="@+id/id_vehicle_healt_status"
@@ -48,9 +48,9 @@
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/psa_groupe_hmi_sans_bold"
-                    android:text="Your vehicle is in good health"
+                    android:text="@string/your_vehicle_is_in_good_health"
                     android:textColor="@color/green_text_xd"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/text_size_16" />
 
                 <ImageView
                     android:id="@+id/id_vehicle_health_arrow"
@@ -88,9 +88,9 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:fontFamily="@font/psa_groupe_hmi_sans_regular"
-                    android:text="Vehicle Health"
+                    android:text="@string/vehicle_health"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/text_size_16" />
 
                 <TextView
                     android:id="@+id/id_vehicle_maintenance_status"
@@ -100,9 +100,9 @@
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/psa_groupe_hmi_sans_bold"
-                    android:text="Critical maintenance to be planned"
+                    android:text="@string/critical_maintenance_to_be_planned"
                     android:textColor="@color/yellow_xd"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/text_size_16" />
 
                 <ImageView
                     android:id="@+id/id_vehicle_maintenance_arrow"

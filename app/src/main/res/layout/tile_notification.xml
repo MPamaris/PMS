@@ -49,20 +49,20 @@
                         android:fontFamily="@font/psa_groupe_hmi_sans_bold"
                         android:text="12V battery: Long vehicle storage"
                         android:textColor="@color/black"
-                        android:textSize="16sp"/>
+                        android:textSize="@dimen/text_size_16"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/psa_groupe_hmi_sans_regular"
                         android:text="1 day ago"
-                        android:textSize="14sp"
+                        android:textSize="@dimen/text_size_14"
                         android:textColor="@color/grey_xd" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/psa_groupe_hmi_sans_regular"
                         android:text="We noticed that your vehicle has not been used in the last 15 days."
-                        android:textSize="14sp"
+                        android:textSize="@dimen/text_size_14"
                         android:textColor="@color/black" />
                     <TextView
                         android:layout_width="wrap_content"
@@ -70,7 +70,7 @@
                         android:layout_marginTop="10dp"
                         android:fontFamily="@font/psa_groupe_hmi_sans_regular"
                         android:text="Your coach has an advise to help you!"
-                        android:textSize="14sp"
+                        android:textSize="@dimen/text_size_14"
                         android:textColor="@color/black" />
 
                 </LinearLayout>

@@ -47,7 +47,7 @@
                     android:layout_centerVertical="true"
                     android:layout_toEndOf="@id/ic_fuel"
                     android:fontFamily="@font/psa_groupe_hmi_sans_bold"
-                    android:textSize="16dp"
+                    android:textSize="@dimen/text_size_16"
                     android:textColor="@color/black" />
 
                 <ImageView
@@ -70,10 +70,9 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:fontFamily="@font/montserrat_semibold"
-                    android:text=""
                     android:layout_marginStart="20dp"
                     android:textColor="@color/black"
-                    android:textSize="17dp" />
+                    android:textSize="@dimen/text_size_17" />
 
                 <TextView
                     android:id="@+id/percent"
@@ -83,10 +82,10 @@
                     android:layout_marginStart="10dp"
                     android:layout_toEndOf="@id/textview_level"
                     android:fontFamily="@font/montserrat_semibold"
-                    android:text="%"
+                    android:text="@string/percent"
                     android:visibility="invisible"
                     android:textColor="@color/black"
-                    android:textSize="20dp" />
+                    android:textSize="@dimen/text_size_20" />
 
             </RelativeLayout>
 
@@ -98,10 +97,9 @@
                     android:id="@+id/textview_autonomy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=""
                     android:layout_marginStart="20dp"
                     android:textColor="@color/black"
-                    android:textSize="17dp" />
+                    android:textSize="@dimen/text_size_17" />
 
                 <ProgressBar
                     android:id="@+id/id_progress_bar_tile_fuel"

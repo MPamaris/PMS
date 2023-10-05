@@ -29,10 +29,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                android:fontFamily="@font/montserrat_medium"
+                android:fontFamily="@font/psa_groupe_hmi_sans_regular"
+                android:textSize="@dimen/text_size_16"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
-                android:text="Connected services"/>
+                android:text="@string/connected_services"/>
 
             <ImageView
                 android:id="@+id/id_connected_services_arrow"

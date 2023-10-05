@@ -13,5 +13,13 @@
     <string name="garage"><u>garage.com</u></string>
     <string name="view_more_coach_advise"><u>View more coach advise</u></string>
     <string name="text_partial_bold"><b>An update of the health status will be execute.</b> Please note: this will take time, depending on the usage of the vehicle.</string>
+    <string name="percent">%</string>
+    <string name="my_vehicle">My Vehicle</string>
+    <string name="vehicle_health">Vehicle Health</string>
+    <string name="your_vehicle_is_in_good_health">Your vehicle is in good health</string>
+    <string name="critical_maintenance_to_be_planned">Critical maintenance to be planned</string>
+    <string name="connected_services">Connected services</string>
+    <string name="unread_notifications">Unread notifications</string>
+    <string name="_1_day_ago">1 day ago</string>
 
 </resources>
