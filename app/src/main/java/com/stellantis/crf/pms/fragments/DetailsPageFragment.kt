@@ -26,7 +26,15 @@ class DetailsPageFragment : Fragment() {
             goToHomePage()
         }
 
-        binding.includeCoachingAdviseLongVehicleStorage.idViewMoreCoachAdvise.setOnClickListener {
+        binding.idTileDetailsPageInclude.idArrowExpandDescription.setOnClickListener {
+            binding.idTileDetailsPageInclude.idDescriptionToExpand.visibility = View.VISIBLE
+        }
+
+        binding.idTileDetailsPageInclude.idArrowCloseDescription.setOnClickListener {
+            binding.idTileDetailsPageInclude.idDescriptionToExpand.visibility = View.GONE
+        }
+
+        /*binding.includeCoachingAdviseLongVehicleStorage.idViewMoreCoachAdvise.setOnClickListener {
             goToMoreCoachAdvise()
         }
 
@@ -36,7 +44,7 @@ class DetailsPageFragment : Fragment() {
 
         binding.includeCoachingAdviseLongVehicleStorage.idButtonExpandPossibleRisk.setOnClickListener {
             expandCoachingAdvise()
-        }
+        }*/
 
         return view
     }
@@ -49,7 +57,7 @@ class DetailsPageFragment : Fragment() {
         findNavController().navigate(R.id.action_detailsPageFragment_to_coachingAdviseFragment)
     }
 
-    private fun expandStateOfHealth() {
+    /*private fun expandStateOfHealth() {
 
         val arrow =
             binding.includeBodyDetailsPageNew.idButtonShowMoreStateOfHealth
@@ -110,5 +118,5 @@ class DetailsPageFragment : Fragment() {
             binding.includeBodyDetailsPage.root.visibility = View.VISIBLE
         }
 
-    }
+    }*/
 }

@@ -116,6 +116,11 @@ class HomeFragment : Fragment() {
             }
 
         }
+
+        binding.idIncludeTop.idTileChoiceVehicle.logo.setOnClickListener {
+            toDetails()
+        }
+
         binding.includeWarning.root.setOnClickListener {
             goToVehicleHealthPage()
         }
@@ -171,6 +176,10 @@ class HomeFragment : Fragment() {
 
     private fun goToVehicleHealthPage() {
         findNavController().navigate(R.id.action_homeFragment_to_vehicleHealthPageFragment)
+    }
+
+    private fun toDetails() {
+        findNavController().navigate(R.id.action_homeFragment_to_detailsPageFragment)
     }
 
     private fun goToVehiclePage() {

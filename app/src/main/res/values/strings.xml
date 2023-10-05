@@ -4,8 +4,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="vehicle_information"><u>Vehicle information</u></string>
-    <string name="show_more"><u>Show more</u></string>
-    <string name="feedback_help"><u>the health status right? if not, please tell us!</u></string>
+    <string name="show_more_sub"><u>Show more</u></string>
+    <string name="show_more">Show more</string>
+    <string name="feedback_help"><u>Is the health status right? If not, please tell us!</u></string>
     <string name="if_no_action_is_taken"><u>- If no action is taken: </u></string>
     <string name="if_no_action_is_taken_within_2_days"><u>- If no action is taken within 2 days: </u></string>
     <string name="if_no_action_is_taken_immediately"><u>- If no action is taken immediately: </u></string>
@@ -17,9 +18,16 @@
     <string name="my_vehicle">My Vehicle</string>
     <string name="vehicle_health">Vehicle Health</string>
     <string name="your_vehicle_is_in_good_health">Your vehicle is in good health</string>
+    <string name="good_health">Good health</string>
     <string name="critical_maintenance_to_be_planned">Critical maintenance to be planned</string>
+    <string name="needs_to_be_repaired">Needs to be repaired!</string>
     <string name="connected_services">Connected services</string>
     <string name="unread_notifications">Unread notifications</string>
     <string name="_1_day_ago">1 day ago</string>
+    <string name="prediction_text">This is a prediction based on the analysis of the usage of your vehicle, we estimated that:</string>
+    <string name="description_on_details_page">vehicles, allow the storage of the electricity necessary to start the engine and to operate the electrical equipment. They are made up of several lead-acid accumulators, for the most common 12-volt models, of approximately 2 volts each.</string>
+    <string name="description_good_health">Indicates that your vehicle is in a good health and you don’t have to plan a maintenance.</string>
+    <string name="description_critical_maintenance_to_be_planned">Indicates that a maintenance needs to be planned as early as possible because your vehicle could fail at any time.</string>
+    <string name="description_needs_to_be_repaired">Indicates that a critical component in your vehicle needs to be repaired, there is a potentially serious problem or safety issue.</string>
 
 </resources>
