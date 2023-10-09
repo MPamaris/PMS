@@ -33,7 +33,7 @@
             android:id="@+id/id_out_text_warning"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Critical maintenance to be planned"
+            android:text=""
             android:textSize="14sp"
             android:textColor="@color/white"
             android:fontFamily="@font/psa_groupe_hmi_sans_bold"

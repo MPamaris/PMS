@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.stellantis.crf.pms.PmsRepository
 import com.stellantis.crf.pms.R
@@ -53,8 +54,8 @@ class HomeFragment : Fragment() {
                 prefEditor.commit()
 
                 if (currentVehicle.contains("Renegade")) {
-                    getRenegadeInfo()
                     binding.idTvCheckVehicle.text = "Renegade"
+                    getRenegadeInfo()
 
                 }
                 if (currentVehicle.contains("C5 Aircross")) {
@@ -138,6 +139,7 @@ class HomeFragment : Fragment() {
         getVehicleInfoRenegade()
         getComponentsStatusC5Aircross()
         isNotification()
+        isNotificationC5()
         getUser()
         setCurrentDateAndHour()
 
@@ -147,6 +149,7 @@ class HomeFragment : Fragment() {
     private fun getRenegadeInfo() {
         getVehicleInfo()
         getComponentsStatusRenegade()
+        isNotification()
         binding.includeCardviewFuel.idProgressBarTileFuel.progress = 40
 
     }
@@ -158,12 +161,12 @@ class HomeFragment : Fragment() {
         binding.includeCardviewFuel.textviewLevel.text = "70 %"
         binding.includeCardviewFuel.textviewAutonomy.text = "450 Km"
         binding.includeCardviewFuel.idProgressBarTileFuel.progress = 70
-        getStatusC5AirCross()
+        isNotificationC5()
 
     }
 
     private fun getStatusC5AirCross() {
-        isNotification()
+
 
     }
 
@@ -208,17 +211,66 @@ class HomeFragment : Fragment() {
 
                             val criticalMaintenanceToBePlaned = notificationNew.notifications?.get(1)?.notificationType
 
-                            binding.includeWarning.root.visibility = View.VISIBLE
-                            binding.includeWarning.idOutTextWarning.text = criticalMaintenanceToBePlaned
-                            binding.includeWarning.iconMaintenance
+                            /*when (notification) {
+                                "0" -> binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification.visibility =
+                                    View.VISIBLE
 
-                            when (notification) {
+                                "1" -> binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification.visibility =
+                                    View.INVISIBLE
+                            }*/
+
+                            if (notification.equals("0")) {
+                                binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification.visibility = View.VISIBLE
+                                //binding.includeWarning.root.visibility = View.VISIBLE
+                                binding.includeWarning.idOutTextWarning.text = criticalMaintenanceToBePlaned
+                                binding.includeWarning.iconMaintenance
+                            } else {
+                                binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification.visibility = View.INVISIBLE
+                            }
+
+                        } ?: throw Exception("discovery null response")
+                    }
+                }
+            } catch (e: Exception) {
+                /*Toast.makeText(activity, "Network Error", Toast.LENGTH_LONG).show()
+                // Discovery error
+                Log.e(ContentValues.TAG, "callDiscovery(): Error: $e")*/
+                binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification.visibility =
+                    View.INVISIBLE
+            }
+        }
+    }
+
+    private fun isNotificationC5() {
+
+        activity?.let { PmsRepository.initialize(it) }
+        lifecycleScope.launch {
+            try {
+                coroutineScope {
+                    launch {
+                        PmsRepository.getNotificationC5()?.let { notificationNew ->
+
+                            val notification =
+                                notificationNew.notifications?.get(1)?.notificationSeverity
+
+                            val criticalMaintenanceToBePlaned = notificationNew.notifications?.get(1)?.notificationType
+
+                            /*when (notification) {
                                 "0" -> binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification.visibility =
                                     View.VISIBLE
 
                                 "1" -> binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification.visibility =
                                     View.INVISIBLE
 
+                            }*/
+
+                            if (notification.equals("0")) {
+                                binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification.visibility = View.VISIBLE
+                                //binding.includeWarning.root.visibility = View.VISIBLE
+                                binding.includeWarning.idOutTextWarning.text = criticalMaintenanceToBePlaned
+                                binding.includeWarning.iconMaintenance
+                            } else {
+                                binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification.visibility = View.INVISIBLE
                             }
 
                         } ?: throw Exception("discovery null response")
@@ -281,6 +333,7 @@ class HomeFragment : Fragment() {
 
                                 binding.includeCardviewStatus.textviewStatus.text = "Check " + componentCritical
                                 binding.includeCardviewStatus.idIconStatus.setImageResource(R.drawable.icon_alert)
+                                binding.includeWarning.root.visibility = View.VISIBLE
 
                             }
                             else if (healthOfComponent.contains("2")) {
@@ -351,6 +404,7 @@ class HomeFragment : Fragment() {
 
                                 binding.includeCardviewStatus.textviewStatus.text = "Check " + componentCritical
                                 binding.includeCardviewStatus.idIconStatus.setImageResource(R.drawable.icon_alert)
+                                binding.includeWarning.root.visibility = View.VISIBLE
 
 
                             }
