@@ -73,7 +73,7 @@
                 android:id="@+id/id_layout_child"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
+                android:visibility="visible"
                 android:orientation="vertical">
 
                 <RelativeLayout
@@ -106,6 +106,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/id_layout_battery"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/background_line_component_expandable"
@@ -121,16 +122,34 @@
                         android:layout_marginStart="15dp"
                         android:layout_centerVertical="true" />
 
-                    <TextView
+                    <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
-                        android:layout_toEndOf="@id/id_icon_battery"
-                        android:fontFamily="@font/psa_groupe_hmi_sans_regular"
-                        android:text="Battery"
                         android:layout_centerVertical="true"
-                        android:textSize="17sp"
-                        android:textColor="@color/black" />
+                        android:layout_toEndOf="@id/id_icon_battery">
+
+                        <TextView
+                            android:id="@+id/id_out_battery"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/psa_groupe_hmi_sans_regular"
+                            android:text="Battery"
+                            android:textSize="@dimen/text_size_16"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/id_out_battery_to_be"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/psa_groupe_hmi_sans_regular"
+                            android:layout_below="@+id/id_out_battery"
+                            android:text="To be"
+                            android:visibility="gone"
+                            android:textSize="@dimen/text_size_14"
+                            android:textColor="#BA0000" />
+
+                    </RelativeLayout>
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -142,6 +161,7 @@
 
                 </RelativeLayout>
                 <RelativeLayout
+                    android:id="@+id/id_layout_brake_pads"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/background_line_component_expandable"
@@ -157,16 +177,34 @@
                         android:layout_marginStart="15dp"
                         android:layout_centerVertical="true" />
 
-                    <TextView
+                    <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
-                        android:layout_toEndOf="@id/id_icon_brake_pads"
-                        android:fontFamily="@font/psa_groupe_hmi_sans_regular"
-                        android:text="Brake Pads"
                         android:layout_centerVertical="true"
-                        android:textSize="17sp"
-                        android:textColor="@color/black" />
+                        android:layout_toEndOf="@id/id_icon_brake_pads">
+
+                        <TextView
+                            android:id="@+id/id_out_brake_pads"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/psa_groupe_hmi_sans_regular"
+                            android:text="Brake Pads"
+                            android:textSize="@dimen/text_size_16"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/id_out_brake_pads_to_be"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/psa_groupe_hmi_sans_regular"
+                            android:layout_below="@+id/id_out_brake_pads"
+                            android:text="To be"
+                            android:visibility="gone"
+                            android:textSize="@dimen/text_size_14"
+                            android:textColor="#BA0000" />
+
+                    </RelativeLayout>
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -178,6 +216,7 @@
 
                 </RelativeLayout>
                 <RelativeLayout
+                    android:id="@+id/id_layout_brake_disc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/background_line_component_expandable"
@@ -193,16 +232,34 @@
                         android:layout_marginStart="15dp"
                         android:layout_centerVertical="true" />
 
-                    <TextView
+                    <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
-                        android:layout_toEndOf="@id/id_icon_brake_dics"
-                        android:fontFamily="@font/psa_groupe_hmi_sans_regular"
-                        android:text="Brake dics"
                         android:layout_centerVertical="true"
-                        android:textSize="17sp"
-                        android:textColor="@color/black" />
+                        android:layout_toEndOf="@id/id_icon_brake_dics">
+
+                        <TextView
+                            android:id="@+id/id_out_brake_disc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/psa_groupe_hmi_sans_regular"
+                            android:text="Brake Disc"
+                            android:textSize="@dimen/text_size_16"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/id_out_brake_disc_to_be"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/psa_groupe_hmi_sans_regular"
+                            android:layout_below="@+id/id_out_brake_disc"
+                            android:text="To be"
+                            android:visibility="gone"
+                            android:textSize="@dimen/text_size_14"
+                            android:textColor="#BA0000" />
+
+                    </RelativeLayout>
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -214,6 +271,7 @@
 
                 </RelativeLayout>
                 <RelativeLayout
+                    android:id="@+id/id_layout_diesel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/background_line_component_expandable"
@@ -229,16 +287,34 @@
                         android:layout_marginStart="15dp"
                         android:layout_centerVertical="true" />
 
-                    <TextView
+                    <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
-                        android:layout_toEndOf="@id/id_icon_diesel_filter"
-                        android:fontFamily="@font/psa_groupe_hmi_sans_regular"
-                        android:text="Diesel particles filter"
                         android:layout_centerVertical="true"
-                        android:textSize="17sp"
-                        android:textColor="@color/black" />
+                        android:layout_toEndOf="@id/id_icon_diesel_filter">
+
+                        <TextView
+                            android:id="@+id/id_out_diesel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/psa_groupe_hmi_sans_regular"
+                            android:text="Diesel particles filter"
+                            android:textSize="@dimen/text_size_16"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/id_out_diesel_to_be"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/psa_groupe_hmi_sans_regular"
+                            android:layout_below="@+id/id_out_diesel"
+                            android:text="To be"
+                            android:visibility="gone"
+                            android:textSize="@dimen/text_size_14"
+                            android:textColor="#BA0000" />
+
+                    </RelativeLayout>
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -250,6 +326,7 @@
 
                 </RelativeLayout>
                 <RelativeLayout
+                    android:id="@+id/id_layout_headlight_bulbs"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/background_line_component_expandable"
@@ -265,16 +342,34 @@
                         android:layout_marginStart="15dp"
                         android:layout_centerVertical="true" />
 
-                    <TextView
+                    <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
-                        android:layout_toEndOf="@id/id_icon_headlight_bulbs"
-                        android:fontFamily="@font/psa_groupe_hmi_sans_regular"
-                        android:text="Headlight bulbs"
                         android:layout_centerVertical="true"
-                        android:textSize="17sp"
-                        android:textColor="@color/black" />
+                        android:layout_toEndOf="@id/id_icon_headlight_bulbs">
+
+                        <TextView
+                            android:id="@+id/id_out_bulbs"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/psa_groupe_hmi_sans_regular"
+                            android:text="Headlight bulbs"
+                            android:textSize="@dimen/text_size_16"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/id_out_bulbs_to_be"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/psa_groupe_hmi_sans_regular"
+                            android:layout_below="@+id/id_out_bulbs"
+                            android:text="To be"
+                            android:visibility="gone"
+                            android:textSize="@dimen/text_size_14"
+                            android:textColor="#BA0000" />
+
+                    </RelativeLayout>
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -286,6 +381,7 @@
 
                 </RelativeLayout>
                 <RelativeLayout
+                    android:id="@+id/id_layout_oil_filter"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/background_line_component_expandable"
@@ -301,16 +397,34 @@
                         android:layout_marginStart="15dp"
                         android:layout_centerVertical="true" />
 
-                    <TextView
+                    <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
-                        android:layout_toEndOf="@id/id_icon_oil_filter"
-                        android:fontFamily="@font/psa_groupe_hmi_sans_regular"
-                        android:text="Oil filter"
                         android:layout_centerVertical="true"
-                        android:textSize="17sp"
-                        android:textColor="@color/black" />
+                        android:layout_toEndOf="@id/id_icon_oil_filter">
+
+                        <TextView
+                            android:id="@+id/id_out_oil_filter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/psa_groupe_hmi_sans_regular"
+                            android:text="Oil filter"
+                            android:textSize="@dimen/text_size_16"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/id_out_oil_filter_to_be"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/psa_groupe_hmi_sans_regular"
+                            android:layout_below="@+id/id_out_oil_filter"
+                            android:text="To be"
+                            android:visibility="gone"
+                            android:textSize="@dimen/text_size_14"
+                            android:textColor="#BA0000" />
+
+                    </RelativeLayout>
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -322,6 +436,7 @@
 
                 </RelativeLayout>
                 <RelativeLayout
+                    android:id="@+id/id_layout_rear_tires"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/background_line_component_expandable"
@@ -337,16 +452,34 @@
                         android:layout_marginStart="15dp"
                         android:layout_centerVertical="true" />
 
-                    <TextView
+                    <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
-                        android:layout_toEndOf="@id/id_icon_rear_tires"
-                        android:fontFamily="@font/psa_groupe_hmi_sans_regular"
-                        android:text="Rear tires"
                         android:layout_centerVertical="true"
-                        android:textSize="17sp"
-                        android:textColor="@color/black" />
+                        android:layout_toEndOf="@id/id_icon_rear_tires">
+
+                        <TextView
+                            android:id="@+id/id_out_rear_tires"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/psa_groupe_hmi_sans_regular"
+                            android:text="Rear tires"
+                            android:textSize="@dimen/text_size_16"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/id_out_rear_tires_to_be"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/psa_groupe_hmi_sans_regular"
+                            android:layout_below="@+id/id_out_rear_tires"
+                            android:text="To be"
+                            android:visibility="gone"
+                            android:textSize="@dimen/text_size_14"
+                            android:textColor="#BA0000" />
+
+                    </RelativeLayout>
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -358,6 +491,7 @@
 
                 </RelativeLayout>
                 <RelativeLayout
+                    android:id="@+id/id_layout_shock_absorber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/background_line_component_expandable"
@@ -373,16 +507,34 @@
                         android:layout_marginStart="15dp"
                         android:layout_centerVertical="true" />
 
-                    <TextView
+                    <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
-                        android:layout_toEndOf="@id/id_icon_shock_absorber"
-                        android:fontFamily="@font/psa_groupe_hmi_sans_regular"
-                        android:text="Shock absorber"
                         android:layout_centerVertical="true"
-                        android:textSize="17sp"
-                        android:textColor="@color/black" />
+                        android:layout_toEndOf="@id/id_icon_shock_absorber">
+
+                        <TextView
+                            android:id="@+id/id_out_shock_absorber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/psa_groupe_hmi_sans_regular"
+                            android:text="Shock absorber"
+                            android:textSize="@dimen/text_size_16"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/id_out_shock_absorber_to_be"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/psa_groupe_hmi_sans_regular"
+                            android:layout_below="@+id/id_out_shock_absorber"
+                            android:text="To be"
+                            android:visibility="gone"
+                            android:textSize="@dimen/text_size_14"
+                            android:textColor="#BA0000" />
+
+                    </RelativeLayout>
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -394,6 +546,7 @@
 
                 </RelativeLayout>
                 <RelativeLayout
+                    android:id="@+id/id_layout_traction_battery"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/background_line_component_expandable"
@@ -409,16 +562,34 @@
                         android:layout_marginStart="15dp"
                         android:layout_centerVertical="true" />
 
-                    <TextView
+                    <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
-                        android:layout_toEndOf="@id/id_icon_traction_battery"
-                        android:fontFamily="@font/psa_groupe_hmi_sans_regular"
-                        android:text="Traction battery"
                         android:layout_centerVertical="true"
-                        android:textSize="17sp"
-                        android:textColor="@color/black" />
+                        android:layout_toEndOf="@id/id_icon_traction_battery">
+
+                        <TextView
+                            android:id="@+id/id_out_traction_battery"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/psa_groupe_hmi_sans_regular"
+                            android:text="Traction battery"
+                            android:textSize="@dimen/text_size_16"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/id_out_traction_battery_to_be"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/psa_groupe_hmi_sans_regular"
+                            android:layout_below="@+id/id_out_traction_battery"
+                            android:text="To be"
+                            android:visibility="gone"
+                            android:textSize="@dimen/text_size_14"
+                            android:textColor="#BA0000" />
+
+                    </RelativeLayout>
 
                     <ImageView
                         android:layout_width="wrap_content"

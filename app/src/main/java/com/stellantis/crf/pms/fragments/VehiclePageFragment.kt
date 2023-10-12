@@ -95,6 +95,8 @@ class VehiclePageFragment : Fragment() {
 
         getUser()
         getVehicleOwned()
+        isNotification()
+        isNotificationC5()
 
         val select_bottom_nav_default: View = binding.bottomNavigation.findViewById(com.stellantis.crf.pms.R.id.page_vehicle)
         select_bottom_nav_default.performClick()
@@ -150,6 +152,49 @@ class VehiclePageFragment : Fragment() {
                                 "1" -> binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification.visibility =
                                     View.INVISIBLE
 
+                            }
+
+                        } ?: throw Exception("discovery null response")
+                    }
+                }
+            } catch (e: Exception) {
+                /*Toast.makeText(activity, "Network Error", Toast.LENGTH_LONG).show()
+                // Discovery error
+                Log.e(ContentValues.TAG, "callDiscovery(): Error: $e")*/
+                binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification.visibility =
+                    View.INVISIBLE
+            }
+        }
+    }
+
+    private fun isNotificationC5() {
+
+        activity?.let { PmsRepository.initialize(it) }
+        lifecycleScope.launch {
+            try {
+                coroutineScope {
+                    launch {
+                        PmsRepository.getNotificationC5()?.let { notificationNew ->
+
+                            val notification =
+                                notificationNew.notifications?.get(1)?.notificationSeverity
+
+                            val criticalMaintenanceToBePlaned = notificationNew.notifications?.get(1)?.notificationType
+
+                            /*when (notification) {
+                                "0" -> binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification.visibility =
+                                    View.VISIBLE
+
+                                "1" -> binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification.visibility =
+                                    View.INVISIBLE
+
+                            }*/
+
+                            if (notification.equals("0")) {
+                                binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification.visibility = View.VISIBLE
+                                //binding.includeWarning.root.visibility = View.VISIBLE
+                            } else {
+                                binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification.visibility = View.INVISIBLE
                             }
 
                         } ?: throw Exception("discovery null response")
@@ -241,7 +286,7 @@ class VehiclePageFragment : Fragment() {
     }
 
     private fun getRenegadeInfo() {
-        getComponentsStatus()
+        getComponentsStatusRenegade()
         isNotification()
         isGetVinRenegade()
         binding.idIncludeTop.tileUserAndNotifications.idBadgeNotification.visibility = View.INVISIBLE
@@ -250,14 +295,14 @@ class VehiclePageFragment : Fragment() {
 
     private fun getC5AirCrossInfo() {
         // MOCK type fuel
-        isNotification()
+        isNotificationC5()
         isGetVinC5Aircross()
-        getComponentsStatus()
+        getComponentsStatusC5Aircross()
 
     }
 
     @SuppressLint("ResourceAsColor")
-    private fun getComponentsStatus() {
+    private fun getComponentsStatusRenegade() {
 
         activity?.let { PmsRepository.initialize(it) }
         lifecycleScope.launch {
@@ -265,6 +310,71 @@ class VehiclePageFragment : Fragment() {
                 coroutineScope {
                     launch {
                         PmsRepository.getComponentsStatusRenegade()?.let { vehicleInfoNew ->
+
+                            val healthOfComponent = vehicleInfoNew.components?.map { it.health }
+
+                            if (healthOfComponent!!.contains("1")) {
+                                data class Component(val name: String, val status: Int)
+
+                                val battery = healthOfComponent[0]!!.toInt()
+                                val brakePads = healthOfComponent[1]!!.toInt()
+                                val brakeDiscs = healthOfComponent[2]!!.toInt()
+                                val dieselParticlesFilter = healthOfComponent[3]!!.toInt()
+                                val tire = healthOfComponent[4]!!.toInt()
+                                val airFilter = healthOfComponent[5]!!.toInt()
+                                val headlightBulbs = healthOfComponent[6]!!.toInt()
+                                val engine = healthOfComponent[7]!!.toInt()
+
+                                val singleComponent = listOf(
+                                    Component("Battery", battery),
+                                    Component("Brake Pads", brakePads),
+                                    Component("Brake Discs", brakeDiscs),
+                                    Component("Diesel Particles Filter", dieselParticlesFilter),
+                                    Component("Tire", tire),
+                                    Component("Air Filter", airFilter),
+                                    Component("Head Light Bulbs", headlightBulbs),
+                                    Component("Engine", engine),
+                                )
+
+                                val componentCritical = singleComponent.filter { it.status == 1}.toString().replace("[","")
+                                    .replace("Component","")
+                                    .replace("name","")
+                                    .replace("=","")
+                                    .replace(",","")
+                                    .replace("status","")
+                                    .replace("(","")
+                                    .replace(")","")
+                                    .replace("1","")
+                                    .replace("]","")
+
+                                binding.idTileVehiclePageHealth.idTileVehicleMaintenance.visibility = View.VISIBLE
+                                binding.idTileVehiclePageHealth.idTileVehicleHealth.visibility = View.GONE
+                            }
+                            else if (healthOfComponent.contains("2")) {
+                                Toast.makeText(activity, "2", Toast.LENGTH_SHORT).show()
+                            }
+                            else if (healthOfComponent.contains("3")) {
+                                Toast.makeText(activity, "3", Toast.LENGTH_SHORT).show()
+                            }
+
+                        } ?: throw Exception("discovery null response")
+                    }
+                }
+            } catch (e: Exception) {
+                Toast.makeText(activity, "Network Error", Toast.LENGTH_LONG).show()
+                // Discovery error
+                Log.e(ContentValues.TAG, "callDiscovery(): Error: $e")
+            }
+        }
+    }
+    private fun getComponentsStatusC5Aircross() {
+
+        activity?.let { PmsRepository.initialize(it) }
+        lifecycleScope.launch {
+            try {
+                coroutineScope {
+                    launch {
+                        PmsRepository.getComponentsStatusC5Aircross()?.let { vehicleInfoNew ->
 
                             val healthOfComponent = vehicleInfoNew.components?.map { it.health }
 
@@ -355,7 +465,9 @@ class VehiclePageFragment : Fragment() {
                     launch {
                         PmsRepository.getVinC5Aircross()?.let { notificationNew ->
 
-                            val vin = notificationNew.notifications?.get(1)?.vin
+                            // TODO: replace with API
+                            //val vin = notificationNew.notifications?.get(1)?.vin
+                            val vin = "VR7ATTENTJL033368"
                             binding.idTileVehiclePageInformation.idVehicleVinNumber.text = vin
 
 
