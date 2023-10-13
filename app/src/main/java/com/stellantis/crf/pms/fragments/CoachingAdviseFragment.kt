@@ -5,12 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.stellantis.crf.pms.R
 import com.stellantis.crf.pms.databinding.FragmentCoachingAdviseBinding
-import com.stellantis.crf.pms.model.CoachingAdviseInfo
-import com.stellantis.crf.pms.model.NotificationInfo
+import com.stellantis.crf.pms.model.ArgumentsToDetailsPageInfo
 
 class CoachingAdviseFragment : Fragment() {
 
@@ -40,7 +38,7 @@ class CoachingAdviseFragment : Fragment() {
     private fun goToDetailsWithArguments() {
         //Toast.makeText(activity, "!!", Toast.LENGTH_SHORT).show()
         val argumentsFromCoachingAdvise = "FROM_COACHING"
-        val argsToSend = CoachingAdviseInfo(argumentsFromCoachingAdvise)
+        val argsToSend = ArgumentsToDetailsPageInfo(argumentsFromCoachingAdvise)
 
         val action = CoachingAdviseFragmentDirections.actionCoachingAdviseFragmentToDetailsPageFragment(argsToSend)
         findNavController().navigate(action)

@@ -4,6 +4,6 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class CoachingAdviseInfo(
-    val argumentsCoachingAdvise: String,
+data class ArgumentsToDetailsPageInfo(
+    val argumentsPassed: String,
 ) : Parcelable

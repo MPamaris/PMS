@@ -7,12 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.stellantis.crf.pms.R
 import com.stellantis.crf.pms.databinding.FragmentDetailsPageBinding
 
 class DetailsPageFragment : Fragment() {
 
     lateinit var binding: FragmentDetailsPageBinding
+    private val args: DetailsPageFragmentArgs by navArgs()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -20,6 +22,19 @@ class DetailsPageFragment : Fragment() {
 
         binding = FragmentDetailsPageBinding.inflate(layoutInflater)
         val view = binding.root
+
+        val componentReceived = args.argumentsToDetailsPage.argumentsPassed
+
+        when (componentReceived) {
+            "IS_BATTERY" -> setCaseBatteryAllGood()
+            "IS_BRAKE_PADS" -> setCaseBrakePadsAllGood()
+            "IS_BRAKE_DISKS" -> setCaseBrakeDisksAllGood()
+            "IS_DIESEL" -> setCaseDieselAllGood()
+            "IS_TIRES" -> setCaseDieselAllGood()
+            "IS_AIR_FILTER" -> setCaseAirFilterAllGood()
+            "IS_BULBS" -> setCaseBulbsAllGood()
+            "IS_ENGINE" -> setCaseEngineAllGood()
+        }
 
 
         binding.idIncludeToolbarDetailsPage.idButtonBackToolbarNotifications.setOnClickListener {
@@ -119,4 +134,53 @@ class DetailsPageFragment : Fragment() {
         }
 
     }*/
+
+    private fun setCaseBatteryAllGood() {
+        val component = "Battery"
+        binding.idIncludeToolbarDetailsPage.idToolbarDetails.text = component + " details"
+        binding.idTileComponentStateOfHealth.idOutStateOfHealth.text = component.toUpperCase() + " STATE OF HEALTH"
+        binding.idTileComponentStateOfHealth.idIconStateGood.setImageResource(R.drawable.state_good_health)
+    }
+    private fun setCaseBrakePadsAllGood() {
+        val component = "Brake Pads"
+        binding.idIncludeToolbarDetailsPage.idToolbarDetails.text = component + " details"
+        binding.idTileComponentStateOfHealth.idOutStateOfHealth.text = component.toUpperCase() + " STATE OF HEALTH"
+        binding.idTileComponentStateOfHealth.idIconStateGood.setImageResource(R.drawable.state_good_health)
+    }
+    private fun setCaseBrakeDisksAllGood() {
+        val component = "Brake Disc"
+        binding.idIncludeToolbarDetailsPage.idToolbarDetails.text = component + " details"
+        binding.idTileComponentStateOfHealth.idOutStateOfHealth.text = component.toUpperCase() + " STATE OF HEALTH"
+        binding.idTileComponentStateOfHealth.idIconStateGood.setImageResource(R.drawable.state_good_health)
+    }
+    private fun setCaseDieselAllGood() {
+        val component = "Diesel particles filter"
+        binding.idIncludeToolbarDetailsPage.idToolbarDetails.text = component + " details"
+        binding.idTileComponentStateOfHealth.idOutStateOfHealth.text = component.toUpperCase() + " STATE OF HEALTH"
+        binding.idTileComponentStateOfHealth.idIconStateGood.setImageResource(R.drawable.state_good_health)
+    }
+    private fun setCaseTiresAllGood() {
+        val component = "Tires"
+        binding.idIncludeToolbarDetailsPage.idToolbarDetails.text = component + " details"
+        binding.idTileComponentStateOfHealth.idOutStateOfHealth.text = component.toUpperCase() + " STATE OF HEALTH"
+        binding.idTileComponentStateOfHealth.idIconStateGood.setImageResource(R.drawable.state_good_health)
+    }
+    private fun setCaseAirFilterAllGood() {
+        val component = "Air Filter"
+        binding.idIncludeToolbarDetailsPage.idToolbarDetails.text = component + " details"
+        binding.idTileComponentStateOfHealth.idOutStateOfHealth.text = component.toUpperCase() + " STATE OF HEALTH"
+        binding.idTileComponentStateOfHealth.idIconStateGood.setImageResource(R.drawable.state_good_health)
+    }
+    private fun setCaseBulbsAllGood() {
+        val component = "Headlight bulbs"
+        binding.idIncludeToolbarDetailsPage.idToolbarDetails.text = component + " details"
+        binding.idTileComponentStateOfHealth.idOutStateOfHealth.text = component.toUpperCase() + " STATE OF HEALTH"
+        binding.idTileComponentStateOfHealth.idIconStateGood.setImageResource(R.drawable.state_good_health)
+    }
+    private fun setCaseEngineAllGood() {
+        val component = "Engine"
+        binding.idIncludeToolbarDetailsPage.idToolbarDetails.text = component + " details"
+        binding.idTileComponentStateOfHealth.idOutStateOfHealth.text = component.toUpperCase() + " STATE OF HEALTH"
+        binding.idTileComponentStateOfHealth.idIconStateGood.setImageResource(R.drawable.state_good_health)
+    }
 }

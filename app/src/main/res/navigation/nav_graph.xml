@@ -95,8 +95,8 @@
             android:id="@+id/action_detailsPageFragment_to_coachingAdviseFragment"
             app:destination="@id/coachingAdviseFragment" />
         <argument
-            android:name="arguments_from_coaching"
-            app:argType="com.stellantis.crf.pms.model.CoachingAdviseInfo" />
+            android:name="arguments_to_details_page"
+            app:argType="com.stellantis.crf.pms.model.ArgumentsToDetailsPageInfo" />
     </fragment>
     <fragment
         android:id="@+id/coachingAdviseFragment"

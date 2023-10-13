@@ -9,6 +9,8 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.stellantis.crf.pms.R
 import com.stellantis.crf.pms.databinding.FragmentVehicleHealthPageBinding
+import com.stellantis.crf.pms.model.ArgumentsToDetailsPageInfo
+import com.stellantis.crf.pms.model.NotificationInfo
 
 class VehicleHealthPageFragment : Fragment() {
 
@@ -20,6 +22,32 @@ class VehicleHealthPageFragment : Fragment() {
 
         binding = FragmentVehicleHealthPageBinding.inflate(layoutInflater)
         val view = binding.root
+
+        binding.idTileVehicleHealthComponentExpandable.idLayoutBattery.setOnClickListener {
+            clickOnBatteryLayout()
+        }
+        binding.idTileVehicleHealthComponentExpandable.idLayoutBrakePads.setOnClickListener {
+            clickOnBrakePadsLayout()
+        }
+        binding.idTileVehicleHealthComponentExpandable.idLayoutBrakeDisc.setOnClickListener {
+            clickOnBrakeDisksLayout()
+        }
+        binding.idTileVehicleHealthComponentExpandable.idLayoutDiesel.setOnClickListener {
+            clickOnDieselLayout()
+        }
+        binding.idTileVehicleHealthComponentExpandable.idLayoutRearTires.setOnClickListener {
+            clickOnTiresLayout()
+        }
+        binding.idTileVehicleHealthComponentExpandable.idLayoutOilFilter.setOnClickListener {
+            clickOnAirFilterLayout()
+        }
+        binding.idTileVehicleHealthComponentExpandable.idLayoutHeadlightBulbs.setOnClickListener {
+            clickOnBulbsLayout()
+        }
+        binding.idTileVehicleHealthComponentExpandable.idLayoutShockAbsorber.setOnClickListener {
+            clickOnEngineLayout()
+        }
+
 
         binding.idIncludeToolbarNotifications.textView.setOnClickListener {
             goToHomePage()
@@ -47,5 +75,62 @@ class VehicleHealthPageFragment : Fragment() {
 
     private fun goToCoachingAdvisePage() {
         findNavController().navigate(R.id.action_vehicleHealthPageFragment_to_coachingAdviseFragment)
+    }
+
+    private fun clickOnBatteryLayout() {
+        val isBatteryPassed = "IS_BATTERY"
+        val arg_passed = ArgumentsToDetailsPageInfo(isBatteryPassed)
+
+        val action = VehicleHealthPageFragmentDirections.actionVehicleHealthPageFragmentToDetailsPageFragment(arg_passed)
+        findNavController().navigate(action)
+    }
+    private fun clickOnBrakePadsLayout() {
+        val isBrakePadsPassed = "IS_BRAKE_PADS"
+        val arg_passed = ArgumentsToDetailsPageInfo(isBrakePadsPassed)
+
+        val action = VehicleHealthPageFragmentDirections.actionVehicleHealthPageFragmentToDetailsPageFragment(arg_passed)
+        findNavController().navigate(action)
+    }
+    private fun clickOnBrakeDisksLayout() {
+        val isBrakeDisksPassed = "IS_BRAKE_DISKS"
+        val arg_passed = ArgumentsToDetailsPageInfo(isBrakeDisksPassed)
+
+        val action = VehicleHealthPageFragmentDirections.actionVehicleHealthPageFragmentToDetailsPageFragment(arg_passed)
+        findNavController().navigate(action)
+    }
+    private fun clickOnDieselLayout() {
+        val isDieselPassed = "IS_DIESEL"
+        val arg_passed = ArgumentsToDetailsPageInfo(isDieselPassed)
+
+        val action = VehicleHealthPageFragmentDirections.actionVehicleHealthPageFragmentToDetailsPageFragment(arg_passed)
+        findNavController().navigate(action)
+    }
+    private fun clickOnTiresLayout() {
+        val isBrakeTiresPassed = "IS_TIRES"
+        val arg_passed = ArgumentsToDetailsPageInfo(isBrakeTiresPassed)
+
+        val action = VehicleHealthPageFragmentDirections.actionVehicleHealthPageFragmentToDetailsPageFragment(arg_passed)
+        findNavController().navigate(action)
+    }
+    private fun clickOnAirFilterLayout() {
+        val isAirFilterPassed = "IS_AIR_FILTER"
+        val arg_passed = ArgumentsToDetailsPageInfo(isAirFilterPassed)
+
+        val action = VehicleHealthPageFragmentDirections.actionVehicleHealthPageFragmentToDetailsPageFragment(arg_passed)
+        findNavController().navigate(action)
+    }
+    private fun clickOnBulbsLayout() {
+        val isBulbsPassed = "IS_BULBS"
+        val arg_passed = ArgumentsToDetailsPageInfo(isBulbsPassed)
+
+        val action = VehicleHealthPageFragmentDirections.actionVehicleHealthPageFragmentToDetailsPageFragment(arg_passed)
+        findNavController().navigate(action)
+    }
+    private fun clickOnEngineLayout() {
+        val isEnginePassed = "IS_ENGINE"
+        val arg_passed = ArgumentsToDetailsPageInfo(isEnginePassed)
+
+        val action = VehicleHealthPageFragmentDirections.actionVehicleHealthPageFragmentToDetailsPageFragment(arg_passed)
+        findNavController().navigate(action)
     }
 }
