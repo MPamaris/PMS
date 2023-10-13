@@ -342,8 +342,11 @@ class HomeFragment : Fragment() {
                             else if (healthOfComponent.contains("3")) {
                                 Toast.makeText(activity, "3", Toast.LENGTH_SHORT).show()
                             }
-                            else
+                            else if (healthOfComponent.contains("0")) {
                                 binding.includeCardviewStatus.textviewStatus.text = "All good"
+                                binding.includeCardviewStatus.idIconStatus.setImageResource(R.drawable.icon_all_good)
+                                binding.includeWarning.root.visibility = View.GONE
+                            }
 
                         } ?: throw Exception("discovery null response")
                     }
@@ -406,7 +409,6 @@ class HomeFragment : Fragment() {
                                 binding.includeCardviewStatus.idIconStatus.setImageResource(R.drawable.icon_alert)
                                 binding.includeWarning.root.visibility = View.VISIBLE
 
-
                             }
                             else if (healthOfComponent.contains("2")) {
                                 Toast.makeText(activity, "2", Toast.LENGTH_SHORT).show()
@@ -414,8 +416,11 @@ class HomeFragment : Fragment() {
                             else if (healthOfComponent.contains("3")) {
                                 Toast.makeText(activity, "3", Toast.LENGTH_SHORT).show()
                             }
-                            else
+                            else if (healthOfComponent.contains("0")) {
                                 binding.includeCardviewStatus.textviewStatus.text = "All good"
+                                binding.includeCardviewStatus.idIconStatus.setImageResource(R.drawable.icon_all_good)
+                                binding.includeWarning.root.visibility = View.GONE
+                            }
 
                         } ?: throw Exception("discovery null response")
                     }

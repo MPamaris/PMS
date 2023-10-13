@@ -356,6 +356,10 @@ class VehiclePageFragment : Fragment() {
                             else if (healthOfComponent.contains("3")) {
                                 Toast.makeText(activity, "3", Toast.LENGTH_SHORT).show()
                             }
+                            else if (healthOfComponent.contains("0")) {
+                                binding.idTileVehiclePageHealth.idTileVehicleMaintenance.visibility = View.GONE
+                                binding.idTileVehiclePageHealth.idTileVehicleHealth.visibility = View.VISIBLE
+                            }
 
                         } ?: throw Exception("discovery null response")
                     }
@@ -420,6 +424,10 @@ class VehiclePageFragment : Fragment() {
                             }
                             else if (healthOfComponent.contains("3")) {
                                 Toast.makeText(activity, "3", Toast.LENGTH_SHORT).show()
+                            }
+                            else if (healthOfComponent.contains("0")) {
+                                binding.idTileVehiclePageHealth.idTileVehicleMaintenance.visibility = View.GONE
+                                binding.idTileVehiclePageHealth.idTileVehicleHealth.visibility = View.VISIBLE
                             }
 
                         } ?: throw Exception("discovery null response")
