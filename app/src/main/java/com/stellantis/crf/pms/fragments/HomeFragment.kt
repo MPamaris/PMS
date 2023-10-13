@@ -19,6 +19,7 @@ import androidx.navigation.fragment.findNavController
 import com.stellantis.crf.pms.PmsRepository
 import com.stellantis.crf.pms.R
 import com.stellantis.crf.pms.databinding.FragmentHomeBinding
+import com.stellantis.crf.pms.model.ArgumentsToDetailsPageInfo
 import com.stellantis.crf.pms.model.NotificationInfo
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
@@ -127,7 +128,7 @@ class HomeFragment : Fragment() {
         }
 
         binding.includeCardviewStatus.cardView.setOnClickListener {
-            goToDetailsPage()
+            goToDetailsPageNew()
         }
 
         binding.includeCardviewFuel.root.setOnClickListener {
@@ -191,6 +192,16 @@ class HomeFragment : Fragment() {
 
     private fun goToDetailsPage() {
         findNavController().navigate(R.id.action_homeFragment_to_vehicleHealthPageFragment)
+    }
+    private fun goToDetailsPageNew() {
+        val textViewStatus = binding.includeCardviewStatus.textviewStatus.text
+
+        if (textViewStatus.contains("good")) {
+            findNavController().navigate(R.id.action_homeFragment_to_vehicleHealthPageFragment)
+        }
+        if (textViewStatus.contains("Check")) {
+            goToDetailsInCaseOfCritical()
+        }
     }
 
     private fun goToUserFeedbackPage() {
@@ -560,5 +571,13 @@ class HomeFragment : Fragment() {
 
     private fun getComponents() {
 
+    }
+
+    private fun goToDetailsInCaseOfCritical() {
+        val componentInCritical = binding.includeCardviewStatus.textviewStatus.text.toString().replace("Check","").trim()
+        val componentInCriticalPassed = ArgumentsToDetailsPageInfo("",componentInCritical)
+
+        val action = HomeFragmentDirections.actionHomeFragmentToDetailsPageFragment(componentInCriticalPassed)
+        findNavController().navigate(action)
     }
 }

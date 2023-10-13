@@ -38,7 +38,7 @@ class CoachingAdviseFragment : Fragment() {
     private fun goToDetailsWithArguments() {
         //Toast.makeText(activity, "!!", Toast.LENGTH_SHORT).show()
         val argumentsFromCoachingAdvise = "FROM_COACHING"
-        val argsToSend = ArgumentsToDetailsPageInfo(argumentsFromCoachingAdvise)
+        val argsToSend = ArgumentsToDetailsPageInfo(argumentsFromCoachingAdvise,"")
 
         val action = CoachingAdviseFragmentDirections.actionCoachingAdviseFragmentToDetailsPageFragment(argsToSend)
         findNavController().navigate(action)

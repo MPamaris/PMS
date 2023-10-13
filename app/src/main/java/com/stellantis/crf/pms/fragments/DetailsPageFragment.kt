@@ -24,16 +24,21 @@ class DetailsPageFragment : Fragment() {
         val view = binding.root
 
         val componentReceived = args.argumentsToDetailsPage.argumentsPassed
+        val componentInCriticalReceived = args.argumentsToDetailsPage.inCriticalFromHome
 
-        when (componentReceived) {
-            "IS_BATTERY" -> setCaseBatteryAllGood()
-            "IS_BRAKE_PADS" -> setCaseBrakePadsAllGood()
-            "IS_BRAKE_DISKS" -> setCaseBrakeDisksAllGood()
-            "IS_DIESEL" -> setCaseDieselAllGood()
-            "IS_TIRES" -> setCaseDieselAllGood()
-            "IS_AIR_FILTER" -> setCaseAirFilterAllGood()
-            "IS_BULBS" -> setCaseBulbsAllGood()
-            "IS_ENGINE" -> setCaseEngineAllGood()
+        if (componentInCriticalReceived.isNotEmpty()) {
+            setInCaseOfCritical()
+        } else {
+            when (componentReceived) {
+                "IS_BATTERY" -> setCaseBatteryAllGood()
+                "IS_BRAKE_PADS" -> setCaseBrakePadsAllGood()
+                "IS_BRAKE_DISKS" -> setCaseBrakeDisksAllGood()
+                "IS_DIESEL" -> setCaseDieselAllGood()
+                "IS_TIRES" -> setCaseDieselAllGood()
+                "IS_AIR_FILTER" -> setCaseAirFilterAllGood()
+                "IS_BULBS" -> setCaseBulbsAllGood()
+                "IS_ENGINE" -> setCaseEngineAllGood()
+            }
         }
 
 
@@ -182,5 +187,12 @@ class DetailsPageFragment : Fragment() {
         binding.idIncludeToolbarDetailsPage.idToolbarDetails.text = component + " details"
         binding.idTileComponentStateOfHealth.idOutStateOfHealth.text = component.toUpperCase() + " STATE OF HEALTH"
         binding.idTileComponentStateOfHealth.idIconStateGood.setImageResource(R.drawable.state_good_health)
+    }
+
+    private fun setInCaseOfCritical() {
+        val componentInCriticalReceived = args.argumentsToDetailsPage.inCriticalFromHome
+        binding.idIncludeToolbarDetailsPage.idToolbarDetails.text = componentInCriticalReceived + " details"
+        binding.idTileComponentStateOfHealth.idOutStateOfHealth.text = componentInCriticalReceived.toUpperCase() + " STATE OF HEALTH"
+        binding.idTileComponentStateOfHealth.idIconStateToBePlanned.setImageResource(R.drawable.state_critical_maintenance_to_be_planed)
     }
 }
